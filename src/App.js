@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
-import RunTracker from './Pages/RunTracker';
+import RunTracker from './Pages/RunTracker.jsx';
 
 function App() {
   return (
