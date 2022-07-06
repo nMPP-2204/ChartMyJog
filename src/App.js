@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import RunTracker from "./Pages/RunTracker.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
-import SignUp from "./Pages/SignUp";
+import SignUpLogin from "./Pages/SignUpLogin.jsx";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/run-tracker" element={<RunTracker />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUpLogin />} />
         </Routes>
       </Router>
     </>

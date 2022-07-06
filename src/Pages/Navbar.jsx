@@ -44,15 +44,8 @@ const Navbar = () => {
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {" "}
-            <Link to="/login" style={styledLink}>
-              LOGIN{" "}
-            </Link>
-          </Typography>
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            {" "}
             <Link to="/signup" style={styledLink}>
-              SIGN UP{" "}
+              SIGN UP/LOGIN{" "}
             </Link>
           </Typography>
         </Toolbar>
