@@ -30,14 +30,14 @@ const Navbar = () => {
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {" "}
-            <Link to="/runTracker" style={styledLink}>
+            <Link to="/run-tracker" style={styledLink}>
               START RUN!{" "}
             </Link>
           </Typography>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {" "}
-            <Link to="/yourDashboard" style={styledLink}>
+            <Link to="/dashboard" style={styledLink}>
               DASHBOARD{" "}
             </Link>
           </Typography>
