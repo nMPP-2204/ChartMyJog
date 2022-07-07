@@ -10,10 +10,11 @@
 }
 
 .switch {
-  position: relative;
+  position: sticky;
   display: inline-block;
   width: 60px;
   height: 34px;
+  top: 30px;
 }
 
 .switch input {

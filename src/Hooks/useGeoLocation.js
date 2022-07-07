@@ -11,7 +11,7 @@ const geoLocation = (polyLine, setPolyline) => {
 
   const onSuccess = (location) => {
     console.log(index++);
-    setPolyline([...polyLine,[location.coords.latitude, location.coords.longitude,]]);
+    setPolyline(polyLine => [...polyLine,[location.coords.latitude, location.coords.longitude]]);
     // setLocation({
     //   loaded: true,
     //   coordinates: {
