@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   MapContainer,
   TileLayer,
@@ -19,7 +19,7 @@ export default function RunTracker() {
   //const location =
   const [polyline, setPolyLine] = useState([]);
   const [location, setLocation] = useState([]);
-  const limeOptions = { color: 'lime' }
+  const blackOptions = { color: 'black' }
 
   function success(pos) {
     const crd = pos.coords;
@@ -37,23 +37,23 @@ export default function RunTracker() {
   //   timeout: 5000,
   // };
   ///////////////Default Location///////////////////////////////
-  // function DefaultLocation() {
-  //   const map = useMap();
+  function DefaultLocation() {
+    const map = useMap();
 
-  //   L.tileLayer(
-  //     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-  //     {
-  //       attribution:
-  //         'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  //       maxZoom: 18,
-  //       id: "mapbox/streets-v11",
-  //       tileSize: 512,
-  //       zoomOffset: -1,
-  //       accessToken:
-  //         "pk.eyJ1IjoidmFuZGFyc2luIiwiYSI6ImNsNTE0cDFlMDAyNHAzanFodWhnendrbDUifQ.Cn9XJ_LHFWB0G4gsgZe1Gw",
-  //     }
-  //   ).addTo(map);
-  // }
+    L.tileLayer(
+      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+      {
+        attribution:
+          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: "mapbox/streets-v11",
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken:
+          "pk.eyJ1IjoidmFuZGFyc2luIiwiYSI6ImNsNTE0cDFlMDAyNHAzanFodWhnendrbDUifQ.Cn9XJ_LHFWB0G4gsgZe1Gw",
+      }
+    ).addTo(map);
+  }
   /////////////////////////////////////////////////////////////////
   // const success = (position) => {
   //   const { latitude, longitude } = position.coords;
@@ -127,33 +127,44 @@ export default function RunTracker() {
     <div>
       <div id="tracker"></div>
       <div className="track-control">
-        <button
+        {/* <button
           onClick={() => {
             geoLocation(polyline, setPolyLine);
           }}
         >
           Show Location
-        </button>
-        {/* <label className="switch">
-          <input type="checkbox" onClick={showMyLocation} />
+        </button> */}
+        <div>
+          {polyline.map((e, i)=>{
+            return (<div key={i}>
+              lat:{e[0]},
+              lng:{e[1]}
+            </div>)
+          })}
+        </div>
+        <label className="switch">
+          <input type="checkbox" onClick={() => {
+            geoLocation(polyline, setPolyLine);
+          }}/>
           <span className="slider round"></span>
-        </label> */}
+        </label>
         {/* <Link to="/">Back to Home</Link> */}
       </div>
       <div>
+
         <MapContainer center={location} zoom={13} scrollWheelZoom={true}>
           <Marker position={location}>
             <Popup>
               Ha!!!!. <br /> I am not here Kevin.
             </Popup>
           </Marker>
-          <TileLayer
+          {/* <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <Polyline pathOptions={limeOptions} positions={polyline} />
+          /> */}
+          <Polyline pathOptions={blackOptions} positions={polyline} />
           {/* <button className="button" onClick={}>Show My Location</button> */}
-          {/* <DefaultLocation /> */}
+          <DefaultLocation />
           {/* <ShowMyLocation /> */}
 
           {/* {location.loaded && !location.error && (
@@ -161,6 +172,7 @@ export default function RunTracker() {
               position={[location.coordinates.lat, location.coordinates.lng]}
             ></Marker>
           )} */}
+
         </MapContainer>
       </div>
     </div>
