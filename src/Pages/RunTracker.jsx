@@ -1,24 +1,22 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import {
   MapContainer,
-  TileLayer,
   useMap,
   Marker,
   Popup,
-  useMapEvents,
   Polyline
 } from "react-leaflet";
 import L from "leaflet";
 import "../App.css";
 import geoLocation from "../Hooks/useGeoLocation";
 
+
 export default function RunTracker() {
-  // let isStart = null;
-  // let currentMarker = null;
-  //const location =
+
   const [polyline, setPolyLine] = useState([]);
   const [location, setLocation] = useState([]);
+  const [distance, setDistance] = useState(0);
+
   const blackOptions = { color: 'black' }
 
   function success(pos) {
@@ -31,12 +29,13 @@ export default function RunTracker() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
+  console.log('****', distance)
   // const trackOptions = {
   //   enableHighAccuracy: true,
   //   maximumAge: 30000,
   //   timeout: 5000,
   // };
-  ///////////////Default Location///////////////////////////////
+
   function DefaultLocation() {
     const map = useMap();
 
@@ -54,86 +53,12 @@ export default function RunTracker() {
       }
     ).addTo(map);
   }
-  /////////////////////////////////////////////////////////////////
-  // const success = (position) => {
-  //   const { latitude, longitude } = position.coords;
-  //   const timestamp = new Date(Date.now()).toISOString();
 
-  //   report(`1. Detected at ${timestamp}`);
-
-  //   createNewEvent(latitude, longitude, timestamp);
-  // };
-
-  // const error = (err) =>
-  //   report(`Unable to retrieve your location! ${err.code} - ${err.message}`);
-
-  // const report = (message) => message;
-
-  // const createNewEvent = (latitude, longitude, timestamp) => {
-  //   const geoEvent = new CustomEvent("GEO_EVENT", {
-  //     detail: {
-  //       latitude,
-  //       longitude,
-  //       timestamp,
-  //     },
-  //   });
-  //   document.querySelector("#tracker").dispatchEvent(geoEvent);
-  // };
-
-  // const startTracking = () => {
-  //   if (!navigator.geolocation) {
-  //     report("Geolocation is not supported by your browser");
-  //     return;
-  //   } else {
-  //     console.log(
-  //       navigator.geolocation.watchPosition(success, error, trackOptions)
-  //     );
-  //     return navigator.geolocation.watchPosition(success, error, trackOptions);
-  //   }
-  // };
-
-  // const toggle = () => {
-  //   if (isStart === null) {
-  //     isStart = true;
-  //     startTracking();
-  //   } else {
-  //     isStart = !isStart;
-  //   }
-  // };
-
-  //const zoomLevel = 11;
-
-  // const ShowMyLocation = () => {
-  //   const map = useMap();
-
-  //   if (location.loaded && !location.error) {
-  //     map.flyTo(
-  //       [location.coordinates.lat, location.coordinates.lng],
-  //       zoomLevel,
-  //       { animated: true }
-  //     );
-  //   } else {
-  //     alert(location.error);
-  //   }
-
-  //   return location === null ? null : (
-  //     <Marker position={[location.coordinates.lat, location.coordinates.lng]}>
-  //       <Popup>This is I!!!</Popup>
-  //     </Marker>
-  //   );
-  // };
 
   return !location.length ? null : (
     <div>
       <div id="tracker"></div>
       <div className="track-control">
-        {/* <button
-          onClick={() => {
-            geoLocation(polyline, setPolyLine);
-          }}
-        >
-          Show Location
-        </button> */}
         <div>
           {polyline.map((e, i)=>{
             return (<div key={i}>
@@ -144,11 +69,15 @@ export default function RunTracker() {
         </div>
         <label className="switch">
           <input type="checkbox" onClick={() => {
-            geoLocation(polyline, setPolyLine);
+            geoLocation(polyline, setPolyLine, distance, setDistance);
           }}/>
           <span className="slider round"></span>
         </label>
-        {/* <Link to="/">Back to Home</Link> */}
+        <div>
+          <h1>
+            {distance}
+          </h1>
+        </div>
       </div>
       <div>
 
@@ -158,21 +87,8 @@ export default function RunTracker() {
               Ha!!!!. <br /> I am not here Kevin.
             </Popup>
           </Marker>
-          {/* <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          /> */}
           <Polyline pathOptions={blackOptions} positions={polyline} />
-          {/* <button className="button" onClick={}>Show My Location</button> */}
           <DefaultLocation />
-          {/* <ShowMyLocation /> */}
-
-          {/* {location.loaded && !location.error && (
-            <Marker
-              position={[location.coordinates.lat, location.coordinates.lng]}
-            ></Marker>
-          )} */}
-
         </MapContainer>
       </div>
     </div>
