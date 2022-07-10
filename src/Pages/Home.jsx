@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
 import { Typography } from "@mui/material";
+import Footer from "./Footer.jsx";
 
 const Home = () => {
   return (
@@ -30,7 +31,9 @@ const Home = () => {
         <div>"Chart my jog is the best jog charter out there!"</div>
         <p>Sign in</p>
         <p>Don't have an account? Sign up</p>
+        <Footer />
       </main>
+
     </div>
   );
 };
