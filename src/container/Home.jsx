@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-import Navbar from "./Navbar.jsx";
+import Navbar from "../component/Navbar";
 import { Typography } from "@mui/material";
-import Footer from "./Footer.jsx";
+import Footer from "../component/Footer";
 
 const Home = () => {
   return (
@@ -33,7 +32,6 @@ const Home = () => {
         <p>Don't have an account? Sign up</p>
         <Footer />
       </main>
-
     </div>
   );
 };

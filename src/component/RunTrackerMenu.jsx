@@ -9,7 +9,14 @@ import {
   styled,
   useTheme,
 } from "@mui/material";
-import { ChevronLeft, ChevronRight, House, Dashboard, Login, HelpCenter } from "@mui/icons-material";
+import {
+  ChevronLeft,
+  ChevronRight,
+  House,
+  Dashboard,
+  Login,
+  HelpCenter,
+} from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 export default function RunTrackerMenu(open, setOpen) {
@@ -19,7 +26,6 @@ export default function RunTrackerMenu(open, setOpen) {
 
   const menuClose = () => {
     open.setOpen(false);
-    console.log(open);
   };
 
   const DrawerHeader = styled("div")(({ theme }) => ({
@@ -29,16 +35,18 @@ export default function RunTrackerMenu(open, setOpen) {
   }));
 
   return (
-    <Drawer sx={{
-      width: drawerWidth,
-      flexShrink: 0,
-      '& .MuiDrawer-paper': {
+    <Drawer
+      sx={{
         width: drawerWidth,
-      },
-    }}
-    variant="persistent"
-    open={open.open}
-    anchor="right">
+        flexShrink: 0,
+        "& .MuiDrawer-paper": {
+          width: drawerWidth,
+        },
+      }}
+      variant="persistent"
+      open={open.open}
+      anchor="right"
+    >
       <DrawerHeader>
         <IconButton onClick={menuClose}>
           {theme.direction === "rtl" ? <ChevronLeft /> : <ChevronRight />}
@@ -47,36 +55,51 @@ export default function RunTrackerMenu(open, setOpen) {
 
       <ListItem button>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <ListItemIcon>
-            <House /> <Link to="/home" style={styledLink}> HOME</Link>
-            </ListItemIcon>
+          <ListItemIcon>
+            <House />{" "}
+            <Link to="/home" style={styledLink}>
+              {" "}
+              HOME
+            </Link>
+          </ListItemIcon>
         </Typography>
       </ListItem>
 
       <ListItem button>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <ListItemIcon>
-            <Dashboard /> <Link to="/dashboard" style={styledLink}> DASHBOARD</Link>
-            </ListItemIcon>
+            <Dashboard />{" "}
+            <Link to="/dashboard" style={styledLink}>
+              {" "}
+              DASHBOARD
+            </Link>
+          </ListItemIcon>
         </Typography>
       </ListItem>
 
       <ListItem button>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <ListItemIcon>
-            <Login /> <Link to="/signup" style={styledLink}> LOGIN/SINUP</Link>
-            </ListItemIcon>
+            <Login />{" "}
+            <Link to="/signup" style={styledLink}>
+              {" "}
+              LOGIN/SINUP
+            </Link>
+          </ListItemIcon>
         </Typography>
       </ListItem>
 
       <ListItem button>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <ListItemIcon>
-            <HelpCenter /> <Link to="/home" style={styledLink}> HELP</Link>
-            </ListItemIcon>
+            <HelpCenter />{" "}
+            <Link to="/home" style={styledLink}>
+              {" "}
+              HELP
+            </Link>
+          </ListItemIcon>
         </Typography>
       </ListItem>
-
     </Drawer>
   );
 }

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 let tID = null;
 
 export default function Timer({ start }) {
-  // const [ tID, setTID ] = useState(null);
   const [ms, setMs] = useState(0);
 
   if (!tID && start) {
@@ -21,5 +20,3 @@ export default function Timer({ start }) {
 
   return <div>Timer: {ms}</div>;
 }
-
-

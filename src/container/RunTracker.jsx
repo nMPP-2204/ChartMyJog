@@ -3,20 +3,16 @@ import { MapContainer, useMap, Marker, Popup, Polyline } from "react-leaflet";
 import L from "leaflet";
 import "../App.css";
 import geoLocation from "../Hooks/useGeoLocation";
-import SimpleSlide from "./SlidingNavBar";
-import Timer from "./Timer"
-
+import SimpleSlide from "../component/SlidingNavBar";
+import Timer from "../component/Timer";
 
 export default function RunTracker() {
   const [polyLine, setPolyLine] = useState([]);
   const [location, setLocation] = useState([]);
   const [distance, setDistance] = useState(0);
-  const [ start, setStart ] = useState(false)
-
+  const [start, setStart] = useState(false);
 
   const blackOptions = { color: "black" };
-
-
 
   function success(pos) {
     const crd = pos.coords;
@@ -28,7 +24,6 @@ export default function RunTracker() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
-  // console.log("runTrackerDistance", distance);
   // const trackOptions = {
   //   enableHighAccuracy: true,
   //   maximumAge: 30000,
@@ -83,14 +78,14 @@ export default function RunTracker() {
           <input
             type="checkbox"
             onClick={() => {
-              setStart(!start)
-              geoLocation(polyLine, setPolyLine, distance, setDistance);
+              setStart(!start);
+              geoLocation(setPolyLine, setDistance);
             }}
           />
           <span className="slider round"></span>
         </label>
       </div>
-      <Timer start={start}/>
+      <Timer start={start} />
       <div>
         <h1>{distance}</h1>
       </div>
