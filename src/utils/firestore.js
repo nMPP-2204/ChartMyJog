@@ -44,7 +44,7 @@ export const getUsers = async () => {
     });
     return users;
   } catch (e) {
-    console.error("Error finding user: ", e);
+    console.error("Error finding all user: ", e);
   }
 };
 
@@ -80,9 +80,9 @@ export const createRun = async ({
       polyline,
       comment,
     });
-    console.log("Document written with ID: ", docRef.id);
+    console.log("Run created with ID: ", docRef.id);
   } catch (e) {
-    console.error("Error adding document: ", e);
+    console.error("Error creating run: ", e);
   }
 };
 
@@ -96,6 +96,6 @@ export const getUserRuns = async ({ username }) => {
     });
     return runs;
   } catch (e) {
-    console.error("Error finding user: ", e);
+    console.error("Error finding user runs: ", e);
   }
 };
