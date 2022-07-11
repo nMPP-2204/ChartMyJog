@@ -4,7 +4,8 @@ import "firebaseui/dist/firebaseui.css";
 
 import { auth } from "../utils/firebase.js";
 import { EmailAuthProvider, GoogleAuthProvider } from "firebase/auth";
-import Navbar from "./Navbar.jsx";
+import Navbar from "../component/Navbar.jsx";
+import AllUsers from "../component/AllUsers.jsx";
 
 const SignUpLogin = () => {
   const uiConfig = {
@@ -29,6 +30,7 @@ const SignUpLogin = () => {
   return (
     <div>
       <Navbar />
+      <AllUsers />
       <div id="firebaseui-auth-container"></div>
     </div>
   );

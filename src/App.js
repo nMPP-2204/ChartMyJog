@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./container/Home";
 import RunTracker from "./container/RunTracker.jsx";
 import Dashboard from "./container/Dashboard.jsx";
-import SignUpLogin from "./component/SignUpLogin.jsx";
+import SignUpLogin from "./container/SignUpLogin.jsx";
 
 function App() {
   return (
