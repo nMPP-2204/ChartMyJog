@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar.jsx";
+import Navbar from "../component/Navbar";
 import { Typography } from "@mui/material";
 
 const Dashboard = () => {

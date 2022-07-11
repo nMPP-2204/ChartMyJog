@@ -1,13 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import RunTracker from "./Pages/RunTracker.jsx";
-import Dashboard from "./Pages/Dashboard.jsx";
-import SignUpLogin from "./Pages/SignUpLogin.jsx";
+import Home from "./container/Home";
+import RunTracker from "./container/RunTracker.jsx";
+import Dashboard from "./container/Dashboard.jsx";
+import SignUpLogin from "./component/SignUpLogin.jsx";
 
 function App() {
-
   return (
-
     <>
       <Router>
         <Routes>
