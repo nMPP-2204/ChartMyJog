@@ -5,7 +5,9 @@ import Dashboard from "./Pages/Dashboard.jsx";
 import SignUpLogin from "./Pages/SignUpLogin.jsx";
 
 function App() {
+
   return (
+
     <>
       <Router>
         <Routes>
