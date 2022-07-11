@@ -24,7 +24,6 @@ export default function RunTracker() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
-  // console.log("runTrackerDistance", distance);
   // const trackOptions = {
   //   enableHighAccuracy: true,
   //   maximumAge: 30000,

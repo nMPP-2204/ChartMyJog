@@ -15,23 +15,17 @@ const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   const d = R * c; // Distance in km
   const miles = d * 0.621371;
-
-  // console.log("Distance in Miles: ", miles);
   return miles;
 };
 const deg2rad = (deg) => {
   return deg * (Math.PI / 180);
 };
 
-const geoLocation = (polyLine, setPolyLine, distance, setDistance) => {
-  //debugger;
-
+const geoLocation = (setPolyLine, setDistance) => {
   const onSuccess = (location) => {
-    //debugger;
-    //  console.log("location.coords",location.coords);
     setPolyLine((polyLine) => {
-
-      if (polyLine.length > 0 &&
+      if (
+        polyLine.length > 0 &&
         !locationDistanceCheck(
           polyLine[polyLine.length - 1][0],
           polyLine[polyLine.length - 1][1],
@@ -60,9 +54,6 @@ const geoLocation = (polyLine, setPolyLine, distance, setDistance) => {
         [location.coords.latitude, location.coords.longitude],
       ];
     });
-
-    // console.log(polyLine[polyLine.length - 1])
-    // console.log(polyLine, "PolyLineArray");
   };
 
   const onError = (error) => {

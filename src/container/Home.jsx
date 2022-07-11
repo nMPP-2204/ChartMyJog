@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import { Typography } from "@mui/material";
 import Footer from "../component/Footer";
