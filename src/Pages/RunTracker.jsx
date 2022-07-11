@@ -4,13 +4,19 @@ import L from "leaflet";
 import "../App.css";
 import geoLocation from "../Hooks/useGeoLocation";
 import SimpleSlide from "./SlidingNavBar";
+import Timer from "./Timer"
+
 
 export default function RunTracker() {
-  const [polyline, setPolyLine] = useState([]);
+  const [polyLine, setPolyLine] = useState([]);
   const [location, setLocation] = useState([]);
   const [distance, setDistance] = useState(0);
+  const [ start, setStart ] = useState(false)
+
 
   const blackOptions = { color: "black" };
+
+
 
   function success(pos) {
     const crd = pos.coords;
@@ -22,7 +28,7 @@ export default function RunTracker() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
-  console.log("****", distance);
+  // console.log("runTrackerDistance", distance);
   // const trackOptions = {
   //   enableHighAccuracy: true,
   //   maximumAge: 30000,
@@ -53,36 +59,38 @@ export default function RunTracker() {
         <SimpleSlide />
       </div>
       <div>
-        <MapContainer center={location} zoom={13} scrollWheelZoom={true}>
+        <MapContainer center={location} zoom={18} scrollWheelZoom={true}>
           <Marker position={location}>
             <Popup>
               Ha!!!!. <br /> I am not here Kevin.
             </Popup>
           </Marker>
-          <Polyline pathOptions={blackOptions} positions={polyline} />
+          <Polyline pathOptions={blackOptions} positions={polyLine} />
           <DefaultLocation />
         </MapContainer>
       </div>
-      <div>
-        {polyline.map((e, i) => {
+      {/* <div>
+        {polyLine.map((e, i) => {
           return (
             <div key={i}>
               lat:{e[0]}, lng:{e[1]}
             </div>
           );
         })}
-      </div>
+      </div> */}
       <div className="tracker">
         <label className="switch">
           <input
             type="checkbox"
             onClick={() => {
-              geoLocation(polyline, setPolyLine, distance, setDistance);
+              setStart(!start)
+              geoLocation(polyLine, setPolyLine, distance, setDistance);
             }}
           />
           <span className="slider round"></span>
         </label>
       </div>
+      <Timer start={start}/>
       <div>
         <h1>{distance}</h1>
       </div>
