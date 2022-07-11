@@ -6,6 +6,7 @@ import geoLocation from "../Hooks/useGeoLocation";
 import SimpleSlide from "../component/SlidingNavBar";
 import Timer from "../component/Timer";
 
+
 export default function RunTracker() {
   const [polyLine, setPolyLine] = useState([]);
   const [location, setLocation] = useState([]);
