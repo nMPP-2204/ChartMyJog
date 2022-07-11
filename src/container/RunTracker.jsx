@@ -79,7 +79,7 @@ export default function RunTracker() {
             type="checkbox"
             onClick={() => {
               setStart(!start);
-              geoLocation(polyLine, setPolyLine, distance, setDistance);
+              geoLocation(setPolyLine, setDistance);
             }}
           />
           <span className="slider round"></span>
