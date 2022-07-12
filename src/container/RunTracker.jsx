@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, useMap, Marker, Popup, Polyline } from "react-leaflet";
+import { MapContainer, useMap, Marker, Popup, Polyline, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import "../App.css";
 import geoLocation from "../Hooks/useGeoLocation";
@@ -12,6 +12,8 @@ export default function RunTracker() {
   const [location, setLocation] = useState([]);
   const [distance, setDistance] = useState(0);
   const [start, setStart] = useState(false);
+  let marker;
+
 
   const blackOptions = { color: "black" };
 
@@ -31,7 +33,9 @@ export default function RunTracker() {
   //   timeout: 5000,
   // };
 
-  function DefaultLocation() {
+
+
+  function MapLayer() {
     const map = useMap();
 
     L.tileLayer(
@@ -39,7 +43,8 @@ export default function RunTracker() {
       {
         attribution:
           'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
+        maxZoom: 20,
+        minZoom: 4,
         id: "mapbox/streets-v11",
         tileSize: 512,
         zoomOffset: -1,
@@ -58,6 +63,17 @@ export default function RunTracker() {
     }
   };
 
+  var runIcon = L.icon({
+    iconUrl: 'runIcon.png',
+
+    iconSize:     [38, 45], // size of the icon
+   // shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 65], // point of the icon which will correspond to marker's location
+   // shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+
   return !location.length ? null : (
     <div className="runTracker">
       <div>
@@ -65,15 +81,25 @@ export default function RunTracker() {
       </div>
       <div>
         <MapContainer center={location} zoom={18} scrollWheelZoom={true}>
-          <Marker position={location}>
+          {
+            polyLine.length == 0 ? (
+              <Marker position={location} icon={runIcon}>
             <Popup>
               Ha!!!!. <br /> I am not here Kevin.
             </Popup>
           </Marker>
+            ):(
+              <Marker position={polyLine[polyLine.length-1]}>
+              <Popup>
+                Ha!!!!. <br /> I am not here Kevin.
+              </Popup>
+            </Marker>
+            )
+          }
           <Polyline pathOptions={blackOptions} positions={polyLine} />
-          <DefaultLocation />
-        </MapContainer>
-      </div>
+          <MapLayer />
+         </MapContainer>
+       </div>
       {/* <div>
         {polyLine.map((e, i) => {
           return (
@@ -83,7 +109,7 @@ export default function RunTracker() {
           );
         })}
       </div> */}
-      <div className="tracker">
+      {/* <div className="tracker">
         <label className="switch">
           <input
             type="checkbox"
@@ -94,12 +120,24 @@ export default function RunTracker() {
           />
           <span className="slider round"></span>
         </label>
+        
         <button onClick={dummyGeolocation}>Dummy Test</button>
       </div>
       <Timer start={start} />
       <div>
+
+      </div> */}
+       <Timer
+        start={start}
+        distance={distance}
+        setStart={setStart}
+        setPolyLine={setPolyLine}
+        setDistance={setDistance}
+      />
+      {/* <div>
+
         <h1>{distance}</h1>
-      </div>
-    </div>
-  );
+      </div> */}
+     </div>
+   );
 }
