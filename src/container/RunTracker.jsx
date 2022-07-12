@@ -7,6 +7,8 @@ import Timer from "../component/Timer";
 import testGeolocation from "../Hooks/testGeolocation";
 
 export default function RunTracker() {
+  const API_KEY =`${process.env.REACT_APP_API_KEY}`
+
   const [polyLine, setPolyLine] = useState([]);
   const [location, setLocation] = useState([]);
   const [distance, setDistance] = useState(0);
@@ -82,7 +84,7 @@ export default function RunTracker() {
             <TileLayer
               attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
               url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
-              accessToken="pk.eyJ1IjoidmFuZGFyc2luIiwiYSI6ImNsNTE0cDFlMDAyNHAzanFodWhnendrbDUifQ.Cn9XJ_LHFWB0G4gsgZe1Gw"
+              accessToken={API_KEY}
               zoomOffset={-1}
               maxZoom={18}
               id="mapbox/streets-v11"
