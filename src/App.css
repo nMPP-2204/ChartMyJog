@@ -1,5 +1,9 @@
 /* RUN TRACKER CSS */
 
+.runTracker{
+  background-color: lightblue;
+}
+
 .leaflet-container {
   width: 100vw;
   height: 70vh;
@@ -108,4 +112,42 @@ h1 {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.trackContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.distanceTimer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.distance{
+  padding: 5px;
+  width: 125px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
+
+.timer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+  width: 125px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
+.hrMin{
+  font-size: 30px;
+}
+.ms{
+  font-size: 18px;
+  padding: 5px;
+  margin-top: 2px;;
+}
+
 /* ///////RUN TRACKER CSS ABOVE/////// */
