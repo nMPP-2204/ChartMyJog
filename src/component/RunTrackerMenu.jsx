@@ -20,7 +20,7 @@ import {
 import { Link } from "react-router-dom";
 
 export default function RunTrackerMenu(open, setOpen) {
-  const [ state, setState ] = useState({right: false})
+  const [state, setState] = useState({ right: false });
   const styledLink = { color: "BLACK", textDecoration: "none" };
   const theme = useTheme();
   const drawerWidth = 240;
@@ -84,46 +84,22 @@ export default function RunTrackerMenu(open, setOpen) {
       <ListItem button>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <ListItemIcon>
+            <House />{" "}
+            <Link to="/run-tracker" style={styledLink}>
+              {" "}
+              START RUN!
+            </Link>
+          </ListItemIcon>
+        </Typography>
+      </ListItem>
+
+      <ListItem button>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <ListItemIcon>
             <Dashboard />{" "}
             <Link to="/dashboard" style={styledLink}>
               {" "}
               DASHBOARD
-            </Link>
-          </ListItemIcon>
-        </Typography>
-      </ListItem>
-
-      <ListItem button>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <ListItemIcon>
-            <Login />{" "}
-            <Link to="/" style={styledLink}>
-              {" "}
-              TRAINING PLANS{" "}
-            </Link>
-          </ListItemIcon>
-        </Typography>
-      </ListItem>
-
-      <ListItem button>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <ListItemIcon>
-            <Login />{" "}
-            <Link to="/" style={styledLink}>
-              {" "}
-              GOALS
-            </Link>
-          </ListItemIcon>
-        </Typography>
-      </ListItem>
-
-      <ListItem button>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <ListItemIcon>
-            <HelpCenter />{" "}
-            <Link to="/home" style={styledLink}>
-              {" "}
-              HELP
             </Link>
           </ListItemIcon>
         </Typography>

@@ -1,6 +1,6 @@
 /* RUN TRACKER CSS */
 
-.runTracker{
+.runTracker {
   background-color: lightblue;
 }
 
@@ -22,7 +22,6 @@
   opacity: 0;
   width: 0;
   height: 0;
-
 }
 
 .slider {
@@ -71,13 +70,13 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.tracker{
+.tracker {
   display: flex;
   justify-content: center;
 }
 
 h1 {
-  color: red;
+  color: black;
 }
 
 .runTracker {
@@ -85,69 +84,68 @@ h1 {
   flex-direction: column;
   height: 100vh;
 }
-.slidingNav{
+.slidingNav {
   display: flex;
   justify-content: space-between;
 }
 
-
-.footerToolBar{
+.footerToolBar {
   background-color: slategray;
   display: flex;
   flex-direction: column;
   height: 20vh;
 }
-.footerComponents{
+.footerComponents {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.footerInfo{
+.footerInfo {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
-.infoColumns{
+.infoColumns {
   margin-left: 20px;
   margin-right: 20px;
 }
 
-.trackContainer{
+.trackContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.distanceTimer{
+.distanceTimer {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.distance{
+.distance {
   padding: 5px;
   width: 125px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bold;
 }
 
-.timer{
+.timer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 5px;
   width: 125px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bold;
 }
-.hrMin{
+.hrMin {
   font-size: 30px;
 }
-.ms{
+.ms {
   font-size: 18px;
   padding: 5px;
-  margin-top: 2px;;
+  margin-top: 2px;
 }
 
 /* ///////RUN TRACKER CSS ABOVE/////// */
