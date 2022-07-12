@@ -5,6 +5,7 @@ import "../App.css";
 import geoLocation from "../Hooks/useGeoLocation";
 import SimpleSlide from "../component/SlidingNavBar";
 import Timer from "../component/Timer";
+import testGeolocation from "../Hooks/testGeolocation";
 
 export default function RunTracker() {
   const [polyLine, setPolyLine] = useState([]);
@@ -53,6 +54,15 @@ export default function RunTracker() {
     ).addTo(map);
   }
 
+  const dummyGeolocation = () => {
+    setStart(!start);
+    testGeolocation(setPolyLine, setDistance, setLocation);
+    if (start) {
+      console.log("Initial pos: ", polyLine[0]);
+      console.log("Last pos: ", polyLine[polyLine.length - 1]);
+    }
+  };
+
   var runIcon = L.icon({
     iconUrl: 'runIcon.png',
 
@@ -62,6 +72,7 @@ export default function RunTracker() {
    // shadowAnchor: [4, 62],  // the same for the shadow
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
+
 
   return !location.length ? null : (
     <div className="runTracker">
@@ -109,6 +120,12 @@ export default function RunTracker() {
           />
           <span className="slider round"></span>
         </label>
+        
+        <button onClick={dummyGeolocation}>Dummy Test</button>
+      </div>
+      <Timer start={start} />
+      <div>
+
       </div> */}
        <Timer
         start={start}
@@ -118,6 +135,7 @@ export default function RunTracker() {
         setDistance={setDistance}
       />
       {/* <div>
+
         <h1>{distance}</h1>
       </div> */}
      </div>
