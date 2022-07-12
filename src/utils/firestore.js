@@ -13,22 +13,15 @@ import {
 
 export const db = getFirestore(app);
 
-export const createUser = async ({
-  username,
-  firstName,
-  lastName,
-  uid,
-  photoURL,
-}) => {
+export const createUser = async ({ uid, photoURL, displayName, email }) => {
   try {
-    await setDoc(doc(db, "users", username), {
-      firstName,
-      lastName,
+    await setDoc(doc(db, "users", uid), {
       uid,
       photoURL,
-      online: false,
+      displayName,
+      email,
     });
-    console.log("User ( ", username, " ) created!");
+    console.log("User ( ", displayName, " ) created!");
   } catch (e) {
     console.error("Error creating user: ", e);
   }
@@ -48,17 +41,17 @@ export const getUsers = async () => {
   }
 };
 
-export const getUser = async ({ username }) => {
+export const getUser = async ({ uid }) => {
   try {
-    const docRef = doc(db, "users", username);
+    const docRef = doc(db, "users", uid);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log("User data:", docSnap.data());
       return docSnap.data();
     } else {
       // doc.data() will be undefined in this case
       console.log("User doesn't exist!");
+      return null;
     }
   } catch (e) {
     console.error("Error finding user: ", e);
@@ -71,6 +64,7 @@ export const createRun = async ({
   time,
   polyline,
   comment = "",
+  startTime,
 }) => {
   try {
     const docRef = await addDoc(collection(db, "runs"), {
@@ -79,6 +73,7 @@ export const createRun = async ({
       time,
       polyline,
       comment,
+      startTime,
     });
     console.log("Run created with ID: ", docRef.id);
   } catch (e) {
@@ -86,16 +81,17 @@ export const createRun = async ({
   }
 };
 
-export const getUserRuns = async ({ username }) => {
+export const getUserRuns = async ({ uid }) => {
   try {
     const runs = [];
-    const q = query(collection(db, "runs"), where("username", "==", username));
+    const q = query(collection(db, "runs"), where("uid", "==", uid));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      runs.push(doc.data());
+      runs.push({ id: doc.id, ...doc.data() });
     });
     return runs;
   } catch (e) {
-    console.error("Error finding user runs: ", e);
+    console.log("Error finding user runs: ", e);
+    return null;
   }
 };

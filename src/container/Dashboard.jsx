@@ -1,5 +1,6 @@
 import Navbar from "../component/Navbar";
 import { Typography } from "@mui/material";
+import { PreviousRuns } from "../component/PreviousRuns";
 
 const Dashboard = () => {
   return (
@@ -9,17 +10,7 @@ const Dashboard = () => {
       </header>
       <main>
         <Navbar />
-        <div>
-          <ul>
-            <h1>Your last run(s)</h1>
-            <li>pace</li>
-            <li>distance</li>
-            <li>total time</li>
-            <li>Start Time</li>
-            <li>End Time</li>
-            <li>date</li>
-          </ul>
-        </div>
+        <PreviousRuns />
       </main>
     </div>
   );
