@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Drawer,
   ListItem,
@@ -20,6 +20,7 @@ import {
 import { Link } from "react-router-dom";
 
 export default function RunTrackerMenu(open, setOpen) {
+  const [ state, setState ] = useState({right: false})
   const styledLink = { color: "BLACK", textDecoration: "none" };
   const theme = useTheme();
   const drawerWidth = 240;
@@ -46,6 +47,9 @@ export default function RunTrackerMenu(open, setOpen) {
       variant="persistent"
       open={open.open}
       anchor="right"
+      ModalProps={{
+        keepMounted: true,
+      }}
     >
       <DrawerHeader>
         <IconButton onClick={menuClose}>
@@ -56,16 +60,24 @@ export default function RunTrackerMenu(open, setOpen) {
       <ListItem button>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <ListItemIcon>
-            <Login /> <Link to="/signup" style={styledLink}> LOGIN/SINUP</Link>
-            </ListItemIcon>
+            <Login />{" "}
+            <Link to="/signup" style={styledLink}>
+              {" "}
+              LOGIN/SINUP
+            </Link>
+          </ListItemIcon>
         </Typography>
       </ListItem>
 
       <ListItem button>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <ListItemIcon>
-            <House /> <Link to="/home" style={styledLink}> HOME</Link>
-            </ListItemIcon>
+          <ListItemIcon>
+            <House />{" "}
+            <Link to="/home" style={styledLink}>
+              {" "}
+              HOME
+            </Link>
+          </ListItemIcon>
         </Typography>
       </ListItem>
 
@@ -84,16 +96,24 @@ export default function RunTrackerMenu(open, setOpen) {
       <ListItem button>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <ListItemIcon>
-            <Login /> <Link to="/" style={styledLink}> TRAINING PLANS </Link>
-            </ListItemIcon>
+            <Login />{" "}
+            <Link to="/" style={styledLink}>
+              {" "}
+              TRAINING PLANS{" "}
+            </Link>
+          </ListItemIcon>
         </Typography>
       </ListItem>
 
       <ListItem button>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <ListItemIcon>
-            <Login /> <Link to="/" style={styledLink}> GOALS</Link>
-            </ListItemIcon>
+            <Login />{" "}
+            <Link to="/" style={styledLink}>
+              {" "}
+              GOALS
+            </Link>
+          </ListItemIcon>
         </Typography>
       </ListItem>
 
