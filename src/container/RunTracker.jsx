@@ -51,7 +51,7 @@ export default function RunTracker() {
 
   const dummyGeolocation = () => {
     setStart(!start);
-    testGeolocation(setPolyLine, setDistance);
+    testGeolocation(setPolyLine, setDistance, setLocation);
     if (start) {
       console.log("Initial pos: ", polyLine[0]);
       console.log("Last pos: ", polyLine[polyLine.length - 1]);

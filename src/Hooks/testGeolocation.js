@@ -22,10 +22,11 @@ const deg2rad = (deg) => {
   return deg * (Math.PI / 180);
 };
 
-const testGeolocation = (setPolyLine, setDistance) => {
+const testGeolocation = (setPolyLine, setDistance, setLocation) => {
   const setNewLocation = (location) => {
     location[0] -= 0.0001;
     location[1] -= 0.10001;
+    setLocation(location);
     setPolyLine((polyLine) => {
       if (
         polyLine.length > 0 &&
