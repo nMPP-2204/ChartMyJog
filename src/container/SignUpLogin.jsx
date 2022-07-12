@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
-
 import { auth } from "../utils/firebase.js";
-//import { EmailAuthProvider, GoogleAuthProvider } from "firebase/auth";
-//import Navbar from "../component/Navbar.jsx";
 import AllUsers from "../component/AllUsers.jsx";
-
-import { EmailAuthProvider, GoogleAuthProvider, signOut } from "firebase/auth";
+import {
+  EmailAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signOut,
+} from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Navbar from "../component/Navbar";
+import { createUser, getUser } from "../utils/firestore.js";
 
 const SignUpLogin = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -23,12 +25,12 @@ const SignUpLogin = () => {
     signInOptions: [
       GoogleAuthProvider.PROVIDER_ID,
       EmailAuthProvider.PROVIDER_ID,
+      GithubAuthProvider.PROVIDER_ID,
     ],
     tosUrl: "https://chartmyjog-8a62d.web.app/dashboard",
     privacyPolicyUrl: function () {
       window.location.assign("https://chartmyjog-8a62d.web.app/home");
     },
-    //credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
   };
 
   useEffect(() => {
@@ -36,10 +38,6 @@ const SignUpLogin = () => {
       firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
     ui.start("#firebaseui-auth-container", uiConfig);
   }, []);
-
-  //console.log(loading);
-  console.log(user);
-  // console.log(error);
 
   // if (loading) {
   //   return (
@@ -55,7 +53,15 @@ const SignUpLogin = () => {
       </div>
     );
   }
+
   if (user) {
+    if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+      (async () => {
+        const userExist = await getUser(user);
+        if (!userExist) await createUser(user);
+      })();
+    }
+
     return (
       <div id="firebaseui-auth-container">
         <Navbar />
@@ -68,7 +74,6 @@ const SignUpLogin = () => {
   return (
     <div>
       <Navbar />
-      <AllUsers />
       <div id="firebaseui-auth-container"></div>
     </div>
   );
