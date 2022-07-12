@@ -48,6 +48,11 @@ export default function RunTracker() {
     ).addTo(map);
   }
 
+  const dummyGeolocation = () => {
+    setStart(!start);
+    geoLocation(setPolyLine, setDistance);
+  };
+
   return !location.length ? null : (
     <div className="runTracker">
       <div>
@@ -84,6 +89,7 @@ export default function RunTracker() {
           />
           <span className="slider round"></span>
         </label>
+        <button onClick={dummyGeolocation}></button>
       </div>
       <Timer start={start} />
       <div>
