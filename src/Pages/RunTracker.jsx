@@ -12,6 +12,7 @@ import geoLocation from "../Hooks/useGeoLocation";
 
 
 export default function RunTracker() {
+  const API_KEY =`${process.env.REACT_APP_API_KEY}`
 
   const [polyline, setPolyLine] = useState([]);
   const [location, setLocation] = useState([]);
@@ -39,6 +40,8 @@ export default function RunTracker() {
   function DefaultLocation() {
     const map = useMap();
 
+  console.log('API Key: ', API_KEY)
+
     L.tileLayer(
       "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
       {
@@ -49,7 +52,7 @@ export default function RunTracker() {
         tileSize: 512,
         zoomOffset: -1,
         accessToken:
-          "pk.eyJ1IjoidmFuZGFyc2luIiwiYSI6ImNsNTE0cDFlMDAyNHAzanFodWhnendrbDUifQ.Cn9XJ_LHFWB0G4gsgZe1Gw",
+          API_KEY,
       }
     ).addTo(map);
   }
@@ -81,7 +84,7 @@ export default function RunTracker() {
       </div>
       <div>
 
-        <MapContainer center={location} zoom={13} scrollWheelZoom={true}>
+        <MapContainer center={location} zoom={18} scrollWheelZoom={true}>
           <Marker position={location}>
             <Popup>
               Ha!!!!. <br /> I am not here Kevin.
