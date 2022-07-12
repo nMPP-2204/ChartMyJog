@@ -63,6 +63,15 @@ export default function RunTracker() {
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
+// var routingControl = L.Routing.control({
+//   waypointMode: 'snap'
+// });
+
+// routingControl._router.route(location, function(err, waypoints) {
+//   var a = waypoints;
+// });
+
+
   return !location.length ? null : (
     <div className="runTracker">
       <div>
@@ -98,18 +107,6 @@ export default function RunTracker() {
           );
         })}
       </div> */}
-      {/* <div className="tracker">
-        <label className="switch">
-          <input
-            type="checkbox"
-            onClick={() => {
-              setStart(!start);
-              geoLocation(setPolyLine, setDistance);
-            }}
-          />
-          <span className="slider round"></span>
-        </label>
-      </div> */}
        <Timer
         start={start}
         distance={distance}
@@ -117,9 +114,6 @@ export default function RunTracker() {
         setPolyLine={setPolyLine}
         setDistance={setDistance}
       />
-      {/* <div>
-        <h1>{distance}</h1>
-      </div> */}
      </div>
    );
 }
