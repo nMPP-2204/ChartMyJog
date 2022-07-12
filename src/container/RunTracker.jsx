@@ -5,6 +5,7 @@ import "../App.css";
 import geoLocation from "../Hooks/useGeoLocation";
 import SimpleSlide from "../component/SlidingNavBar";
 import Timer from "../component/Timer";
+import testGeolocation from "../Hooks/testGeolocation";
 
 export default function RunTracker() {
   const [polyLine, setPolyLine] = useState([]);
@@ -50,7 +51,11 @@ export default function RunTracker() {
 
   const dummyGeolocation = () => {
     setStart(!start);
-    geoLocation(setPolyLine, setDistance);
+    testGeolocation(setPolyLine, setDistance);
+    if (start) {
+      console.log("Initial pos: ", polyLine[0]);
+      console.log("Last pos: ", polyLine[polyLine.length - 1]);
+    }
   };
 
   return !location.length ? null : (
@@ -89,7 +94,7 @@ export default function RunTracker() {
           />
           <span className="slider round"></span>
         </label>
-        <button onClick={dummyGeolocation}></button>
+        <button onClick={dummyGeolocation}>Dummy Test</button>
       </div>
       <Timer start={start} />
       <div>
