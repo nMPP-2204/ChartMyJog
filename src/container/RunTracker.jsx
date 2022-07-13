@@ -14,7 +14,6 @@ export default function RunTracker() {
   const [distance, setDistance] = useState(0);
   const [start, setStart] = useState(false);
 
-
   const blackOptions = { color: "black" };
 
   function success(pos) {
@@ -33,8 +32,6 @@ export default function RunTracker() {
   //   timeout: 5000,
   // };
 
-
-
   // function MapLayer() {
   //   const map = useMap();
 
@@ -52,26 +49,27 @@ export default function RunTracker() {
   //         "pk.eyJ1IjoidmFuZGFyc2luIiwiYSI6ImNsNTE0cDFlMDAyNHAzanFodWhnendrbDUifQ.Cn9XJ_LHFWB0G4gsgZe1Gw",
   //     }
   //   ).addTo(map);
+
+
   // }
 
-  const dummyGeolocation = () => {
-    setStart(!start);
-    testGeolocation(setPolyLine, setDistance, setLocation);
-    if (start) {
-      console.log("Initial pos: ", polyLine[0]);
-      console.log("Last pos: ", polyLine[polyLine.length - 1]);
-    }
-  };
+  var runIcon = L.icon({
+    iconUrl: "runIcon.png",
 
-  const runIcon = L.icon({
-    iconUrl: 'runIcon.png',
+    iconSize: [38, 45], // size of the icon
+    // shadowSize:   [50, 64], // size of the shadow
+    iconAnchor: [22, 65], // point of the icon which will correspond to marker's location
+    // shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+  });
 
-    iconSize:     [38, 45], // size of the icon
-   // shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 65], // point of the icon which will correspond to marker's location
-   // shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
+  // var routingControl = L.Routing.control({
+  //   waypointMode: 'snap'
+  // });
+
+  // routingControl._router.route(location, function(err, waypoints) {
+  //   var a = waypoints;
+  // });
 
 
   return !location.length ? null : (
@@ -117,35 +115,13 @@ export default function RunTracker() {
           );
         })}
       </div> */}
-      {/* <div className="tracker">
-        <label className="switch">
-          <input
-            type="checkbox"
-            onClick={() => {
-              setStart(!start);
-              geoLocation(setPolyLine, setDistance);
-            }}
-          />
-          <span className="slider round"></span>
-        </label>
-        
-        <button onClick={dummyGeolocation}>Dummy Test</button>
-      </div>
-      <Timer start={start} />
-      <div>
-
-      </div> */}
-       <Timer
+      <Timer
         start={start}
         distance={distance}
         setStart={setStart}
         setPolyLine={setPolyLine}
         setDistance={setDistance}
       />
-      {/* <div>
-
-        <h1>{distance}</h1>
-      </div> */}
-     </div>
-   );
+    </div>
+  );
 }
