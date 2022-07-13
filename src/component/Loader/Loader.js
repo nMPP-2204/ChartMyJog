@@ -1,8 +1,8 @@
 import "./Loader.css";
 
-function Loader (props) {
+function Loader () {
     return <div className='Loader'>
-        <div class="lds-ripple">
+        <div className="lds-ripple">
             <div></div>
             <div></div>
         </div>

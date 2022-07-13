@@ -5,6 +5,7 @@ import { getUserRuns } from "../utils/firestore";
 import { Box, Tabs, Tab } from "@mui/material";
 import { TabContext, TabPanel, TabList } from "@mui/lab";
 
+
 export const PreviousRuns = () => {
   const [runs, setRuns] = useState([]);
   const [user] = useAuthState(auth);
@@ -26,8 +27,14 @@ export const PreviousRuns = () => {
     !selectedRun || (
       <div>
         <h1>Your last run(s)</h1>
-        <TabContext
-          value={selectedRun.toLowerCase()}
+        <div>
+          {runs.map((run) => (
+            <SingleRun key={run.startTime} run={run} />
+          ))}
+        </div>
+
+        {/* <TabContext
+          value={selectedRun}
           className="previous-run-list"
         >
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -52,21 +59,27 @@ export const PreviousRuns = () => {
               <SingleRun run={run} />
             </TabPanel>
           ))}
-        </TabContext>
+        </TabContext> */}
       </div>
     )
   );
 };
 
 const SingleRun = ({ run }) => {
+  console.log('server timestamp: ',run.startTime.toDate())
+  const startTime = run.startTime.toDate().toString()
+
   return (
     <div className="single-run-history">
-      Date: {run.startTime}
+      Date: {startTime.slice(0, startTime.indexOf("("))}
       <ul>
         <li>Time: {run.time}</li>
         <li>Distance: {run.distance}</li>
         <li>comment: {run.comment}</li>
       </ul>
+    <div className="img">
+      <img src="https://i.insider.com/5d484d1836e03c058747af94?width=1300&format=jpeg&auto=webp" alt='' />
+    </div>
     </div>
   );
 };

@@ -10,6 +10,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import { serverTimestamp } from "firebase/firestore";
 
 export const db = getFirestore(app);
 
@@ -63,7 +64,6 @@ export const createRun = async ({
   time = "",
   polyline = [],
   comment = "",
-  startTime = 0,
 }) => {
   try {
     const docRef = await addDoc(collection(db, "runs"), {
@@ -72,7 +72,7 @@ export const createRun = async ({
       time,
       polyline,
       comment,
-      startTime,
+      startTime: serverTimestamp(),
     });
     console.log("Run created with ID: ", docRef.id);
   } catch (e) {
