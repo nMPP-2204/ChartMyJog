@@ -5,8 +5,11 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import Input from "@mui/material/Input"
-import TextField from "@mui/material/TextField"
+import Input from "@mui/material/Input";
+import TextField from "@mui/material/TextField";
+import { createRun } from "../utils/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../utils/firebase";
 
 const style = {
   position: "absolute",
@@ -30,6 +33,7 @@ export default function Timer({
   setDistance,
   setPolyLine,
 }) {
+  const [user] = useAuthState(auth);
   const [ms, setMs] = useState(0);
   const [open, setOpen] = useState(false);
   const [pause, setPause] = useState(false);
@@ -57,6 +61,11 @@ export default function Timer({
 
   function saveRun() {
     console.log("save");
+    createRun({
+      distance: distance,
+      time: `${hr}:${min}:${sec}`,
+      uid: user.uid,
+    });
   }
 
   return (
@@ -75,23 +84,17 @@ export default function Timer({
         </div> */}
         <div className="timer">
           <div>
-          <span className="hrMin">
-              {(hr)}:
-            </span>
-            <span className="hrMin">
-              {(min)}:
-            </span>
+            <span className="hrMin">{hr}:</span>
+            <span className="hrMin">{min}:</span>
 
-            <span className="hrMin">
-              {(sec)}:
-            </span>
+            <span className="hrMin">{sec}:</span>
             <span className="ms">{("0" + ((ms / 10) % 100)).slice(-2)}</span>
           </div>
           <div style={{ fontSize: "12px" }}>DURATION</div>
         </div>
       </div>
       <div className="tracker">
-       {!start && ms === 0 && (
+        {!start && ms === 0 && (
           <div className="tracker">
             <label className="switch">
               <input
@@ -128,31 +131,36 @@ export default function Timer({
             >
               <Box sx={style}>
                 <div className="modalComponents">
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                  <div className="modalTimeDistance">
-                    <div style={{ fontSize: "16px" }}>
-                      DISTANCE(MI): {distance}
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                  >
+                    <div className="modalTimeDistance">
+                      <div style={{ fontSize: "16px" }}>
+                        DISTANCE(MI): {distance}
+                      </div>
+                      <div style={{ fontSize: "16px" }}>
+                        DURATION: {`${hr}:${min}:${sec}`}
+                      </div>
                     </div>
-                    <div style={{ fontSize: "16px" }}>DURATION: {`${hr}:${min}:${sec}`}</div>
-                  </div>
-                </Typography>
-                <Typography
-                  id="modal-modal-description"
-                  sx={{ mt: 2 }}
-                >
-                  COMMENTS:
-                </Typography>
-                <TextField defaultValue={"Great Job!!!"}/><br/>
-                <Button
-                  onClick={() => {
-                    setMs(0);
-                    setDistance(0);
-                    setPause(!pause);
-                    handleClose();
-                  }}
-                >
-                  SAVE RUN
-                </Button>
+                  </Typography>
+                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    COMMENTS:
+                  </Typography>
+                  <TextField defaultValue={"Great Job!!!"} />
+                  <br />
+                  <Button
+                    onClick={() => {
+                      setMs(0);
+                      setDistance(0);
+                      setPause(!pause);
+                      handleClose();
+                      saveRun();
+                    }}
+                  >
+                    SAVE RUN
+                  </Button>
                 </div>
               </Box>
             </Modal>
@@ -171,7 +179,6 @@ export default function Timer({
           </div>
         )}
       </div>
-
     </div>
   );
 }

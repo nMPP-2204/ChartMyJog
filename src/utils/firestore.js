@@ -59,11 +59,11 @@ export const getUser = async ({ uid }) => {
 
 export const createRun = async ({
   uid,
-  distance,
-  time,
-  polyline,
+  distance = 0,
+  time = "",
+  polyline = [],
   comment = "",
-  startTime,
+  startTime = 0,
 }) => {
   try {
     const docRef = await addDoc(collection(db, "runs"), {
