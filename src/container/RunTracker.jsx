@@ -5,6 +5,8 @@ import "../App.css";
 import SimpleSlide from "../component/SlidingNavBar";
 import Timer from "../component/Timer";
 import testGeolocation from "../Hooks/testGeolocation";
+import leafletImage from "leaflet-image";
+import Loader from "../component/Loader/Loader";
 
 export default function RunTracker() {
   const API_KEY =`${process.env.REACT_APP_API_KEY}`
@@ -13,7 +15,6 @@ export default function RunTracker() {
   const [location, setLocation] = useState([]);
   const [distance, setDistance] = useState(0);
   const [start, setStart] = useState(false);
-
 
   const blackOptions = { color: "black" };
 
@@ -27,32 +28,6 @@ export default function RunTracker() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
-  // const trackOptions = {
-  //   enableHighAccuracy: true,
-  //   maximumAge: 30000,
-  //   timeout: 5000,
-  // };
-
-
-
-  // function MapLayer() {
-  //   const map = useMap();
-
-  //   L.tileLayer(
-  //     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-  //     {
-  //       attribution:
-  //         'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  //       maxZoom: 20,
-  //       minZoom: 4,
-  //       id: "mapbox/streets-v11",
-  //       tileSize: 512,
-  //       zoomOffset: -1,
-  //       accessToken:
-  //         "pk.eyJ1IjoidmFuZGFyc2luIiwiYSI6ImNsNTE0cDFlMDAyNHAzanFodWhnendrbDUifQ.Cn9XJ_LHFWB0G4gsgZe1Gw",
-  //     }
-  //   ).addTo(map);
-  // }
 
   const dummyGeolocation = () => {
     setStart(!start);
@@ -71,10 +46,9 @@ export default function RunTracker() {
     iconAnchor:   [22, 65], // point of the icon which will correspond to marker's location
    // shadowAnchor: [4, 62],  // the same for the shadow
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
+  });
 
-
-  return !location.length ? null : (
+  return !location.length ? <Loader /> : (
     <div className="runTracker">
       <div>
         <SimpleSlide />
@@ -108,33 +82,6 @@ export default function RunTracker() {
           <Polyline pathOptions={blackOptions} positions={polyLine} />
           </MapContainer>
        </div>
-      {/* <div>
-        {polyLine.map((e, i) => {
-          return (
-            <div key={i}>
-              lat:{e[0]}, lng:{e[1]}
-            </div>
-          );
-        })}
-      </div> */}
-      {/* <div className="tracker">
-        <label className="switch">
-          <input
-            type="checkbox"
-            onClick={() => {
-              setStart(!start);
-              geoLocation(setPolyLine, setDistance);
-            }}
-          />
-          <span className="slider round"></span>
-        </label>
-        
-        <button onClick={dummyGeolocation}>Dummy Test</button>
-      </div>
-      <Timer start={start} />
-      <div>
-
-      </div> */}
        <Timer
         start={start}
         distance={distance}
@@ -142,10 +89,6 @@ export default function RunTracker() {
         setPolyLine={setPolyLine}
         setDistance={setDistance}
       />
-      {/* <div>
-
-        <h1>{distance}</h1>
-      </div> */}
      </div>
    );
 }
