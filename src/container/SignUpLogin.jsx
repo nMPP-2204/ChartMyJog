@@ -5,9 +5,11 @@ import { auth } from "../utils/firebase.js";
 import AllUsers from "../component/AllUsers.jsx";
 import {
   EmailAuthProvider,
+  FacebookAuthProvider,
   GithubAuthProvider,
   GoogleAuthProvider,
   signOut,
+  TwitterAuthProvider,
 } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Navbar from "../component/Navbar";
@@ -26,6 +28,8 @@ const SignUpLogin = () => {
       GoogleAuthProvider.PROVIDER_ID,
       EmailAuthProvider.PROVIDER_ID,
       GithubAuthProvider.PROVIDER_ID,
+      FacebookAuthProvider.PROVIDER_ID,
+      TwitterAuthProvider.PROVIDER_ID,
     ],
     tosUrl: "https://chartmyjog-8a62d.web.app/dashboard",
     privacyPolicyUrl: function () {

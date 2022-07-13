@@ -1,15 +1,17 @@
 import Navbar from "../component/Navbar";
 import { Typography } from "@mui/material";
+import SlidingNavBar from "../component/SlidingNavBar.jsx";
 import Footer from "../component/Footer";
 
 const Home = () => {
   return (
     <div className="Home">
       <header>
+        <SlidingNavBar />
         <h1 className="pageHeader">Chart My Jog</h1>
       </header>
       <main>
-        <Navbar />
+        {/* <Navbar /> */}
         <div>
           <Typography
             fontWeight={700}
