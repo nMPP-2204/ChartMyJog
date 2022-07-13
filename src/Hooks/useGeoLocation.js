@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 let index = 0;
+let watchPoisitionId = null;
 
 const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
   const R = 6371; // Radius of the earth in km
@@ -59,7 +60,14 @@ const geoLocation = (setPolyLine, setDistance) => {
   const onError = (error) => {
     console.warn(`ERROR(${error.code}): ${error.message}`);
   };
-  navigator.geolocation.watchPosition(onSuccess, onError);
+
+  if(watchPoisitionId){
+    navigator.geolocation.clearWatch(watchPoisitionId);
+    watchPoisitionId = null;
+    return null;
+  }
+
+  watchPoisitionId = navigator.geolocation.watchPosition(onSuccess, onError);
 };
 
 function locationDistanceCheck(lat1, lng1, lat2, lng2) {

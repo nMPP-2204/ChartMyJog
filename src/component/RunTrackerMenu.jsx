@@ -63,7 +63,7 @@ export default function RunTrackerMenu(open, setOpen) {
             <Login />{" "}
             <Link to="/signup" style={styledLink}>
               {" "}
-              LOGIN/SINUP
+              LOGIN/SIGNUP
             </Link>
           </ListItemIcon>
         </Typography>
