@@ -1,4 +1,4 @@
-/* RUN TRACKER CSS */
+/* /////RUN TRACKER STYLES/////// */
 
 .runTracker{
   background-color: lightblue;
@@ -150,4 +150,20 @@ h1 {
   margin-top: 2px;;
 }
 
-/* ///////RUN TRACKER CSS ABOVE/////// */
+/* ///////RUN TRACKER STYLES ABOVE///// */
+
+/* //////TIMER STYLES///////////////// */
+
+.modalComponents{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modalTimeDistance{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/* //////TIMER STYLES ABOVE/////////// */

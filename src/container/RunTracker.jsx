@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, useMap, Marker, Popup, Polyline, useMapEvents } from "react-leaflet";
+import {
+  MapContainer,
+  useMap,
+  Marker,
+  Popup,
+  Polyline,
+  useMapEvents,
+  TileLayer
+} from "react-leaflet";
 import L from "leaflet";
 import "../App.css";
 import geoLocation from "../Hooks/useGeoLocation";
@@ -12,7 +20,6 @@ export default function RunTracker() {
   const [distance, setDistance] = useState(0);
   const [start, setStart] = useState(false);
   let marker;
-
 
   const blackOptions = { color: "black" };
 
@@ -32,45 +39,44 @@ export default function RunTracker() {
   //   timeout: 5000,
   // };
 
+  // function MapLayer() {
+  //   const map = useMap();
+
+  //   L.tileLayer(
+  //     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+  //     {
+  //       attribution:
+  //         'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  //       maxZoom: 20,
+  //       minZoom: 4,
+  //       id: "mapbox/streets-v11",
+  //       tileSize: 512,
+  //       zoomOffset: -1,
+  //       accessToken:
+  //         "pk.eyJ1IjoidmFuZGFyc2luIiwiYSI6ImNsNTE0cDFlMDAyNHAzanFodWhnendrbDUifQ.Cn9XJ_LHFWB0G4gsgZe1Gw",
+  //     }
+  //   ).addTo(map);
 
 
-  function MapLayer() {
-    const map = useMap();
-
-    L.tileLayer(
-      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-      {
-        attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 20,
-        minZoom: 4,
-        id: "mapbox/streets-v11",
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken:
-          "pk.eyJ1IjoidmFuZGFyc2luIiwiYSI6ImNsNTE0cDFlMDAyNHAzanFodWhnendrbDUifQ.Cn9XJ_LHFWB0G4gsgZe1Gw",
-      }
-    ).addTo(map);
-  }
+  // }
 
   var runIcon = L.icon({
-    iconUrl: 'runIcon.png',
+    iconUrl: "runIcon.png",
 
-    iconSize:     [38, 45], // size of the icon
-   // shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 65], // point of the icon which will correspond to marker's location
-   // shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
+    iconSize: [38, 45], // size of the icon
+    // shadowSize:   [50, 64], // size of the shadow
+    iconAnchor: [22, 65], // point of the icon which will correspond to marker's location
+    // shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+  });
 
-// var routingControl = L.Routing.control({
-//   waypointMode: 'snap'
-// });
+  // var routingControl = L.Routing.control({
+  //   waypointMode: 'snap'
+  // });
 
-// routingControl._router.route(location, function(err, waypoints) {
-//   var a = waypoints;
-// });
-
+  // routingControl._router.route(location, function(err, waypoints) {
+  //   var a = waypoints;
+  // });
 
   return !location.length ? null : (
     <div className="runTracker">
@@ -79,25 +85,32 @@ export default function RunTracker() {
       </div>
       <div>
         <MapContainer center={location} zoom={18} scrollWheelZoom={true}>
-          {
-            polyLine.length == 0 ? (
-              <Marker position={location} icon={runIcon}>
-            <Popup>
-              Ha!!!!. <br /> I am not here Kevin.
-            </Popup>
-          </Marker>
-            ):(
-              <Marker position={polyLine[polyLine.length-1]}>
+          <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
+               maxZoom= {20}
+               minZoom={4}
+               zoomOffset={-1}
+               id= "mapbox/streets-v11"
+              tileSize= {512}
+               accessToken="pk.eyJ1IjoidmFuZGFyc2luIiwiYSI6ImNsNTE0cDFlMDAyNHAzanFodWhnendrbDUifQ.Cn9XJ_LHFWB0G4gsgZe1Gw"
+          />
+          {polyLine.length === 0 ? (
+            <Marker position={location} icon={runIcon}>
               <Popup>
                 Ha!!!!. <br /> I am not here Kevin.
               </Popup>
             </Marker>
-            )
-          }
+          ) : (
+            <Marker position={polyLine[polyLine.length - 1]}>
+              <Popup>
+                Ha!!!!. <br /> I am not here Kevin.
+              </Popup>
+            </Marker>
+          )}
           <Polyline pathOptions={blackOptions} positions={polyLine} />
-          <MapLayer />
-         </MapContainer>
-       </div>
+        </MapContainer>
+      </div>
       {/* <div>
         {polyLine.map((e, i) => {
           return (
@@ -107,13 +120,13 @@ export default function RunTracker() {
           );
         })}
       </div> */}
-       <Timer
+      <Timer
         start={start}
         distance={distance}
         setStart={setStart}
         setPolyLine={setPolyLine}
         setDistance={setDistance}
       />
-     </div>
-   );
+    </div>
+  );
 }
