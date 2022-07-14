@@ -38,6 +38,7 @@ export default function Timer({
   const [open, setOpen] = useState(false);
   const [pause, setPause] = useState(false);
 
+
   const hr = JSON.stringify(Math.floor((ms / 3600000) % 60));
   const min = ("0" + Math.floor((ms / 60000) % 60)).slice(-2);
   const sec = ("0" + Math.floor((ms / 1000) % 60)).slice(-2);
@@ -68,6 +69,7 @@ export default function Timer({
       uid: user.uid,
     });
   }
+
 
   return (
     <div className="trackContainer">
