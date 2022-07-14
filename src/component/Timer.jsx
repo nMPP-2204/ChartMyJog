@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
+import Input from "@mui/material/Input";
 import { createRun } from "../utils/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
@@ -36,6 +37,8 @@ export default function Timer({
   const [ms, setMs] = useState(0);
   const [open, setOpen] = useState(false);
   const [pause, setPause] = useState(false);
+  const [value, setValue] = useState("")
+  const [input, setInput] = useState("")
 
   const hr = JSON.stringify(Math.floor((ms / 3600000) % 60));
   const min = ("0" + Math.floor((ms / 60000) % 60)).slice(-2);
@@ -63,20 +66,18 @@ export default function Timer({
 
     const dataUrl = await domtoimage.toPng(node);
 
-    // const img = new Image()
-    // img.src = dataUrl
-    // document.body.appendChild(img)
-
-    console.log('Data URL: ', dataUrl);
-
-    console.log("save");
     geoLocation(setPolyLine, setDistance);
     createRun({
       distance: distance,
       time: `${hr}:${min}:${sec}`,
       uid: user.uid,
       image: dataUrl,
+      name: input,
+      comment: value,
     });
+
+    setValue("")
+    setInput("")
   }
 
 
@@ -159,9 +160,19 @@ export default function Timer({
                     </div>
                   </Typography>
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    NAME YOUR RUN: 
+                  </Typography>
+                  <Input 
+                    value={input} 
+                    onChange={(e) => setInput(e.target.value)}
+                  />
+                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     COMMENTS:
                   </Typography>
-                  <TextField defaultValue={"Great Job!!!"} />
+                  <TextField 
+                    value={value} 
+                    onChange={(e) => setValue(e.target.value)}
+                  />
                   <br />
                   <Button
                     onClick={() => {

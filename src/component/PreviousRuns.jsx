@@ -32,34 +32,6 @@ export const PreviousRuns = () => {
             <SingleRun key={run.startTime} run={run} />
           ))}
         </div>
-
-        {/* <TabContext
-          value={selectedRun}
-          className="previous-run-list"
-        >
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <TabList
-              onChange={(e) => {
-                setSelectedRun(e.target.innerText);
-              }}
-              aria-label="lab API tabs example"
-              orientation="vertical"
-            >
-              {runs.map((run) => (
-                <Tab
-                  key={run.id}
-                  label={run.startTime}
-                  value={run.startTime.toLowerCase()}
-                />
-              ))}
-            </TabList>
-          </Box>
-          {runs.map((run) => (
-            <TabPanel key={run.id} value={run.startTime.toLowerCase()}>
-              <SingleRun run={run} />
-            </TabPanel>
-          ))}
-        </TabContext> */}
       </div>
     )
   );
@@ -71,6 +43,9 @@ const SingleRun = ({ run }) => {
 
   return (
     <div className="single-run-history">
+      <h2>
+        {run.name}
+      </h2>
       Date: {startTime.slice(0, startTime.indexOf("("))}
       <ul>
         <li>Time: {run.time}</li>
