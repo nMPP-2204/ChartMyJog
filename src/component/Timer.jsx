@@ -10,6 +10,7 @@ import { createRun } from "../utils/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import domtoimage from 'dom-to-image'
+// import html2canvas from "html2canvas";
 
 const style = {
   position: "absolute",
@@ -66,7 +67,12 @@ export default function Timer({
 
     const dataUrl = await domtoimage.toPng(node);
 
-    geoLocation(setPolyLine, setDistance);
+    // const canvas = await html2canvas(node, { allowTaint: true,
+    //   useCORS : true });
+    // const dataUrl = canvas.toDataURL();
+    // console.log("dataURL: ", dataUrl);
+
+    // geoLocation(setPolyLine, setDistance);
     createRun({
       distance: distance,
       time: `${hr}:${min}:${sec}`,
@@ -137,6 +143,7 @@ export default function Timer({
         {pause && (
           <div>
             <Button onClick={handleOpen}>END RUN</Button>
+            <button onClick={()=>{geoLocation(setPolyLine, setDistance)}}>end run</button>
             <Modal
               open={open}
               onClose={handleClose}
@@ -160,17 +167,17 @@ export default function Timer({
                     </div>
                   </Typography>
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    NAME YOUR RUN: 
+                    NAME YOUR RUN:
                   </Typography>
-                  <Input 
-                    value={input} 
+                  <Input
+                    value={input}
                     onChange={(e) => setInput(e.target.value)}
                   />
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     COMMENTS:
                   </Typography>
-                  <TextField 
-                    value={value} 
+                  <TextField
+                    value={value}
                     onChange={(e) => setValue(e.target.value)}
                   />
                   <br />

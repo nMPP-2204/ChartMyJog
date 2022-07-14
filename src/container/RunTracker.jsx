@@ -46,11 +46,11 @@ export default function RunTracker() {
 
 
   return !location.length ? <Loader /> : (
-    <div className="runTracker">
+    <div className="runTracker" id="MapImage">
       <div>
         <SimpleSlide />
       </div>
-      <div id="MapImage">
+      <div >
         <MapContainer center={location} zoom={13} scrollWheelZoom={false}>
           <TileLayer
             attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
