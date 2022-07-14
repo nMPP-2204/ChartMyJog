@@ -62,7 +62,7 @@ export const createRun = async ({
   uid,
   distance = 0,
   time = "",
-  polyline = [],
+  imageURL = "",
   comment = "",
 }) => {
   try {
@@ -70,7 +70,7 @@ export const createRun = async ({
       uid,
       distance,
       time,
-      polyline,
+      imageURL: imageURL.toString(),
       comment,
       startTime: serverTimestamp(),
     });

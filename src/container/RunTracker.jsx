@@ -28,7 +28,6 @@ export default function RunTracker() {
 
   function success(pos) {
     const crd = pos.coords;
-
     setLocation([crd.latitude, crd.longitude]);
   }
 
@@ -36,10 +35,8 @@ export default function RunTracker() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
-
   var runIcon = L.icon({
     iconUrl: "runIcon.png",
-
     iconSize: [38, 45], // size of the icon
     // shadowSize:   [50, 64], // size of the shadow
     iconAnchor: [22, 65], // point of the icon which will correspond to marker's location
@@ -47,8 +44,9 @@ export default function RunTracker() {
     popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
   });
 
-
-  return !location.length ? <Loader /> : (
+  return !location.length ? (
+    <Loader />
+  ) : (
     <div className="runTracker">
       <div>
         <SimpleSlide />
@@ -79,9 +77,9 @@ export default function RunTracker() {
             </Marker>
           )}
           <Polyline pathOptions={blackOptions} positions={polyLine} />
-          </MapContainer>
-       </div>
-       <Timer
+        </MapContainer>
+      </div>
+      <Timer
         start={start}
         distance={distance}
         setStart={setStart}

@@ -80,9 +80,6 @@ export default function Timer({
             DISTANCE(MI)
           </div>
         </div>
-        {/* <div>
-          <SaveRun />
-        </div> */}
         <div className="timer">
           <div>
             <span className="hrMin">{hr}:</span>

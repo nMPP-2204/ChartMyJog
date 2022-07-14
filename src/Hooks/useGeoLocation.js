@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
-
-let index = 0;
 let watchPoisitionId = null;
 
-const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
+export const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
   const R = 6371; // Radius of the earth in km
   const dLat = deg2rad(lat2 - lat1); // deg2rad below
   const dLon = deg2rad(lon2 - lon1);
@@ -61,7 +58,7 @@ const geoLocation = (setPolyLine, setDistance) => {
     console.warn(`ERROR(${error.code}): ${error.message}`);
   };
 
-  if(watchPoisitionId){
+  if (watchPoisitionId) {
     navigator.geolocation.clearWatch(watchPoisitionId);
     watchPoisitionId = null;
     return null;
@@ -70,7 +67,7 @@ const geoLocation = (setPolyLine, setDistance) => {
   watchPoisitionId = navigator.geolocation.watchPosition(onSuccess, onError);
 };
 
-function locationDistanceCheck(lat1, lng1, lat2, lng2) {
+export function locationDistanceCheck(lat1, lng1, lat2, lng2) {
   const distanceDiff = getDistanceFromLatLonInKm(lat1, lng1, lat2, lng2);
 
   if (distanceDiff > 0.004) {

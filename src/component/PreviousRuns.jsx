@@ -5,7 +5,6 @@ import { getUserRuns } from "../utils/firestore";
 import { Box, Tabs, Tab } from "@mui/material";
 import { TabContext, TabPanel, TabList } from "@mui/lab";
 
-
 export const PreviousRuns = () => {
   const [runs, setRuns] = useState([]);
   const [user] = useAuthState(auth);
@@ -32,43 +31,14 @@ export const PreviousRuns = () => {
             <SingleRun key={run.startTime} run={run} />
           ))}
         </div>
-
-        {/* <TabContext
-          value={selectedRun}
-          className="previous-run-list"
-        >
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <TabList
-              onChange={(e) => {
-                setSelectedRun(e.target.innerText);
-              }}
-              aria-label="lab API tabs example"
-              orientation="vertical"
-            >
-              {runs.map((run) => (
-                <Tab
-                  key={run.id}
-                  label={run.startTime}
-                  value={run.startTime.toLowerCase()}
-                />
-              ))}
-            </TabList>
-          </Box>
-          {runs.map((run) => (
-            <TabPanel key={run.id} value={run.startTime.toLowerCase()}>
-              <SingleRun run={run} />
-            </TabPanel>
-          ))}
-        </TabContext> */}
       </div>
     )
   );
 };
 
 const SingleRun = ({ run }) => {
-  console.log('server timestamp: ',run.startTime.toDate())
-  const startTime = run.startTime.toDate().toString()
-
+  const startTime = run.startTime.toDate().toString();
+  console.log(run);
   return (
     <div className="single-run-history">
       Date: {startTime.slice(0, startTime.indexOf("("))}
@@ -77,9 +47,13 @@ const SingleRun = ({ run }) => {
         <li>Distance: {run.distance}</li>
         <li>comment: {run.comment}</li>
       </ul>
-    <div className="img">
-      <img src="https://i.insider.com/5d484d1836e03c058747af94?width=1300&format=jpeg&auto=webp" alt='' />
-    </div>
+      <div className="img">
+        {/* <img
+          src="https://i.insider.com/5d484d1836e03c058747af94?width=1300&format=jpeg&auto=webp"
+          alt=""
+        /> */}
+        <img src={run.imgURL} alt="your run" />
+      </div>
     </div>
   );
 };
