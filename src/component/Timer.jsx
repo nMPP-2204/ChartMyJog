@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import geoLocation from "../Hooks/useGeoLocation";
-
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import Input from "@mui/material/Input";
 import TextField from "@mui/material/TextField";
 import { createRun } from "../utils/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
+import domtoimage from 'dom-to-image'
 
 const style = {
   position: "absolute",
@@ -59,14 +58,27 @@ export default function Timer({
     tID = null;
   }
 
-  function saveRun() {
+  async function saveRun() {
+    const node = document.getElementById("MapImage");
+
+    const dataUrl = await domtoimage.toPng(node);
+
+    // const img = new Image()
+    // img.src = dataUrl
+    // document.body.appendChild(img)
+
+    console.log('Data URL: ', dataUrl);
+
     console.log("save");
     createRun({
       distance: distance,
       time: `${hr}:${min}:${sec}`,
       uid: user.uid,
+      image: dataUrl,
     });
   }
+
+
 
   return (
     <div className="trackContainer">

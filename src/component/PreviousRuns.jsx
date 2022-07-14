@@ -66,6 +66,7 @@ const SingleRun = ({ run }) => {
         <li>Time: {run.time}</li>
         <li>Distance: {run.distance}</li>
         <li>comment: {run.comment}</li>
+        {/* <img src={run.image} alt="" /> */}
       </ul>
     </div>
   );

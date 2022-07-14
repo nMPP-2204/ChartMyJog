@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {
   MapContainer,
-  useMap,
   Marker,
   Popup,
   Polyline,
-  useMapEvents,
   TileLayer,
 } from "react-leaflet";
 import L from "leaflet";
@@ -77,13 +75,14 @@ export default function RunTracker() {
   // routingControl._router.route(location, function(err, waypoints) {
   //   var a = waypoints;
   // });
+  
 
   return !location.length ? null : (
     <div className="runTracker">
       <div>
         <SimpleSlide />
       </div>
-      <div>
+      <div id="MapImage">
         <MapContainer center={location} zoom={13} scrollWheelZoom={false}>
           <TileLayer
             attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'

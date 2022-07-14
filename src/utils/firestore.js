@@ -64,6 +64,7 @@ export const createRun = async ({
   polyline = [],
   comment = "",
   startTime = 0,
+  image = "",
 }) => {
   try {
     const docRef = await addDoc(collection(db, "runs"), {
@@ -73,6 +74,7 @@ export const createRun = async ({
       polyline,
       comment,
       startTime,
+      image,
     });
     console.log("Run created with ID: ", docRef.id);
   } catch (e) {
