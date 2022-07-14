@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {
   MapContainer,
-  useMap,
   Marker,
   Popup,
   Polyline,
-  useMapEvents,
   TileLayer,
 } from "react-leaflet";
 import L from "leaflet";
@@ -13,7 +11,6 @@ import "../App.css";
 import SimpleSlide from "../component/SlidingNavBar";
 import Timer from "../component/Timer";
 import testGeolocation from "../Hooks/testGeolocation";
-import leafletImage from "leaflet-image";
 import Loader from "../component/Loader/Loader";
 
 export default function RunTracker() {
@@ -53,7 +50,7 @@ export default function RunTracker() {
       <div>
         <SimpleSlide />
       </div>
-      <div>
+      <div id="MapImage">
         <MapContainer center={location} zoom={13} scrollWheelZoom={false}>
           <TileLayer
             attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
