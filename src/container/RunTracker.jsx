@@ -11,7 +11,6 @@ import "../App.css";
 import SimpleSlide from "../component/SlidingNavBar";
 import Timer from "../component/Timer";
 import testGeolocation from "../Hooks/testGeolocation";
-import leafletImage from "leaflet-image";
 import Loader from "../component/Loader/Loader";
 
 export default function RunTracker() {

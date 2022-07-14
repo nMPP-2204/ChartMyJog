@@ -76,11 +76,8 @@ const SingleRun = ({ run }) => {
         <li>Time: {run.time}</li>
         <li>Distance: {run.distance}</li>
         <li>comment: {run.comment}</li>
-        {/* <img src={run.image} alt="" /> */}
+        <img src={run.image} alt="" />
       </ul>
-    <div className="img">
-      <img src="https://i.insider.com/5d484d1836e03c058747af94?width=1300&format=jpeg&auto=webp" alt='' />
-    </div>
     </div>
   );
 };
