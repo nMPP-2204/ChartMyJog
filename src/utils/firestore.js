@@ -10,6 +10,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import { serverTimestamp } from "firebase/firestore";
 
 export const db = getFirestore(app);
 
@@ -73,8 +74,8 @@ export const createRun = async ({
       time,
       polyline,
       comment,
-      startTime,
       image,
+      startTime: serverTimestamp(),
     });
     console.log("Run created with ID: ", docRef.id);
   } catch (e) {

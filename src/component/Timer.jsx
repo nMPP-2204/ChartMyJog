@@ -70,6 +70,7 @@ export default function Timer({
     console.log('Data URL: ', dataUrl);
 
     console.log("save");
+    geoLocation(setPolyLine, setDistance);
     createRun({
       distance: distance,
       time: `${hr}:${min}:${sec}`,

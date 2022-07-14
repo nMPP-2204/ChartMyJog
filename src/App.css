@@ -164,4 +164,14 @@ h1 {
   justify-content: space-evenly;
 }
 
-/* //////TIMER STYLES ABOVE/////////// */
+img {
+  width: auto;
+  height: 200px;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  margin: 25px;
+}
+/* ///////RUN TRACKER CSS ABOVE/////// */
