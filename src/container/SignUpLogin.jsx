@@ -25,8 +25,8 @@ const SignUpLogin = () => {
   const uiConfig = {
     signInSuccessUrl: "/home",
     signInOptions: [
-      GoogleAuthProvider.PROVIDER_ID,
       EmailAuthProvider.PROVIDER_ID,
+      GoogleAuthProvider.PROVIDER_ID,
       GithubAuthProvider.PROVIDER_ID,
       FacebookAuthProvider.PROVIDER_ID,
       TwitterAuthProvider.PROVIDER_ID,
@@ -76,6 +76,9 @@ const SignUpLogin = () => {
 
   return (
     <div>
+      <div>You can also sign in with our test account:</div>
+      <div>Email: test@test.com</div>
+      <div>Password: abc123</div>
       <div id="firebaseui-auth-container"></div>
     </div>
   );
