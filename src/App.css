@@ -164,14 +164,8 @@ h1 {
   justify-content: space-evenly;
 }
 
-img {
+.single-run-history img {
   width: auto;
-  height: 200px;
-}
-
-.img {
-  display: flex;
-  justify-content: center;
-  margin: 25px;
+  height: auto;
 }
 /* ///////RUN TRACKER CSS ABOVE/////// */
