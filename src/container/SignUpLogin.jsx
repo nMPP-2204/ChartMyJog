@@ -25,8 +25,8 @@ const SignUpLogin = () => {
   const uiConfig = {
     signInSuccessUrl: "/home",
     signInOptions: [
-      GoogleAuthProvider.PROVIDER_ID,
       EmailAuthProvider.PROVIDER_ID,
+      GoogleAuthProvider.PROVIDER_ID,
       GithubAuthProvider.PROVIDER_ID,
       FacebookAuthProvider.PROVIDER_ID,
       TwitterAuthProvider.PROVIDER_ID,
@@ -40,8 +40,8 @@ const SignUpLogin = () => {
   useEffect(() => {
     const ui =
       firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
-    ui.start("#firebaseui-auth-container", uiConfig);
-  }, []);
+    if (!user) ui.start("#firebaseui-auth-container", uiConfig);
+  }, [user]);
 
   // if (loading) {
   //   return (
@@ -68,7 +68,6 @@ const SignUpLogin = () => {
 
     return (
       <div id="firebaseui-auth-container">
-        <Navbar />
         <p>Current User: {user.email}</p>
         <button onClick={logout}>Log out</button>
       </div>
@@ -77,7 +76,9 @@ const SignUpLogin = () => {
 
   return (
     <div>
-      <Navbar />
+      <div>You can also sign in with our test account:</div>
+      <div>Email: test@test.com</div>
+      <div>Password: abc123</div>
       <div id="firebaseui-auth-container"></div>
     </div>
   );
