@@ -84,7 +84,7 @@ const SingleRun = ({ run }) => {
   return (
     <div className="dashBoard">
     <Card className= "card" sx={{ maxWidth: 345,
-      backgroundColor: "#97CCEC",
+      backgroundColor: "#e4e0d9",
       boxShadow: "4px 4px 8px 0px rgba(0,0,0,0.2)",
       transition: "0.3s"
       }}>
