@@ -41,7 +41,7 @@ const SignUpLogin = () => {
     const ui =
       firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
     ui.start("#firebaseui-auth-container", uiConfig);
-  }, []);
+  }, [user]);
 
   // if (loading) {
   //   return (
@@ -68,7 +68,6 @@ const SignUpLogin = () => {
 
     return (
       <div id="firebaseui-auth-container">
-        <Navbar />
         <p>Current User: {user.email}</p>
         <button onClick={logout}>Log out</button>
       </div>
@@ -77,7 +76,6 @@ const SignUpLogin = () => {
 
   return (
     <div>
-      <Navbar />
       <div id="firebaseui-auth-container"></div>
     </div>
   );

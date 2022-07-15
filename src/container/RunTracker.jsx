@@ -47,9 +47,6 @@ export default function RunTracker() {
     <Loader />
   ) : (
     <div className="runTracker">
-      <div>
-        <SimpleSlide />
-      </div>
       <div id="MapImage">
         <MapContainer center={location} zoom={13} scrollWheelZoom={false}>
           <TileLayer
