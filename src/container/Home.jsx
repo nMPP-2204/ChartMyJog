@@ -6,7 +6,12 @@ const Home = () => {
   return (
     <div className="Home">
       <header>
-        <h1 className="pageHeader">Chart My Jog</h1>
+        {" "}
+        <div className="pageHeader">
+          <Typography fontFamily="helvetica" fontSize="30px">
+            Chart My Jog
+          </Typography>
+        </div>
       </header>
       <main>
         <div>
