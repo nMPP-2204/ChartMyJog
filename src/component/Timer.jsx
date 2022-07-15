@@ -9,7 +9,7 @@ import Input from "@mui/material/Input";
 import { createRun } from "../utils/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
-import domtoimage from 'dom-to-image'
+import domtoimage from "dom-to-image";
 // import html2canvas from "html2canvas";
 
 const style = {
@@ -38,8 +38,8 @@ export default function Timer({
   const [ms, setMs] = useState(0);
   const [open, setOpen] = useState(false);
   const [pause, setPause] = useState(false);
-  const [value, setValue] = useState("")
-  const [input, setInput] = useState("")
+  const [value, setValue] = useState("");
+  const [input, setInput] = useState("");
 
   const hr = JSON.stringify(Math.floor((ms / 3600000) % 60));
   const min = ("0" + Math.floor((ms / 60000) % 60)).slice(-2);
@@ -65,12 +65,7 @@ export default function Timer({
   async function saveRun() {
     const node = document.getElementById("MapImage");
 
-    const dataUrl = await domtoimage.toPng(node);
-
-    // const canvas = await html2canvas(node, { allowTaint: true,
-    //   useCORS : true });
-    // const dataUrl = canvas.toDataURL();
-    // console.log("dataURL: ", dataUrl);
+    const dataUrl = await domtoimage.toSvg(node);
 
     // geoLocation(setPolyLine, setDistance);
     createRun({
@@ -82,11 +77,9 @@ export default function Timer({
       comment: value,
     });
 
-    setValue("")
-    setInput("")
+    setValue("");
+    setInput("");
   }
-
-
 
   return (
     <div className="trackContainer">
@@ -143,7 +136,13 @@ export default function Timer({
         {pause && (
           <div>
             <Button onClick={handleOpen}>END RUN</Button>
-            <button onClick={()=>{geoLocation(setPolyLine, setDistance)}}>end run</button>
+            <button
+              onClick={() => {
+                geoLocation(setPolyLine, setDistance);
+              }}
+            >
+              end run
+            </button>
             <Modal
               open={open}
               onClose={handleClose}

@@ -33,7 +33,6 @@ export default function RunTracker() {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
-
   var runIcon = L.icon({
     iconUrl: "runIcon.png",
 
@@ -44,13 +43,14 @@ export default function RunTracker() {
     popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
   });
 
-
-  return !location.length ? <Loader /> : (
-    <div className="runTracker" id="MapImage">
+  return !location.length ? (
+    <Loader />
+  ) : (
+    <div className="runTracker">
       <div>
         <SimpleSlide />
       </div>
-      <div >
+      <div id="MapImage">
         <MapContainer center={location} zoom={13} scrollWheelZoom={false}>
           <TileLayer
             attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
@@ -76,9 +76,9 @@ export default function RunTracker() {
             </Marker>
           )}
           <Polyline pathOptions={blackOptions} positions={polyLine} />
-          </MapContainer>
-       </div>
-       <Timer
+        </MapContainer>
+      </div>
+      <Timer
         start={start}
         distance={distance}
         setStart={setStart}
