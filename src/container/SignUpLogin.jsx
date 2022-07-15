@@ -40,7 +40,7 @@ const SignUpLogin = () => {
   useEffect(() => {
     const ui =
       firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
-    ui.start("#firebaseui-auth-container", uiConfig);
+    if (!user) ui.start("#firebaseui-auth-container", uiConfig);
   }, [user]);
 
   // if (loading) {
