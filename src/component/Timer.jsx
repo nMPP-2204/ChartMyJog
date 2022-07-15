@@ -47,7 +47,10 @@ export default function Timer({
 
   const handleClose = () => setOpen(false);
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    geoLocation(setPolyLine, setDistance);
+    setOpen(true);
+  };
 
   if (!tID && start) {
     tID = setInterval(() => {
@@ -67,7 +70,6 @@ export default function Timer({
 
     const dataUrl = await domtoimage.toSvg(node);
 
-    // geoLocation(setPolyLine, setDistance);
     createRun({
       distance: distance,
       time: `${hr}:${min}:${sec}`,
@@ -109,21 +111,21 @@ export default function Timer({
       <div className="tracker">
         {!start && ms === 0 && (
           <div className="tracker">
-            <label className="switch">
-              <input
-                type="checkbox"
-                onChange={() => {
-                  setStart(!start);
-                  geoLocation(setPolyLine, setDistance);
-                }}
-              />
-              <span className="slider round"></span>
-            </label>
+            <button
+              className="startRun"
+              onClick={() => {
+                setStart(!start);
+                geoLocation(setPolyLine, setDistance);
+              }}
+            >
+              Start Run
+            </button>
           </div>
         )}
         {start && (
           <div>
             <Button
+              className="startRun"
               onClick={() => {
                 setPause(!pause);
                 setStart(!start);
@@ -135,14 +137,9 @@ export default function Timer({
         )}
         {pause && (
           <div>
-            <Button onClick={handleOpen}>END RUN</Button>
-            <button
-              onClick={() => {
-                geoLocation(setPolyLine, setDistance);
-              }}
-            >
-              end run
-            </button>
+            <Button className="startRun" onClick={handleOpen}>
+              END RUN
+            </Button>
             <Modal
               open={open}
               onClose={handleClose}
@@ -158,10 +155,13 @@ export default function Timer({
                   >
                     <div className="modalTimeDistance">
                       <div style={{ fontSize: "16px" }}>
-                        DISTANCE(MI): {distance}
+                        DISTANCE(MI): {distance.toFixed(2)}
                       </div>
                       <div style={{ fontSize: "16px" }}>
                         DURATION: {`${hr}:${min}:${sec}`}
+                      </div>
+                      <div style={{ fontSize: "16px" }}>
+                        {/* AVG PACE: {(distance / ms).toFixed(2)} */}
                       </div>
                     </div>
                   </Typography>
@@ -181,6 +181,7 @@ export default function Timer({
                   />
                   <br />
                   <Button
+                    className="startRun"
                     onClick={() => {
                       setMs(0);
                       setDistance(0);
@@ -199,12 +200,23 @@ export default function Timer({
         {pause && (
           <div>
             <Button
+              className="startRun"
               onClick={() => {
                 setPause(!pause);
                 setStart(!start);
               }}
             >
               RESUME
+            </Button>
+            <Button
+              className="startRun"
+              onClick={() => {
+                setMs(0);
+                setDistance(0);
+                setPause(!pause);
+              }}
+            >
+              RESET
             </Button>
           </div>
         )}

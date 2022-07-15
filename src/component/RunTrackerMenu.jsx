@@ -16,6 +16,7 @@ import {
   Dashboard,
   Login,
   HelpCenter,
+  DirectionsRun
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
@@ -84,7 +85,7 @@ export default function RunTrackerMenu(open, setOpen) {
       <ListItem button>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <ListItemIcon>
-            <House />{" "}
+            <DirectionsRun />{" "}
             <Link to="/run-tracker" style={styledLink}>
               {" "}
               START RUN!

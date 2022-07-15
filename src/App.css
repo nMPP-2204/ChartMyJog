@@ -1,3 +1,7 @@
+img{
+  max-width: 100%;
+  height: auto;
+}
 /* /////RUN TRACKER STYLES/////// */
 
 .runTracker {
@@ -148,6 +152,16 @@ h1 {
   margin-top: 2px;
 }
 
+.startRun{
+  width: 125px;
+  height: 50px;
+  margin: 6px;
+  font-size: large;
+  border-radius: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
+}
+
 /* ///////RUN TRACKER STYLES ABOVE///// */
 
 /* //////TIMER STYLES///////////////// */
@@ -169,3 +183,35 @@ h1 {
   height: auto;
 }
 /* ///////RUN TRACKER CSS ABOVE/////// */
+/* ///////DASHBOARD STYLES//////////// */
+
+.dashBoard{
+  display: flex;
+  justify-content: center;
+  margin: 25px;
+
+}
+
+.card:hover{
+  box-shadow: 8px 8px 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+/* @media screen and (min-width: 25em){
+  html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+}
+
+/* Safari <8 and IE <11 */
+/* @media screen and (min-width: 25em){
+  html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+} */
+
+/* @media screen and (min-width: 50em){
+html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+} */
