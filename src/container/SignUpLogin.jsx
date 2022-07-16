@@ -12,7 +12,6 @@ import {
   TwitterAuthProvider,
 } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import Navbar from "../component/Navbar";
 import { createUser, getUser } from "../utils/firestore.js";
 
 const SignUpLogin = () => {
@@ -23,13 +22,14 @@ const SignUpLogin = () => {
   };
 
   const uiConfig = {
-    signInSuccessUrl: "/home",
+    signInSuccessUrl: "/signup",
     signInOptions: [
       EmailAuthProvider.PROVIDER_ID,
       GoogleAuthProvider.PROVIDER_ID,
       GithubAuthProvider.PROVIDER_ID,
       FacebookAuthProvider.PROVIDER_ID,
       TwitterAuthProvider.PROVIDER_ID,
+      firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
     ],
     tosUrl: "https://chartmyjog-8a62d.web.app/dashboard",
     privacyPolicyUrl: function () {
@@ -83,17 +83,16 @@ const SignUpLogin = () => {
   return (
     <div>
       <div className="signin-gif">
-        <br />
         <img
           src="/images/horseRunning.gif"
           alt="horse"
-          style={{ width: "40%", height: "auto" }}
+          style={{ width: "65%", height: "auto" }}
         />
       </div>
       <div id="firebaseui-auth-container"></div>
-      <div className="signout">You can also sign in with our test account:</div>
+      {/* <div className="signout">You can also sign in with our test account:</div>
       <div className="signout">Email: test@test.com</div>
-      <div className="signout">Password: abc123</div>
+      <div className="signout">Password: abc123</div> */}
     </div>
   );
 };
