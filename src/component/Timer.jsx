@@ -41,6 +41,7 @@ export default function Timer({
   const [value, setValue] = useState("");
   const [input, setInput] = useState("");
 
+
   const hr = JSON.stringify(Math.floor((ms / 3600000) % 60));
   const min = ("0" + Math.floor((ms / 60000) % 60)).slice(-2);
   const sec = ("0" + Math.floor((ms / 1000) % 60)).slice(-2);
@@ -82,6 +83,7 @@ export default function Timer({
     setValue("");
     setInput("");
   }
+
 
   return (
     <div className="trackContainer">

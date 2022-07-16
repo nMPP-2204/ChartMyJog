@@ -1,11 +1,30 @@
-img{
+body {
+  /* background-color: #d5cdbe; */
+  background-color: #ebebeb;
+  position: relative;
+  min-height: 100vh;
+}
+
+img {
   max-width: 100%;
   height: auto;
 }
+
+/* //////////HOME STYLES//////////// */
+
+  .pageHeader{
+    margin-left: 8px;
+  }
+
+/* /////////HOME STYLES ABOVE//////////// */
+
+
+
+
 /* /////RUN TRACKER STYLES/////// */
 
 .runTracker {
-  background-color: lightblue;
+  background-color: #ebebeb;
 }
 
 .leaflet-container {
@@ -94,16 +113,31 @@ h1 {
 }
 
 .footerToolBar {
-  background-color: slategray;
+  background-image: linear-gradient(to right, #d8dbe2, #e4e0d9);
   display: flex;
   flex-direction: column;
-  height: 20vh;
+  justify-content: center;
+  height: 16vh;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%
 }
 .footerComponents {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+/* @media screen and (max-width: 540px) {
+  .view {
+      width: 400px;
+  }
+} */
 
 .footerInfo {
   display: flex;
@@ -152,27 +186,119 @@ h1 {
   margin-top: 2px;
 }
 
-.startRun{
+/* /////////////FOOTER///////////////// */
+
+.footer-basic {
+  padding: 40px 0;
+  background-color: #ffffff;
+  color: #4b4c4d;
+}
+
+.footer-basic ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.footer-basic li {
+  padding: 0 10px;
+}
+
+.footer-basic ul a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity: 1;
+}
+
+.footer-basic .social {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+}
+a {
+  color: black;
+  text-decoration: none;
+  margin: 5px;
+}
+.list-inline {
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+.circleStyle {
+  background-color: #ffffff;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  align-items: center;
+  border: 1px black;
+  padding: 5px;
+  margin: 15px;
+}
+.copyright {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.footer-basic .social > a {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin: 0 8px;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.footer-basic .copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 0;
+}
+.startRun {
   width: 125px;
   height: 50px;
   margin: 6px;
   font-size: large;
   border-radius: 25px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-
+  background-color: #ffffff;
 }
 
 /* ///////RUN TRACKER STYLES ABOVE///// */
 
 /* //////TIMER STYLES///////////////// */
 
-.modalComponents{
+.modalComponents {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.modalTimeDistance{
+.modalTimeDistance {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -185,33 +311,19 @@ h1 {
 /* ///////RUN TRACKER CSS ABOVE/////// */
 /* ///////DASHBOARD STYLES//////////// */
 
-.dashBoard{
+.dashBoard {
   display: flex;
   justify-content: center;
   margin: 25px;
-
 }
+/* ///////TIMER STYLES CSS ABOVE/////// */
 
-.card:hover{
+.card:hover {
   box-shadow: 8px 8px 8px 4px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-
-
-
-
-/* @media screen and (min-width: 25em){
-  html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+.signout{
+  display: flex;
+  justify-content: center;
 }
 
-/* Safari <8 and IE <11 */
-/* @media screen and (min-width: 25em){
-  html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
-} */
-
-/* @media screen and (min-width: 50em){
-html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
-} */
