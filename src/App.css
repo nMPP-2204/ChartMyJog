@@ -94,11 +94,11 @@ h1 {
 }
 
 .footerToolBar {
-  background-image: linear-gradient(to right, #d8dbe2, #a9bcd0);
+  background-image: linear-gradient(to right, #d8dbe2, #e4e0d9);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 20vh;
+  height: 15vh;
   box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
              0 0  0 2px rgb(255,255,255),
@@ -118,11 +118,11 @@ h1 {
 
 
 
-@media screen and (max-width: 540px) {
+/* @media screen and (max-width: 540px) {
   .view {
       width: 400px;
   }
-}
+} */
 
 .footerInfo {
   display: flex;
@@ -309,7 +309,9 @@ a {
 }
 
 
-
+body{
+  background-color: #d5cdbe;
+}
 
 
 
