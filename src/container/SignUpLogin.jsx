@@ -67,18 +67,22 @@ const SignUpLogin = () => {
     }
 
     return (
+      <div className="signout">
       <div id="firebaseui-auth-container">
         <p>Current User: {user.email}</p>
-        <button onClick={logout}>Log out</button>
+        <div style={{display: "flex", justifyContent: 'center'}}>
+        <button className="startRun" onClick={logout}>Log out</button>
+        </div>
+      </div>
       </div>
     );
   }
 
   return (
     <div>
-      <div>You can also sign in with our test account:</div>
-      <div>Email: test@test.com</div>
-      <div>Password: abc123</div>
+      <div className="signout">You can also sign in with our test account:</div>
+      <div className="signout">Email: test@test.com</div>
+      <div className="signout">Password: abc123</div>
       <div id="firebaseui-auth-container"></div>
     </div>
   );

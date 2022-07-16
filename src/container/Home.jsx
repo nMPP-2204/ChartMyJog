@@ -34,9 +34,8 @@ const Home = () => {
             style={{ height: "auto", width: "400px" }}
           />
         // </div> */}
-
-        <Footer />
       </main>
+      <Footer />
     </div>
   );
 };

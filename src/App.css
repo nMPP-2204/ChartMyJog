@@ -1,11 +1,30 @@
-img{
+body {
+  /* background-color: #d5cdbe; */
+  background-color: #ebebeb;
+  position: relative;
+  min-height: 100vh;
+}
+
+img {
   max-width: 100%;
   height: auto;
 }
+
+/* //////////HOME STYLES//////////// */
+
+  .pageHeader{
+    margin-left: 8px;
+  }
+
+/* /////////HOME STYLES ABOVE//////////// */
+
+
+
+
 /* /////RUN TRACKER STYLES/////// */
 
 .runTracker {
-  background-color: lightblue;
+  background-color: #ebebeb;
 }
 
 .leaflet-container {
@@ -98,25 +117,21 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 15vh;
-  box-shadow:
-       inset 0 -3em 3em rgba(0,0,0,0.1),
-             0 0  0 2px rgb(255,255,255),
-             0.3em 0.3em 1em rgba(0,0,0,0.3);
+  height: 16vh;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%
 }
 .footerComponents {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-
-
-
-
-
 
 /* @media screen and (max-width: 540px) {
   .view {
@@ -263,14 +278,14 @@ a {
   color: #aaa;
   margin-bottom: 0;
 }
-.startRun{
+.startRun {
   width: 125px;
   height: 50px;
   margin: 6px;
   font-size: large;
   border-radius: 25px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-
+  background-color: #ffffff;
 }
 
 /* ///////RUN TRACKER STYLES ABOVE///// */
@@ -296,36 +311,19 @@ a {
 /* ///////RUN TRACKER CSS ABOVE/////// */
 /* ///////DASHBOARD STYLES//////////// */
 
-.dashBoard{
+.dashBoard {
   display: flex;
   justify-content: center;
   margin: 25px;
-
 }
 /* ///////TIMER STYLES CSS ABOVE/////// */
 
-.card:hover{
+.card:hover {
   box-shadow: 8px 8px 8px 4px rgba(0, 0, 0, 0.2);
 }
 
-
-body{
-  background-color: #d5cdbe;
+.signout{
+  display: flex;
+  justify-content: center;
 }
 
-
-
-
-
-/* @media screen and (min-width: 25em){
-  html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
-}
-
-/* Safari <8 and IE <11 */
-/* @media screen and (min-width: 25em){
-  html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
-} */
-
-/* @media screen and (min-width: 50em){
-html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
-} */
