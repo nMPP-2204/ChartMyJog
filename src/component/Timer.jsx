@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import geoLocation from "../Hooks/useGeoLocation";
-
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import Input from "@mui/material/Input";
 import TextField from "@mui/material/TextField";
+import Input from "@mui/material/Input";
 import { createRun } from "../utils/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
+import domtoimage from "dom-to-image";
+// import html2canvas from "html2canvas";
 
 const style = {
   position: "absolute",
@@ -37,6 +38,8 @@ export default function Timer({
   const [ms, setMs] = useState(0);
   const [open, setOpen] = useState(false);
   const [pause, setPause] = useState(false);
+  const [value, setValue] = useState("");
+  const [input, setInput] = useState("");
 
 
   const hr = JSON.stringify(Math.floor((ms / 3600000) % 60));
@@ -45,7 +48,10 @@ export default function Timer({
 
   const handleClose = () => setOpen(false);
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    geoLocation(setPolyLine, setDistance);
+    setOpen(true);
+  };
 
   if (!tID && start) {
     tID = setInterval(() => {
@@ -60,14 +66,22 @@ export default function Timer({
     tID = null;
   }
 
-  function saveRun() {
-    console.log("save");
-    geoLocation(setPolyLine, setDistance);
+  async function saveRun() {
+    const node = document.getElementById("MapImage");
+
+    const dataUrl = await domtoimage.toSvg(node);
+
     createRun({
       distance: distance,
       time: `${hr}:${min}:${sec}`,
       uid: user.uid,
+      image: dataUrl,
+      name: input,
+      comment: value,
     });
+
+    setValue("");
+    setInput("");
   }
 
 
@@ -99,21 +113,21 @@ export default function Timer({
       <div className="tracker">
         {!start && ms === 0 && (
           <div className="tracker">
-            <label className="switch">
-              <input
-                type="checkbox"
-                onChange={() => {
-                  setStart(!start);
-                  geoLocation(setPolyLine, setDistance);
-                }}
-              />
-              <span className="slider round"></span>
-            </label>
+            <button
+              className="startRun"
+              onClick={() => {
+                setStart(!start);
+                geoLocation(setPolyLine, setDistance);
+              }}
+            >
+              Start Run
+            </button>
           </div>
         )}
         {start && (
           <div>
             <Button
+              className="startRun"
               onClick={() => {
                 setPause(!pause);
                 setStart(!start);
@@ -125,7 +139,9 @@ export default function Timer({
         )}
         {pause && (
           <div>
-            <Button onClick={handleOpen}>END RUN</Button>
+            <Button className="startRun" onClick={handleOpen}>
+              END RUN
+            </Button>
             <Modal
               open={open}
               onClose={handleClose}
@@ -141,19 +157,33 @@ export default function Timer({
                   >
                     <div className="modalTimeDistance">
                       <div style={{ fontSize: "16px" }}>
-                        DISTANCE(MI): {distance}
+                        DISTANCE(MI): {distance.toFixed(2)}
                       </div>
                       <div style={{ fontSize: "16px" }}>
                         DURATION: {`${hr}:${min}:${sec}`}
                       </div>
+                      <div style={{ fontSize: "16px" }}>
+                        {/* AVG PACE: {(distance / ms).toFixed(2)} */}
+                      </div>
                     </div>
                   </Typography>
                   <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    NAME YOUR RUN:
+                  </Typography>
+                  <Input
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                  />
+                  <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     COMMENTS:
                   </Typography>
-                  <TextField defaultValue={"Great Job!!!"} />
+                  <TextField
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                  />
                   <br />
                   <Button
+                    className="startRun"
                     onClick={() => {
                       setMs(0);
                       setDistance(0);
@@ -172,12 +202,23 @@ export default function Timer({
         {pause && (
           <div>
             <Button
+              className="startRun"
               onClick={() => {
                 setPause(!pause);
                 setStart(!start);
               }}
             >
               RESUME
+            </Button>
+            <Button
+              className="startRun"
+              onClick={() => {
+                setMs(0);
+                setDistance(0);
+                setPause(!pause);
+              }}
+            >
+              RESET
             </Button>
           </div>
         )}

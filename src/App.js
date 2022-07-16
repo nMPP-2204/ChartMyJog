@@ -3,11 +3,13 @@ import Home from "./container/Home";
 import RunTracker from "./container/RunTracker.jsx";
 import Dashboard from "./container/Dashboard.jsx";
 import SignUpLogin from "./container/SignUpLogin.jsx";
+import SimpleSlide from "./component/SlidingNavBar";
 
 function App() {
   return (
     <>
       <Router>
+        <SimpleSlide />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />

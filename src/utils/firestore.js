@@ -9,6 +9,8 @@ import {
   getDocs,
   query,
   where,
+  orderBy,
+  limit,
 } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 
@@ -62,16 +64,18 @@ export const createRun = async ({
   uid,
   distance = 0,
   time = "",
-  polyline = [],
+  name = "",
   comment = "",
+  image = "",
 }) => {
   try {
     const docRef = await addDoc(collection(db, "runs"), {
       uid,
       distance,
       time,
-      polyline,
+      name,
       comment,
+      image,
       startTime: serverTimestamp(),
     });
     console.log("Run created with ID: ", docRef.id);
@@ -83,7 +87,7 @@ export const createRun = async ({
 export const getUserRuns = async ({ uid }) => {
   try {
     const runs = [];
-    const q = query(collection(db, "runs"), where("uid", "==", uid));
+    const q = query(collection(db, "runs"), where("uid", "==", uid), orderBy("startTime", "desc"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       runs.push({ id: doc.id, ...doc.data() });

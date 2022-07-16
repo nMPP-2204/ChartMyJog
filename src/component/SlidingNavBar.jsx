@@ -20,19 +20,8 @@ export default function SimpleSlide() {
       <RunTrackerMenu open={open} setOpen={setOpen} />
 
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" style={{ backgroundColor: "#e4e0d9" }}>
           <Toolbar className="slidingNav">
-            <IconButton
-              onClick={menuOpen}
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-
             <Link to="/run-tracker" style={styledLink}>
               {" "}
               <IconButton
@@ -40,7 +29,7 @@ export default function SimpleSlide() {
                 edge="start"
                 color="inherit"
                 aria-label="menu"
-                sx={{ mr: 2 }}
+                sx={{ mr: 2, color: "black" }}
               >
                 <DirectionsRunIcon />
               </IconButton>
@@ -50,15 +39,14 @@ export default function SimpleSlide() {
               <IconButton
                 size="large"
                 edge="start"
-                color="inherit"
                 aria-label="menu"
-                sx={{ mr: 2 }}
+                sx={{ mr: 2, color: "black" }}
               >
                 <HomeIcon />
               </IconButton>
             </Link>
 
-            <IconButton
+            {/* <IconButton
               size="large"
               edge="start"
               color="inherit"
@@ -66,6 +54,15 @@ export default function SimpleSlide() {
               sx={{ mr: 2 }}
             >
               <Settings />
+            </IconButton> */}
+            <IconButton
+              onClick={menuOpen}
+              size="large"
+              edge="start"
+              aria-label="menu"
+              sx={{ mr: 2, color: "black" }}
+            >
+              <MenuIcon />
             </IconButton>
           </Toolbar>
         </AppBar>
