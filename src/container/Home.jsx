@@ -1,6 +1,8 @@
 import { Typography } from "@mui/material";
 import Footer from "../component/Footer";
-import RunningPeople from "../Images/runningPeople.jpg";
+// import RunningPeople from "../Images/runningPeople.jpg";
+import RunningWoman from "../Images/runningwoman.jpg";
+import Carousel from "../component/Carousel";
 
 const Home = () => {
   return (
@@ -14,8 +16,9 @@ const Home = () => {
         </div>
       </header>
       <main>
-        <div>
-          {/* <Typography
+        <Carousel />
+        {/* <div> */}
+        {/* <Typography
             fontWeight={700}
             sx={{ fontSize: { lg: "44px", xs: "40px" } }}
             mb="23px"
@@ -24,13 +27,13 @@ const Home = () => {
             When your legs get tired <br />
             Run with your heart ...
           </Typography> */}
-
+        {/*
           <img
             alt=""
-            src={RunningPeople}
+            src={RunningWoman}
             style={{ height: "auto", width: "400px" }}
           />
-        </div>
+        // </div> */}
 
         <Footer />
       </main>
