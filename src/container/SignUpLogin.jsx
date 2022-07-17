@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
 import { auth } from "../utils/firebase.js";
-import AllUsers from "../component/AllUsers.jsx";
 import {
   EmailAuthProvider,
   FacebookAuthProvider,
@@ -12,7 +11,6 @@ import {
   TwitterAuthProvider,
 } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import Navbar from "../component/Navbar";
 import { createUser, getUser } from "../utils/firestore.js";
 
 const SignUpLogin = () => {
@@ -68,12 +66,14 @@ const SignUpLogin = () => {
 
     return (
       <div className="signout">
-      <div id="firebaseui-auth-container">
-        <p>Current User: {user.email}</p>
-        <div style={{display: "flex", justifyContent: 'center'}}>
-        <button className="startRun" onClick={logout}>Log out</button>
+        <div id="firebaseui-auth-container">
+          <p>Current User: {user.email}</p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button className="startRun" onClick={logout}>
+              Log out
+            </button>
+          </div>
         </div>
-      </div>
       </div>
     );
   }
