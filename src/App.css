@@ -329,3 +329,31 @@ a {
   justify-content: center;
   margin: 5%;
 }
+
+/* @media screen and (min-width: 415px) {
+  .carousel img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .carousel img {
+    width: 50%;
+    height: auto;
+  }
+} */
+
+@media screen and (max-width: 415px) {
+  .carousel img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .carousel img {
+    width: 50%;
+    height: auto;
+  }
+}
