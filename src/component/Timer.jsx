@@ -72,12 +72,10 @@ export default function Timer({
     const dataUrl = await domtoimage.toSvg(node);
 
     let pace = 0;
-
-    if (!distance) {
+    if (distance) {
       const totalSec = +hr * 3600 + +min * 60 + +sec;
-      pace = totalSec / 60 / distance;
+      pace = Math.ceil((totalSec / 60 / distance) * 100) / 100;
     }
-
     createRun({
       distance: distance,
       time: `${hr}:${min}:${sec}`,
