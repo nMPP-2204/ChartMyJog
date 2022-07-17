@@ -35,7 +35,6 @@ const SignUpLogin = () => {
   };
 
   useEffect(() => {
-    console.log(firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID);
     const ui =
       firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
     if (!user) ui.start("#firebaseui-auth-container", uiConfig);
