@@ -7,6 +7,7 @@ import friendshigh5 from "../Images/friendshigh5.jpg";
 import friendspose from "../Images/friendspose.jpg";
 
 const ImageCarousel = () => {
+  const styleSizes = { width: "50%", height: "auto" };
   return (
     <div>
       <Carousel
@@ -16,18 +17,19 @@ const ImageCarousel = () => {
         showThumbs={false}
         transitionTime={2000}
         swipeable={true}
+        className="carousel"
       >
         <div>
-          <img src={runningWoman} alt="" />
+          <img src={runningWoman} alt="" style={styleSizes} />
         </div>
         <div>
-          <img src={RunningPeople} alt="" />
+          <img src={RunningPeople} alt="" style={styleSizes} />
         </div>
         <div>
-          <img src={friendshigh5} alt="" />
+          <img src={friendshigh5} alt="" style={styleSizes} />
         </div>
         <div>
-          <img src={friendspose} alt="" />
+          <img src={friendspose} alt="" style={styleSizes} />
         </div>
       </Carousel>
     </div>

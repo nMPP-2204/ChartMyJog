@@ -4,9 +4,7 @@ import { PreviousRuns } from "../component/PreviousRuns";
 const Dashboard = () => {
   return (
     <div className="Home">
-      <header>
-        <h1 className="pageHeader">Chart My Jog</h1>
-      </header>
+      <header></header>
       <main>
         <PreviousRuns />
       </main>
