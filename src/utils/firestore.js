@@ -24,7 +24,6 @@ export const createUser = async ({ uid, photoURL, displayName, email }) => {
       displayName,
       email,
     });
-    console.log("User ( ", displayName, " ) created!");
   } catch (e) {
     console.error("Error creating user: ", e);
   }
@@ -36,7 +35,6 @@ export const getUsers = async () => {
     const querySnapshot = await getDocs(collection(db, "users"));
     querySnapshot.forEach((doc) => {
       users.push(doc.id);
-      // console.log(doc.id, " => ", doc.data());
     });
     return users;
   } catch (e) {
@@ -52,7 +50,6 @@ export const getUser = async ({ uid }) => {
     if (docSnap.exists()) {
       return docSnap.data();
     } else {
-      console.log("User doesn't exist!");
       return null;
     }
   } catch (e) {
@@ -78,7 +75,6 @@ export const createRun = async ({
       image,
       startTime: serverTimestamp(),
     });
-    console.log("Run created with ID: ", docRef.id);
   } catch (e) {
     console.error("Error creating run: ", e);
   }
@@ -87,7 +83,11 @@ export const createRun = async ({
 export const getUserRuns = async ({ uid }) => {
   try {
     const runs = [];
-    const q = query(collection(db, "runs"), where("uid", "==", uid), orderBy("startTime", "desc"));
+    const q = query(
+      collection(db, "runs"),
+      where("uid", "==", uid),
+      orderBy("startTime", "desc")
+    );
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       runs.push({ id: doc.id, ...doc.data() });

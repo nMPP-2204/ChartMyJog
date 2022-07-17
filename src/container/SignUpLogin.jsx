@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
 import { auth } from "../utils/firebase.js";
-import AllUsers from "../component/AllUsers.jsx";
 import {
   EmailAuthProvider,
   FacebookAuthProvider,
@@ -36,7 +35,6 @@ const SignUpLogin = () => {
   };
 
   useEffect(() => {
-    console.log(firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID);
     const ui =
       firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
     if (!user) ui.start("#firebaseui-auth-container", uiConfig);
