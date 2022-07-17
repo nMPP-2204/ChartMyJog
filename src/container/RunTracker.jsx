@@ -83,13 +83,14 @@ export default function RunTracker() {
         setDistance={setDistance}
       />
       <div className="tracker">
-      <button className="startRun"
-        onClick={() => {
-          testGeolocation(setPolyLine, setDistance, setLocation);
-        }}
-      >
-        Test Run
-      </button>
+        <button
+          className="startRun"
+          onClick={() => {
+            testGeolocation(setPolyLine, setDistance, setLocation, location);
+          }}
+        >
+          Test Run
+        </button>
       </div>
     </div>
   );

@@ -61,7 +61,7 @@ const geoLocation = (setPolyLine, setDistance) => {
     console.warn(`ERROR(${error.code}): ${error.message}`);
   };
 
-  if(watchPoisitionId){
+  if (watchPoisitionId) {
     navigator.geolocation.clearWatch(watchPoisitionId);
     watchPoisitionId = null;
     return null;

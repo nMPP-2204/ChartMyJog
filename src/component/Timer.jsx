@@ -41,7 +41,6 @@ export default function Timer({
   const [value, setValue] = useState("");
   const [input, setInput] = useState("");
 
-
   const hr = JSON.stringify(Math.floor((ms / 3600000) % 60));
   const min = ("0" + Math.floor((ms / 60000) % 60)).slice(-2);
   const sec = ("0" + Math.floor((ms / 1000) % 60)).slice(-2);
@@ -68,8 +67,14 @@ export default function Timer({
 
   async function saveRun() {
     const node = document.getElementById("MapImage");
-
     const dataUrl = await domtoimage.toSvg(node);
+
+    let pace = 0;
+
+    if (!distance) {
+      const totalSec = +hr * 3600 + +min * 60 + +sec;
+      pace = totalSec / 60 / distance;
+    }
 
     createRun({
       distance: distance,
@@ -78,12 +83,12 @@ export default function Timer({
       image: dataUrl,
       name: input,
       comment: value,
+      pace,
     });
 
     setValue("");
     setInput("");
   }
-
 
   return (
     <div className="trackContainer">

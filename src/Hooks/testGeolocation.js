@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-let dummyGeoID = null;
-let dummyLoc = [40.8387211, -74.3121783];
+let testGeoID = null;
 
 const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
   const R = 6371; // Radius of the earth in km
@@ -22,10 +21,10 @@ const deg2rad = (deg) => {
   return deg * (Math.PI / 180);
 };
 
-const testGeolocation = (setPolyLine, setDistance, setLocation) => {
+const testGeolocation = (setPolyLine, setDistance, setLocation, location) => {
   const setNewLocation = (location) => {
     location[0] -= 0.0001;
-    location[1] -= 0.10001;
+    location[1] -= 0.001;
     setLocation(location);
     setPolyLine((polyLine) => {
       if (
@@ -57,11 +56,11 @@ const testGeolocation = (setPolyLine, setDistance, setLocation) => {
     });
   };
 
-  if (dummyGeoID) {
-    clearInterval(dummyGeoID);
-    dummyGeoID = null;
+  if (testGeoID) {
+    clearInterval(testGeoID);
+    testGeoID = null;
   } else {
-    dummyGeoID = setInterval(() => setNewLocation(dummyLoc), 500);
+    testGeoID = setInterval(() => setNewLocation(location), 10);
   }
 };
 

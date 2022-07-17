@@ -64,6 +64,7 @@ export const createRun = async ({
   name = "",
   comment = "",
   image = "",
+  pace = 0,
 }) => {
   try {
     const docRef = await addDoc(collection(db, "runs"), {
@@ -74,6 +75,7 @@ export const createRun = async ({
       comment,
       image,
       startTime: serverTimestamp(),
+      pace,
     });
   } catch (e) {
     console.error("Error creating run: ", e);
