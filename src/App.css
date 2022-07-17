@@ -12,14 +12,11 @@ img {
 
 /* //////////HOME STYLES//////////// */
 
-  .pageHeader{
-    margin-left: 8px;
-  }
+.pageHeader {
+  margin-left: 8px;
+}
 
 /* /////////HOME STYLES ABOVE//////////// */
-
-
-
 
 /* /////RUN TRACKER STYLES/////// */
 
@@ -125,7 +122,7 @@ h1 {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%
+  width: 100%;
 }
 .footerComponents {
   display: flex;
@@ -322,8 +319,13 @@ a {
   box-shadow: 8px 8px 8px 4px rgba(0, 0, 0, 0.2);
 }
 
-.signout{
+.signout {
   display: flex;
   justify-content: center;
 }
 
+.signin-gif {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+}
