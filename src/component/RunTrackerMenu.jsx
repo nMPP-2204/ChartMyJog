@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Drawer, IconButton, styled, useTheme } from "@mui/material";
+import { Drawer, IconButton, styled, useTheme } from "@mui/material";
 import {
   ChevronLeft,
   ChevronRight,

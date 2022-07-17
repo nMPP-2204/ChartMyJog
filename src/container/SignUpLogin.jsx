@@ -21,13 +21,12 @@ const SignUpLogin = () => {
   };
 
   const uiConfig = {
-    signInSuccessUrl: "/home",
+    signInSuccessUrl: "/signup",
     signInOptions: [
       EmailAuthProvider.PROVIDER_ID,
       GoogleAuthProvider.PROVIDER_ID,
       GithubAuthProvider.PROVIDER_ID,
       FacebookAuthProvider.PROVIDER_ID,
-      TwitterAuthProvider.PROVIDER_ID,
     ],
     tosUrl: "https://chartmyjog-8a62d.web.app/dashboard",
     privacyPolicyUrl: function () {
@@ -36,6 +35,7 @@ const SignUpLogin = () => {
   };
 
   useEffect(() => {
+    console.log(firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID);
     const ui =
       firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
     if (!user) ui.start("#firebaseui-auth-container", uiConfig);
@@ -80,10 +80,17 @@ const SignUpLogin = () => {
 
   return (
     <div>
+      <div className="signin-gif">
+        <img
+          src="/images/horseRunning.gif"
+          alt="horse"
+          style={{ width: "65%", height: "auto" }}
+        />
+      </div>
+      <div id="firebaseui-auth-container"></div>
       <div className="signout">You can also sign in with our test account:</div>
       <div className="signout">Email: test@test.com</div>
       <div className="signout">Password: abc123</div>
-      <div id="firebaseui-auth-container"></div>
     </div>
   );
 };
