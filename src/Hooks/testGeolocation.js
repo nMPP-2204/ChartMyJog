@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-
 let testGeoID = null;
 
 const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
@@ -21,10 +19,17 @@ const deg2rad = (deg) => {
   return deg * (Math.PI / 180);
 };
 
-const testGeolocation = (setPolyLine, setDistance, setLocation, location) => {
-  const setNewLocation = (location) => {
-    location[0] -= 0.0001;
-    location[1] -= 0.001;
+const testGeolocation = (
+  setPolyLine,
+  setDistance,
+  setLocation,
+  location,
+  setStart,
+  setMs
+) => {
+  const setNewLocation = (location, direction) => {
+    location[0] += direction[0];
+    location[1] += direction[1];
     setLocation(location);
     setPolyLine((polyLine) => {
       if (
@@ -55,12 +60,37 @@ const testGeolocation = (setPolyLine, setDistance, setLocation, location) => {
       return [...polyLine, [location[0], location[1]]];
     });
   };
-
   if (testGeoID) {
     clearInterval(testGeoID);
     testGeoID = null;
   } else {
-    testGeoID = setInterval(() => setNewLocation(location), 10);
+    const directions = [
+      [0.0002, 0],
+      [0, -0.0002],
+      [-0.0002, 0],
+      [0, 0.0002],
+    ];
+
+    let waitTime = 0;
+
+    const runSingleDirection = (direction) => {
+      let tempId;
+      setTimeout(() => {
+        tempId = setInterval(() => setNewLocation(location, direction), 100);
+      }, waitTime);
+      waitTime += 5000;
+      setTimeout(() => {
+        clearInterval(tempId);
+      }, waitTime);
+    };
+    directions.forEach((direction) => {
+      runSingleDirection(direction);
+    });
+    setTimeout(() => {
+      setStart(false);
+      setMs(0);
+      setDistance(0);
+    }, 20000);
   }
 };
 

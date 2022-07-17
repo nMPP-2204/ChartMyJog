@@ -18,7 +18,6 @@ export default function SimpleSlide() {
   return (
     <div>
       <RunTrackerMenu open={open} setOpen={setOpen} />
-
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" style={{ backgroundColor: "#e4e0d9" }}>
           <Toolbar className="slidingNav">
