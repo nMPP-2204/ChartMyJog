@@ -90,6 +90,7 @@ const testGeolocation = (
       setStart(false);
       setMs(0);
       setDistance(0);
+      setPolyLine([]);
     }, 20000);
   }
 };
