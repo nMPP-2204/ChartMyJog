@@ -52,7 +52,6 @@ export default function Timer({
   const handleOpen = () => {
     geoLocation(setPolyLine, setDistance);
     setOpen(true);
-    setPolyLine([]);
   };
 
   if (!tID && start) {
@@ -89,6 +88,7 @@ export default function Timer({
 
     setValue("");
     setInput("");
+    setPolyLine([]);
   }
   return (
     <>
