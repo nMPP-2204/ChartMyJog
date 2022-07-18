@@ -8,10 +8,9 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import "../App.css";
-import SimpleSlide from "../component/SlidingNavBar";
 import Timer from "../component/Timer";
-import testGeolocation from "../Hooks/testGeolocation";
 import Loader from "../component/Loader/Loader";
+import TestRun from "../component/TestRun";
 
 export default function RunTracker() {
   const API_KEY = `${process.env.REACT_APP_API_KEY}`;
@@ -81,16 +80,9 @@ export default function RunTracker() {
         setStart={setStart}
         setPolyLine={setPolyLine}
         setDistance={setDistance}
+        setLocation={setLocation}
+        location={location}
       />
-      <div className="tracker">
-      <button className="startRun"
-        onClick={() => {
-          testGeolocation(setPolyLine, setDistance, setLocation);
-        }}
-      >
-        Test Run
-      </button>
-      </div>
     </div>
   );
 }

@@ -73,7 +73,7 @@ const SingleRun = ({ run }) => {
             Distance: {run.distance}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Pace: Coming Soon
+            Pace: {run.pace} min/mi
           </Typography>
         </CardContent>
         <CardActions disableSpacing>

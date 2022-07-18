@@ -346,14 +346,14 @@ a {
 
 @media screen and (max-width: 415px) {
   .carousel img {
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 600px) {
   .carousel img {
-    width: auto;
-    height: 50%;
+    width: 50%;
+    height: auto;
   }
 }
