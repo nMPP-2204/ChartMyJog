@@ -21,7 +21,7 @@ const SignUpLogin = () => {
   };
 
   const uiConfig = {
-    signInSuccessUrl: "/signup",
+    signInSuccessUrl: "/run-tracker",
     signInOptions: [
       EmailAuthProvider.PROVIDER_ID,
       GoogleAuthProvider.PROVIDER_ID,
@@ -80,11 +80,11 @@ const SignUpLogin = () => {
   return (
     <div>
       <div className="signin-gif">
-        <img
+        {/* <img
           src="/images/horseRunning.gif"
           alt="horse"
           style={{ width: "65%", height: "auto" }}
-        />
+        /> */}
       </div>
       <div id="firebaseui-auth-container"></div>
       <div className="signout">You can also sign in with our test account:</div>
