@@ -6,10 +6,15 @@ import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "react-router-dom";
 import RunTrackerMenu from "./RunTrackerMenu";
+import PersonIcon from "@mui/icons-material/Person";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../utils/firebase";
 
 export default function SimpleSlide() {
   const styledLink = { color: "white", textDecoration: "none" };
   const [open, setOpen] = useState(false);
+  const [user] = useAuthState(auth);
 
   const menuOpen = () => {
     setOpen(true);
@@ -21,6 +26,17 @@ export default function SimpleSlide() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" style={{ backgroundColor: "#e4e0d9" }}>
           <Toolbar className="slidingNav">
+            <Link to="/home" style={styledLink}>
+              <IconButton
+                size="large"
+                edge="start"
+                aria-label="menu"
+                sx={{ mr: 2, color: "black" }}
+              >
+                <HomeIcon />
+              </IconButton>
+            </Link>
+
             <Link to="/run-tracker" style={styledLink}>
               {" "}
               <IconButton
@@ -34,14 +50,16 @@ export default function SimpleSlide() {
               </IconButton>
             </Link>
 
-            <Link to="/home" style={styledLink}>
+            <Link to="/signup" style={styledLink}>
+              {" "}
               <IconButton
                 size="large"
                 edge="start"
+                color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2, color: "black" }}
               >
-                <HomeIcon />
+                {user ? <LogoutIcon /> : <PersonIcon />}
               </IconButton>
             </Link>
 

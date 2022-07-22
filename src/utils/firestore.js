@@ -16,6 +16,7 @@ import { serverTimestamp } from "firebase/firestore";
 
 export const db = getFirestore(app);
 
+
 export const createUser = async ({ uid, photoURL, displayName, email }) => {
   try {
     await setDoc(doc(db, "users", uid), {
