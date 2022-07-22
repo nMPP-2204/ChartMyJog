@@ -1,5 +1,6 @@
 <img src="./src/Images/ChartMyJog.png" width="250" alt=""/>
-[<img src="/src/Images/ChartMyJog.png"/>](https://youtu.be/dmplVct15V8)
+
+https://youtu.be/dmplVct15V8
 
 Welcome to the repository for Chart My Jog! This application was created as a capstone project for Fullstack Academy April 2022 cohort by developers Andre Barber, Angel Gomez, Alexander Tikohomirov and Kevin Yu. We used React.js, material-ui, React Leaflet, Mapbox, and Firebase to create a fitness application that maps a user’s runs, records their time and distance, and allows them to record reflections on their runs for later reference!
 
