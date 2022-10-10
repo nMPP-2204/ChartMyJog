@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/KYu-2468/netflixk">
-    <img src="./src/Images/ChartMyJog.png" alt="Logo" width="80" height="80">
+    <img src="public/images/CMJ.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Chart My Jog</h3>
@@ -16,7 +16,7 @@
     ·
     <a href="https://github.com/KYu-2468/netflixk/issues">Request Feature</a>
     ·
-    <a href="https://main.dk22od2tuez03.amplifyapp.com">Website Link</a>
+    <!-- <a href="https://chartmyjog-8a62d.web.app/">Website Link</a> -->
   </p>
 </div>
 
@@ -40,11 +40,13 @@
 
 Chart My Jog was created using React.js, material-ui, React Leaflet, Mapbox, and Firebase. users to chart their jog in real-time on a digital map. Users are able to sign in with social providers such as Google, Facebook, and GitHub or sign up with their email address.
 
-<!-- [![NetflixK][product-screenshot]](https://main.dk22od2tuez03.amplifyapp.com/)
+[![Signup][product-screenshot]](https://main.dk22od2tuez03.amplifyapp.com/)
 
-[![NetflixK][product-screenshot2]](https://main.dk22od2tuez03.amplifyapp.com/)
+[![Start-Run][product-screenshot2]](https://main.dk22od2tuez03.amplifyapp.com/)
+[![run-3][product-screenshot3]](https://main.dk22od2tuez03.amplifyapp.com/)
 
-[![NetflixK][product-screenshot3]](https://main.dk22od2tuez03.amplifyapp.com/) -->
+[![save-run][product-screenshot4]](https://main.dk22od2tuez03.amplifyapp.com/)
+[![run-1][product-screenshot5]](https://main.dk22od2tuez03.amplifyapp.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,9 +77,11 @@ Angel Gomez - [LinkedIn](www.linkedin.com/in/angel-gomez-b8b369192/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[product-screenshot]: images/NetflixK.png
-[product-screenshot2]: images/Netflixk-2.png
-[product-screenshot3]: images/Trailer3.png
+[product-screenshot]: public/images/Signup.png
+[product-screenshot2]: public/images/start-run.png
+[product-screenshot3]: public/images/run-3.png
+[product-screenshot4]: public/images/save-run.png
+[product-screenshot5]: public/images/run-1.png
 [react.js]: public/images/react.png
 [react-url]: https://reactjs.org/
 [tailwind.js]: public/images/Tailwind.png
