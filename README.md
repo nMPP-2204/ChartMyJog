@@ -1,25 +1,94 @@
-<img src="./src/Images/ChartMyJog.png" width="250" alt=""/>
+<a name="readme-top"></a>
 
-[![Watch the video](./src/Images/ChartMyJog.png)](https://www.youtube.com/watch?v=dmplVct15V8)
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/KYu-2468/netflixk">
+    <img src="./src/Images/ChartMyJog.png" alt="Logo" width="80" height="80">
+  </a>
 
-Welcome to the repository for Chart My Jog! This application was created as a capstone project for Fullstack Academy April 2022 cohort by developers Andre Barber, Angel Gomez, Alexander Tikohomirov and Kevin Yu. We used React.js, material-ui, React Leaflet, Mapbox, and Firebase to create a fitness application that maps a user’s runs, records their time and distance, and allows them to record reflections on their runs for later reference!
+  <h3 align="center">Chart My Jog</h3>
 
-The decision to use React came naturally; we learned it at our bootcamp and wanted to continue exploring this considerable framework in our single page application. The rest of our tech stack was new to us ergo we wanted our main codebase to be in something familiar but suitable. And fortunately Firebase allowed us to set up authentication and a NoSQL database easily and seamlessly.
+  <p align="center">
+    Chart My Jog is a fitness application that maps a user’s runs, records their time and distance, and allows them to record reflections on their runs for later reference!
+    <br />
+    <a href="https://www.youtube.com/watch?v=dmplVct15V8">View Video</a>
+    ·
+    <a href="https://github.com/KYu-2468/netflixk/issues">Request Feature</a>
+    ·
+    <a href="https://main.dk22od2tuez03.amplifyapp.com">Website Link</a>
+  </p>
+</div>
 
-Challenges appeared swiftly - some of the functions, libraries and layering we were planning on implementing with React-Leaflet were no longer supported, and though we were able to produce vanilla javascript functions that did what we wanted, integrating them into React and its state-management methods proved more tedious and less intuitive than we anticipated. The Mapbox API and the existing React Leaflet documentation - as well as some elegant math none of us were familiar with - aided us immensely in finally being able to craft a product we envisioned. In the future we’d like to harness the full power of Firebase to allow our joggers to connect with their friends, set up virtual challenges, and send one another encouraging messages!
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-After cloning this repository be sure to npm install. To view the project on localhost the npm start script is available. Of course feel free to checkout the deployed version of our application here: https://chartmyjog-8a62d.web.app/
+<!-- ABOUT THE PROJECT -->
 
-Software Developers:
+## About The Project
 
-Alexander Tikhomirov
-www.linkedin.com/in/alexander-a-tikhomirov/
+Chart My Jog was created using React.js, material-ui, React Leaflet, Mapbox, and Firebase. users to chart their jog in real-time on a digital map. Users are able to sign in with social providers such as Google, Facebook, and GitHub or sign up with their email address.
 
-Andre Barber
-www.linkedin.com/in/andreb2021/
+<!-- [![NetflixK][product-screenshot]](https://main.dk22od2tuez03.amplifyapp.com/)
 
-Angel Gomez
-www.linkedin.com/in/angel-gomez-b8b369192/
+[![NetflixK][product-screenshot2]](https://main.dk22od2tuez03.amplifyapp.com/)
 
-Kevin Yu
-www.linkedin.com/in/kevinyu2468/
+[![NetflixK][product-screenshot3]](https://main.dk22od2tuez03.amplifyapp.com/) -->
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Built With
+
+- [![React][react.js]][react-url]
+- [![Tailwind][tailwind.js]][tailwind-url]
+- [![Firebase][firebase]][firebase-url]
+- [![Leaflet][leaflet]][leaflet-url]
+- [![React-Leaflet][reactleaflet]][reactleaflet-url]
+- [![MaterialUI][mui]][mui-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+Kevin Yu - [LinkedIn](https://www.linkedin.com/in/kevinyu2468/)
+
+Alexander Tikhomirov - [LinkedIn](www.linkedin.com/in/alexander-a-tikhomirov/)
+
+Andre Barber - [LinkedIn](www.linkedin.com/in/andreb2021/)
+
+Angel Gomez - [LinkedIn](www.linkedin.com/in/angel-gomez-b8b369192/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[product-screenshot]: images/NetflixK.png
+[product-screenshot2]: images/Netflixk-2.png
+[product-screenshot3]: images/Trailer3.png
+[react.js]: public/images/react.png
+[react-url]: https://reactjs.org/
+[tailwind.js]: public/images/Tailwind.png
+[tailwind-url]: https://tailwindcss.com/
+[firebase]: public/images/firebase.png
+[firebase-url]: https://firebase.google.com/
+[mui]: public/images/mui.png
+[mui-url]: https://mui.com/material-ui/
+[reactleaflet]: public/images/react-leaflet.png
+[reactleaflet-url]: https://react-leaflet.js.org/
+[leaflet]: public/images/leaflet.png
+[leaflet-url]: https://leafletjs.com/
+
+https://chartmyjog-8a62d.web.app/
