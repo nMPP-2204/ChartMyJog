@@ -38,15 +38,15 @@
 
 ## About The Project
 
-Chart My Jog was created using React.js, material-ui, React Leaflet, Mapbox, and Firebase. users to chart their jog in real-time on a digital map. Users are able to sign in with social providers such as Google, Facebook, and GitHub or sign up with their email address.
+Chart My Jog was created using React.js, materialUI, React Leaflet, Mapbox, and Firebase. Users can chart their jog in real-time on a digital map. Users can sign in with social providers such as Google, Facebook, and GitHub or sign up with their email addresses. Once the jog is complete, users can save their jogs and view them anytime they please.
 
-[![Signup][product-screenshot]](https://main.dk22od2tuez03.amplifyapp.com/)
+[![Signup][product-screenshot]](https://github.com/KYu-2468/ChartMyJog)
 
-[![Start-Run][product-screenshot2]](https://main.dk22od2tuez03.amplifyapp.com/)
-[![run-3][product-screenshot3]](https://main.dk22od2tuez03.amplifyapp.com/)
+[![Start-Run][product-screenshot2]](https://github.com/KYu-2468/ChartMyJog)
+[![run-3][product-screenshot3]](https://github.com/KYu-2468/ChartMyJog)
 
-[![save-run][product-screenshot4]](https://main.dk22od2tuez03.amplifyapp.com/)
-[![run-1][product-screenshot5]](https://main.dk22od2tuez03.amplifyapp.com/)
+[![save-run][product-screenshot4]](https://github.com/KYu-2468/ChartMyJog)
+[![run-1][product-screenshot5]](https://github.com/KYu-2468/ChartMyJog)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -95,4 +95,4 @@ Angel Gomez - [LinkedIn](www.linkedin.com/in/angel-gomez-b8b369192/)
 [leaflet]: public/images/leaflet.png
 [leaflet-url]: https://leafletjs.com/
 
-https://chartmyjog-8a62d.web.app/
+<!-- https://chartmyjog-8a62d.web.app/ -->
