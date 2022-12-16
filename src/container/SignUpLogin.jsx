@@ -12,6 +12,7 @@ import {
 } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { createUser, getUser } from "../utils/firestore.js";
+import Background from "../Images/Background.gif";
 
 const SignUpLogin = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -78,18 +79,24 @@ const SignUpLogin = () => {
   }
 
   return (
-    <div>
-      <div className="signin-gif">
-        {/* <img
-          src="/images/horseRunning.gif"
-          alt="horse"
-          style={{ width: "65%", height: "auto" }}
-        /> */}
+    <div
+      style={{
+        backgroundImage: `url(${Background})`,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "start",
+        alignItems: "center",
+      }}
+      className="h-screen"
+    >
+      <div className="my-6 text-white text-3xl flex flex-col text-center font-serif">
+        <p className="my-4">Sign up or Sign in to </p>
+        <p className="text-4xl italic animate-charcter">Chart My Jog</p>
       </div>
       <div id="firebaseui-auth-container"></div>
-      <div className="signout">You can also sign in with our test account:</div>
-      <div className="signout">Email: test@test.com</div>
-      <div className="signout">Password: abc123</div>
+      {/* <div className="signin-gif"> */}
+
+      {/* </div> */}
     </div>
   );
 };
