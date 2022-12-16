@@ -14,8 +14,6 @@
     <br />
     <a href="https://www.youtube.com/watch?v=dmplVct15V8">View Video</a>
     ·
-    <a href="https://github.com/KYu-2468/netflixk/issues">Request Feature</a>
-    ·
     <!-- <a href="https://chartmyjog-8a62d.web.app/">Website Link</a> -->
   </p>
 </div>
@@ -52,12 +50,18 @@ Chart My Jog was created using React.js, materialUI, React Leaflet, Mapbox, and 
 
 ### Built With
 
-- [![React][react.js]][react-url]
+- React
+- Material UI
+- Google Firebase / Firestore (NoSQL)
+- React-Leaflet
+- Mapbox API
+- Geolocation API
+<!-- - [![React][react.js]][react-url]
 - [![Tailwind][tailwind.js]][tailwind-url]
 - [![Firebase][firebase]][firebase-url]
 - [![Leaflet][leaflet]][leaflet-url]
 - [![React-Leaflet][reactleaflet]][reactleaflet-url]
-- [![MaterialUI][mui]][mui-url]
+- [![MaterialUI][mui]][mui-url] -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
