@@ -14,7 +14,7 @@
     <br />
     <a href="https://www.youtube.com/watch?v=dmplVct15V8">View Video</a>
     ·
-    <!-- <a href="https://chartmyjog-8a62d.web.app/">Website Link</a> -->
+    <a href="https://chart-my-jog.web.app/">Website Link</a>
   </p>
 </div>
 

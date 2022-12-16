@@ -21,7 +21,7 @@ const SignUpLogin = () => {
   };
 
   const uiConfig = {
-    signInSuccessUrl: "/run-tracker",
+    signInSuccessUrl: "/",
     signInOptions: [
       EmailAuthProvider.PROVIDER_ID,
       GoogleAuthProvider.PROVIDER_ID,
