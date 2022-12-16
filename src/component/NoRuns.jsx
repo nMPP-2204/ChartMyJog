@@ -8,8 +8,8 @@ const NoRuns = () => {
         display: "flex",
         justifyContent: "center",
         fontFamily: "helvetica",
-        marginTop: "50px",
       }}
+      className="text-white text-4xl pt-5 font-serif"
     >
       <h2>
         You don't have any runs...
