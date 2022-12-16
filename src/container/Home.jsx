@@ -10,15 +10,11 @@ const Home = () => {
     <div className="Home">
       <header>
         {" "}
-        <div className="pageHeader">
-          <Typography fontFamily="helvetica" fontSize="30px">
-            Chart My Jog
-          </Typography>
-        </div>
+        <div className="text-3xl font-bold underline">This is a Test</div>
       </header>
       <main>
-        <div style={{display: "flex", justifyContent: "center", }}>
-        <Typography
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Typography
             fontWeight={700}
             sx={{ fontSize: { lg: "34px", xs: "30px" } }}
             mb="23px"
@@ -27,9 +23,8 @@ const Home = () => {
             When your legs get tired <br />
             Run with your heart ...
           </Typography>
-       </div>
-       <Carousel />
-       <SignUpLogin />
+        </div>
+        <Carousel />
       </main>
       <Footer />
     </div>
