@@ -361,7 +361,10 @@ a {
     height: auto;
   }
 }
-
+#runWoman {
+  width: 30%;
+  height: auto;
+}
 .animate-charcter {
   text-transform: uppercase;
   /* background-image: linear-gradient(
