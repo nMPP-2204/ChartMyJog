@@ -10,7 +10,7 @@
   <h3 align="center">Chart My Jog</h3>
 
   <p align="center">
-    Chart My Jog is a fitness application that maps a user’s runs, records their time and distance, and allows them to record reflections on their runs for later reference!
+    Chart My Jog is a fitness application that helps users track and record their jogs in real time and render their route on a digital map.
     <br />
     <a href="https://www.youtube.com/watch?v=dmplVct15V8">View Video</a>
     ·
