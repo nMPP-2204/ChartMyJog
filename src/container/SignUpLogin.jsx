@@ -89,7 +89,7 @@ const UserInfo = ({ user }) => {
 
 const SignOutBox = ({ children }) => {
   return (
-    <div className="my-16 px-8 py-10 bg-slate-200 text-3xl w-80 flex flex-col mx-auto rounded-lg text-center font-serif dark:text-white">
+    <div className="my-16 px-8 py-10 bg-slate-200 text-3xl w-80 flex flex-col mx-auto rounded-lg text-center font-serif">
       {children}
     </div>
   );
@@ -118,7 +118,7 @@ const StartRunBtn = () => {
 
 const SignUpBox = () => {
   return (
-    <div className="my-16 bg-white text-3xl w-80 flex flex-col mx-auto rounded-lg text-center font-serif dark:text-white">
+    <div className="my-16 bg-white text-3xl w-80 flex flex-col mx-auto rounded-lg text-center font-serif">
       <p className="my-4">Sign up or Sign in to </p>
       <p className="text-4xl italic mb-4">Chart My Jog</p>
       <div id="firebaseui-auth-container"></div>
