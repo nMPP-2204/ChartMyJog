@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import RunningPeople from "../Images/runningPeople.jpg";
-import runningWoman from "../Images/runningwoman.jpg";
-import friendshigh5 from "../Images/friendshigh5.jpg";
-import friendspose from "../Images/friendspose.jpg";
+import RunningPeople from "../assets/img/runningPeople.jpg";
+import runningWoman from "../assets/img/runningwoman.jpg";
+import friendshigh5 from "../assets/img/friendshigh5.jpg";
+import friendspose from "../assets/img/friendspose.jpg";
 import { documentId } from "firebase/firestore";
 import { useMediaQuery } from "react-responsive";
 

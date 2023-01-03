@@ -1,8 +1,9 @@
 import "../App.scss";
 import Footer from "../component/Footer";
 import Carousel from "../component/Carousel";
-import Background from "../Images/Background.gif";
+import Background from "../assets/img/Background.gif";
 import { Link } from "react-router-dom";
+import VideoPlayer from "../component/Video/VideoPlayer";
 
 const Home = () => {
   const styledLink = { color: "black", textDecoration: "none" };
@@ -43,6 +44,7 @@ const Home = () => {
           </div>
           <Carousel />
         </div>
+        <VideoPlayer src="Test" loop={true} />
       </main>
       <Footer />
     </div>
