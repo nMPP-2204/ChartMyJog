@@ -8,11 +8,10 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   signOut,
-  TwitterAuthProvider,
 } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { createUser, getUser } from "../utils/firestore.js";
-import Background from "../Images/Background.gif";
+import Background from "../assets/img/Background.gif";
 
 const SignUpLogin = () => {
   const [user, loading, error] = useAuthState(auth);

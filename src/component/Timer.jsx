@@ -11,7 +11,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import domtoimage from "dom-to-image";
 import TestRun from "./TestRun";
-import Background from "../Images/Background.gif";
+import Background from "../assets/img/Background.gif";
 
 const style = {
   position: "absolute",

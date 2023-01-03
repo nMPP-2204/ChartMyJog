@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { PreviousRuns } from "../component/PreviousRuns";
-import Background from "../Images/Background.gif";
+import Background from "../assets/img/Background.gif";
 
 const Dashboard = () => {
   return (
