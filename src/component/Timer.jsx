@@ -11,6 +11,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import domtoimage from "dom-to-image";
 import TestRun from "./TestRun";
+import Background from "../assets/img/Background.gif";
 
 const style = {
   position: "absolute",
@@ -91,8 +92,8 @@ export default function Timer({
     setPolyLine([]);
   }
   return (
-    <>
-      <div className="trackContainer">
+    <div style={{ backgroundImage: `url(${Background})` }}>
+      <div className="trackContainer text-white">
         <div className="distanceTimer">
           <div className="distance">
             <div style={{ marginLeft: "30px" }}>
@@ -117,7 +118,7 @@ export default function Timer({
           {!start && ms === 0 && (
             <div className="tracker">
               <button
-                className="startRun"
+                className="startRun text-black"
                 onClick={() => {
                   setStart(!start);
                   geoLocation(setPolyLine, setDistance);
@@ -238,6 +239,6 @@ export default function Timer({
           setMs={setMs}
         />
       </div>
-    </>
+    </div>
   );
 }

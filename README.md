@@ -10,7 +10,7 @@
   <h3 align="center">Chart My Jog</h3>
 
   <p align="center">
-    Chart My Jog is a fitness application that maps a user’s runs, records their time and distance, and allows them to record reflections on their runs for later reference!
+    Chart My Jog is a fitness application that helps users track and record their jogs in real time and render their route on a digital map.
     <br />
     <a href="https://www.youtube.com/watch?v=dmplVct15V8">View Video</a>
     ·
@@ -38,13 +38,9 @@
 
 Chart My Jog was created using React.js, materialUI, React Leaflet, Mapbox, and Firebase. Users can chart their jog in real-time on a digital map. Users can sign in with social providers such as Google, Facebook, and GitHub or sign up with their email addresses. Once the jog is complete, users can save their jogs and view them anytime they please.
 
-[![Signup][product-screenshot]](https://github.com/KYu-2468/ChartMyJog)
+![](/demo/Chart_My_Jog_demo-2022-12-16_13.41.46.gif)
 
-[![Start-Run][product-screenshot2]](https://github.com/KYu-2468/ChartMyJog)
-[![run-3][product-screenshot3]](https://github.com/KYu-2468/ChartMyJog)
-
-[![save-run][product-screenshot4]](https://github.com/KYu-2468/ChartMyJog)
-[![run-1][product-screenshot5]](https://github.com/KYu-2468/ChartMyJog)
+![](/demo/Chart_My_Jog_demo-2022-12-16_14.25.24.gif)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
