@@ -18,6 +18,7 @@ const ImageCarousel = () => {
           autoPlay={true}
           interval={4000}
           infiniteLoop={true}
+          showThumbs={false}
           showStatus={false}
           transitionTime={2000}
           swipeable={true}

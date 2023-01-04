@@ -1,5 +1,4 @@
 import React from "react";
-import ReactPlayer from "react-player/lazy";
 
 const VideoPlayerBackground = ({ video, tailwindStyle, ...args }) => {
   const publicURL = "/video/";
@@ -20,7 +19,6 @@ const VideoPlayerBackground = ({ video, tailwindStyle, ...args }) => {
       >
         <source src={fullURL} type="video/mp4" />
       </video>
-      {/* <ReactPlayer {...videoStyle} url={fullURL} controls={true} /> */}
     </>
   );
 };
