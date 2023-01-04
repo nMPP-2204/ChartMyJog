@@ -10,9 +10,11 @@ import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
+import { useMediaQuery } from "react-responsive";
+import { FaHistory } from "react-icons/fa";
 
 export default function SimpleSlide() {
-  const styledLink = { color: "white", textDecoration: "none" };
+  // const styledLink = { textDecoration: "none" };
   const [open, setOpen] = useState(false);
   const [user] = useAuthState(auth);
 
@@ -26,52 +28,17 @@ export default function SimpleSlide() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" style={{ backgroundColor: "#e4e0d9" }}>
           <Toolbar className="slidingNav">
-            <Link to="/home" style={styledLink}>
-              <IconButton
-                size="large"
-                edge="start"
-                aria-label="menu"
-                sx={{ mr: 2, color: "black" }}
-              >
-                <HomeIcon />
-              </IconButton>
-            </Link>
-
-            <Link to="/run-tracker" style={styledLink}>
-              {" "}
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2, color: "black" }}
-              >
-                <DirectionsRunIcon />
-              </IconButton>
-            </Link>
-
-            <Link to="/signup" style={styledLink}>
-              {" "}
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2, color: "black" }}
-              >
-                {user ? <LogoutIcon /> : <PersonIcon />}
-              </IconButton>
-            </Link>
-
-            {/* <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
+            <Link
+              to="/"
+              className="w-64 h-20 text-4xl underline flex items-center hover:text-black"
             >
-              <Settings />
-            </IconButton> */}
+              <strong>Chart My Jog</strong>
+            </Link>
+            {navItems.map((item) => {
+              const { name, link, icon } = item;
+              return <NavItem key={link} name={name} link={link} icon={icon} />;
+            })}
+
             <IconButton
               onClick={menuOpen}
               size="large"
@@ -87,3 +54,36 @@ export default function SimpleSlide() {
     </div>
   );
 }
+
+const navItems = [
+  { name: "Home", link: "/home", icon: <HomeIcon /> },
+  { name: "Start Run", link: "/run-tracker", icon: <DirectionsRunIcon /> },
+  { name: "Dashboard", link: "/dashboard", icon: <FaHistory /> },
+  { name: "Sign Up or Login", link: "/signup", icon: <PersonIcon /> },
+];
+
+const NavItem = ({ link, icon, name, tailwind }) => {
+  // const styledLink = { textDecoration: "none" };
+  const tailwindStyle = "text-black text-3xl";
+
+  const isLargeScreen = useMediaQuery({
+    query: "(min-width: 1000px)",
+  });
+
+  return (
+    <Link to={link} className={tailwindStyle}>
+      {isLargeScreen ? (
+        name
+      ) : (
+        <IconButton
+          size="large"
+          edge="start"
+          aria-label="menu"
+          sx={{ mr: 2, color: "black" }}
+        >
+          {icon}
+        </IconButton>
+      )}
+    </Link>
+  );
+};
