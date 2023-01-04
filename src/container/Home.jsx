@@ -1,17 +1,19 @@
-// import "../App.scss";
+import React, { Suspense, lazy } from "react";
 import Footer from "../component/Footer";
 import Carousel from "../component/Carousel";
 // import Background from "../assets/img/Background.gif";
 import { Link } from "react-router-dom";
-
-import VideoPlayerBackground from "../component/Video/VideoPlayerBackground";
-
 import { FaRunning } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
+import Loader from "../component/Loader/Loader";
+
+const VideoPlayerBackground = lazy(() =>
+  import("../component/Video/VideoPlayerBackground")
+);
 
 const Home = () => {
   return (
-    <div>
+    <Suspense fallback={<Loader />}>
       <main>
         <div className="flex justify-around mt-12">
           {buttons.map((button) => {
@@ -38,11 +40,10 @@ const Home = () => {
           </div>
           <Carousel />
         </WrapperBox>
-
         <VideoPlayerBackground video="jogging-background-3.mp4" />
       </main>
       <Footer />
-    </div>
+    </Suspense>
   );
 };
 
