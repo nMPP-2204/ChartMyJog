@@ -14,11 +14,11 @@ import {
 import { useAuthState } from "react-firebase-hooks/auth";
 import { createUser, getUser } from "../utils/firestore.js";
 
-import background from "../assets/video/shoe-walking-background.mp4";
 import Loader from "../component/Loader/Loader.js";
 
 import { FiLogOut } from "react-icons/fi";
 import { FaRunning } from "react-icons/fa";
+import VideoPlayerBackground from "../component/Video/VideoPlayerBackground.jsx";
 
 const SignUpLogin = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -65,7 +65,7 @@ const SignUpLogin = () => {
           <SignOutBtn logout={logout} />
           <StartRunBtn />
         </SignOutBox>
-        <Background />
+        <VideoPlayerBackground video={"shoe-walking-background.mp4"} />
       </>
     );
   }
@@ -73,7 +73,7 @@ const SignUpLogin = () => {
   return (
     <>
       <SignUpBox />
-      <Background />
+      <VideoPlayerBackground video={"shoe-walking-background.mp4"} />
     </>
   );
 };
@@ -89,7 +89,7 @@ const UserInfo = ({ user }) => {
 
 const SignOutBox = ({ children }) => {
   return (
-    <div className="my-16 px-8 py-10 bg-slate-200 text-3xl w-80 flex flex-col mx-auto rounded-lg text-center font-serif">
+    <div className="my-24 px-8 py-10 bg-slate-200 text-3xl w-80 flex flex-col mx-auto rounded-lg text-center font-serif">
       {children}
     </div>
   );
@@ -118,7 +118,7 @@ const StartRunBtn = () => {
 
 const SignUpBox = () => {
   return (
-    <div className="my-16 bg-white text-3xl w-80 flex flex-col mx-auto rounded-lg text-center font-serif">
+    <div className="my-24 bg-white text-3xl w-80 flex flex-col mx-auto rounded-lg text-center font-serif">
       <p className="my-4">Sign up or Sign in to </p>
       <p className="text-4xl italic mb-4">Chart My Jog</p>
       <div id="firebaseui-auth-container"></div>
@@ -126,16 +126,8 @@ const SignUpBox = () => {
   );
 };
 
-const Background = () => {
-  return (
-    <video className="w-screen fixed top-0 left-0 -z-10" autoPlay loop muted>
-      <source src={background} type="video/mp4" />
-    </video>
-  );
-};
-
 const buttonStyle =
-  "z-10 rounded-full border-black w-64 h-20 p-3 text-4xl font-serif text-white flex no-wrap content-center";
+  "z-10 rounded-full border-black w-64 h-20 p-3 text-4xl font-serif text-white flex flex-nowrap content-center";
 
 const uiConfig = {
   signInSuccessUrl: "/signup",
