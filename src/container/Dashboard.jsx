@@ -1,15 +1,12 @@
-import { Typography } from "@mui/material";
 import { PreviousRuns } from "../component/PreviousRuns";
-import Background from "../assets/img/Background.gif";
+import VideoPlayerBackground from "../component/Video/VideoPlayerBackground";
 
 const Dashboard = () => {
   return (
-    <div
-      className="Home h-screen"
-      style={{ backgroundImage: `url(${Background})` }}
-    >
+    <div className="Home h-screen">
       <header></header>
       <main>
+        <VideoPlayerBackground video={"shoe-walking-background.mp4"} />
         <PreviousRuns />
       </main>
     </div>

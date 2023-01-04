@@ -18,7 +18,8 @@ import Loader from "../component/Loader/Loader.js";
 
 import { FiLogOut } from "react-icons/fi";
 import { FaRunning } from "react-icons/fa";
-import VideoPlayerBackground from "../component/Video/VideoPlayerBackground.jsx";
+
+import VideoPlayerBackground from "../component/Video/VideoPlayerBackground";
 
 const SignUpLogin = () => {
   const [user, loading, error] = useAuthState(auth);

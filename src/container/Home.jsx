@@ -1,20 +1,19 @@
-import React, { Suspense, lazy } from "react";
+import React, { lazy } from "react";
 import Footer from "../component/Footer";
 import Carousel from "../component/Carousel";
 // import Background from "../assets/img/Background.gif";
 import { Link } from "react-router-dom";
 import { FaRunning } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
-import Loader from "../component/Loader/Loader";
 
-const VideoPlayerBackground = lazy(() =>
-  import("../component/Video/VideoPlayerBackground")
-);
+import VideoPlayerBackground from "../component/Video/VideoPlayerBackground";
 
 const Home = () => {
   return (
-    <Suspense fallback={<Loader />}>
+    <>
       <main>
+        <VideoPlayerBackground video="jogging-background-3.mp4" />
+
         <div className="flex justify-around mt-12">
           {buttons.map((button) => {
             return <WrapperBtn key={button.btnName} {...button} />;
@@ -22,10 +21,9 @@ const Home = () => {
         </div>
 
         <WrapperBox>
-          <div className="text-black text-4xl font-semibold py-4 ml-4">
-            Explore the world one step at a time
-            <br />
-            <p className="text-2xl py-3">
+          <div className="text-black text-6xl font-semibold py-4 ml-4 mt-16">
+            <div className="">Explore the world one step at a time</div>
+            <p className="text-2xl py-12">
               Many runners around the world use{" "}
               <span className="italic text-3xl">Chart My Jog</span> to track
               their jogs and showcase
@@ -40,16 +38,15 @@ const Home = () => {
           </div>
           <Carousel />
         </WrapperBox>
-        <VideoPlayerBackground video="jogging-background-3.mp4" />
       </main>
       <Footer />
-    </Suspense>
+    </>
   );
 };
 
 const WrapperBtn = ({ color, hoverColor, icon, btnName, link }) => {
   const linkStyle = { textDecoration: "none" };
-  const linkTailwindStyle = "w-80";
+  const linkTailwindStyle = "w-80 h-24";
 
   const buttonStyle = [
     "w-64 h-20 hover:w-72 hover:h-24",
