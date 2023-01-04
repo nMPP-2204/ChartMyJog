@@ -14,14 +14,14 @@ const Home = () => {
       <main>
         <VideoPlayerBackground video="jogging-background-3.mp4" />
 
-        <div className="flex justify-around mt-12">
+        <div className="flex flex-col mt-12 ml-8 w-64">
           {buttons.map((button) => {
             return <WrapperBtn key={button.btnName} {...button} />;
           })}
         </div>
 
         <WrapperBox>
-          <div className="text-black text-6xl font-semibold py-4 ml-4 mt-16">
+          <div className="text-black text-4xl font-semibold py-4 ml-4 mt-16">
             <div className="">Explore the world one step at a time</div>
             <p className="text-2xl py-12">
               Many runners around the world use{" "}
@@ -46,13 +46,13 @@ const Home = () => {
 
 const WrapperBtn = ({ color, hoverColor, icon, btnName, link }) => {
   const linkStyle = { textDecoration: "none" };
-  const linkTailwindStyle = "w-80 h-24";
+  const linkTailwindStyle = "w-68 h-20";
 
   const buttonStyle = [
-    "w-64 h-20 hover:w-72 hover:h-24",
-    "flex flex-nowrap justify-center items-center",
+    "w-48 h-16 pl-6 hover:w-64 hover:h-20",
+    "flex flex-nowrap items-center",
     `rounded-full ${color} hover:${hoverColor}`,
-    "text-3xl text-black hover:text-5xl hover:text-white",
+    "text-2xl text-black hover:text-4xl hover:text-white",
   ].join(" ");
 
   return (
