@@ -47,13 +47,13 @@ export default function RunTracker() {
   ) : (
     <div className="runTracker">
       <div id="MapImage">
-        <MapContainer center={location} zoom={13} scrollWheelZoom={false}>
+        <MapContainer center={location} zoom={17} scrollWheelZoom={true}>
           <TileLayer
             attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
             url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
             accessToken={API_KEY}
             zoomOffset={-1}
-            maxZoom={18}
+            maxZoom={22}
             id="mapbox/streets-v11"
             tileSize={512}
             minZoom={4}

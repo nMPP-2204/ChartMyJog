@@ -105,7 +105,6 @@ export const createRun = async ({
 export const getUserRuns = async ({ uid }) => {
   try {
     const runs = [];
-
     // Gets all documents specific to the user ID from the runs collection in descending order
     const q = query(
       collection(db, "runs"),
@@ -113,7 +112,6 @@ export const getUserRuns = async ({ uid }) => {
       orderBy("startTime", "desc")
     );
     const querySnapshot = await getDocs(q);
-
     // Attach the document ID to the document data object for a more readable object structure
     querySnapshot.forEach((doc) => {
       runs.push({ id: doc.id, ...doc.data() });

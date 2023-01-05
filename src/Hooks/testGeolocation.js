@@ -1,5 +1,7 @@
 let testGeoID = null;
 
+const SPEED = 0.00002;
+
 const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
   const R = 6371; // Radius of the earth in km
   const dLat = deg2rad(lat2 - lat1); // deg2rad below
@@ -65,10 +67,10 @@ const testGeolocation = (
     testGeoID = null;
   } else {
     const directions = [
-      [0.0002, 0],
-      [0, -0.0002],
-      [-0.0002, 0],
-      [0, 0.0002],
+      [SPEED, 0],
+      [0, -SPEED],
+      [-SPEED, 0],
+      [0, SPEED],
     ];
 
     let waitTime = 0;
@@ -76,7 +78,7 @@ const testGeolocation = (
     const runSingleDirection = (direction) => {
       let tempId;
       setTimeout(() => {
-        tempId = setInterval(() => setNewLocation(location, direction), 100);
+        tempId = setInterval(() => setNewLocation(location, direction), 50);
       }, waitTime);
       waitTime += 5000;
       setTimeout(() => {
