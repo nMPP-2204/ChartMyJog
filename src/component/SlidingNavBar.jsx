@@ -30,7 +30,7 @@ export default function SimpleSlide() {
           <Toolbar className="slidingNav">
             <Link
               to="/"
-              className="w-64 h-20 text-4xl underline flex items-center hover:text-black"
+              className="w-64 h-16 hidden text-3xl underline lg:flex items-center hover:text-black"
             >
               <strong>Chart My Jog</strong>
             </Link>
@@ -59,12 +59,12 @@ const navItems = [
   { name: "Home", link: "/home", icon: <HomeIcon /> },
   { name: "Start Run", link: "/run-tracker", icon: <DirectionsRunIcon /> },
   { name: "Dashboard", link: "/dashboard", icon: <FaHistory /> },
-  { name: "Sign Up or Login", link: "/signup", icon: <PersonIcon /> },
+  { name: "Sign Up", link: "/signup", icon: <PersonIcon /> },
 ];
 
 const NavItem = ({ link, icon, name, tailwind }) => {
   // const styledLink = { textDecoration: "none" };
-  const tailwindStyle = "text-black text-3xl";
+  const tailwindStyle = "text-black text-2xl";
 
   const isLargeScreen = useMediaQuery({
     query: "(min-width: 1000px)",

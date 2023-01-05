@@ -41,7 +41,6 @@ const ImageCarousel = () => {
 const images = [
   { src: runningWoman, alt: "Running woman" },
   { src: RunningPeople, alt: "Running People" },
-  { src: friendshigh5, alt: "Friends High5" },
   { src: friendspose, alt: "Friends Pose" },
 ];
 

@@ -20,6 +20,7 @@ import { FiLogOut } from "react-icons/fi";
 import { FaRunning } from "react-icons/fa";
 
 import VideoPlayerBackground from "../component/Video/VideoPlayerBackground";
+import Footer from "../component/Footer.jsx";
 
 const SignUpLogin = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -67,6 +68,7 @@ const SignUpLogin = () => {
           <StartRunBtn />
         </SignOutBox>
         <VideoPlayerBackground video={"shoe-walking-background.mp4"} />
+        <Footer />
       </>
     );
   }
@@ -74,7 +76,9 @@ const SignUpLogin = () => {
   return (
     <>
       <SignUpBox />
+      <div className="w-full h-4"></div>
       <VideoPlayerBackground video={"shoe-walking-background.mp4"} />
+      <Footer />
     </>
   );
 };
@@ -90,7 +94,7 @@ const UserInfo = ({ user }) => {
 
 const SignOutBox = ({ children }) => {
   return (
-    <div className="my-24 px-8 py-10 bg-slate-200 text-3xl w-80 flex flex-col mx-auto rounded-lg text-center font-serif">
+    <div className="mt-24 mb-40 px-8 py-10 bg-slate-200 text-3xl w-80 flex flex-col mx-auto rounded-3xl text-center font-serif">
       {children}
     </div>
   );
@@ -119,9 +123,9 @@ const StartRunBtn = () => {
 
 const SignUpBox = () => {
   return (
-    <div className="my-24 bg-white text-3xl w-80 flex flex-col mx-auto rounded-lg text-center font-serif">
-      <p className="my-4">Sign up or Sign in to </p>
-      <p className="text-4xl italic mb-4">Chart My Jog</p>
+    <div className="mt-24 mb-32 bg-white text-2xl w-80 flex flex-col mx-auto rounded-2xl text-center font-semibold">
+      <p className="mt-3">Sign up or Sign in to </p>
+      <p className="text-3xl italic my-3">Chart My Jog</p>
       <div id="firebaseui-auth-container"></div>
     </div>
   );

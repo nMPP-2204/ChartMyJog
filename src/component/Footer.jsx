@@ -3,49 +3,45 @@ import { Toolbar } from "@mui/material";
 
 export default function Footer() {
   return (
-    <div>
-      <footer className="footerToolBar">
-        <div className="social">
-          <div className="circleStyle">
-            <a href="#">
-              <i className="icon ion-social-instagram"></i>
-            </a>
-          </div>
-          <div className="circleStyle">
-            <a href="#">
-              <i className="icon ion-social-snapchat"></i>
-            </a>
-          </div>
-          <div className="circleStyle">
-            <a href="#">
-              <i className="icon ion-social-twitter"></i>
-            </a>
-          </div>
-          <div className="circleStyle">
-            <a href="#">
-              <i className="icon ion-social-facebook"></i>
-            </a>
-          </div>
+    <div className="fixed bottom-0 left-0 w-full">
+      <footer className="footerToolBar pt-3 ">
+        <div className="flex flex-wrap items-center justify-center">
+          {relatedItems.map((item, i) => (
+            <RelatedItem key={i} name={item} />
+          ))}
+          {socialItems.map((item, i) => (
+            <SocialItem key={i} iconClasses={item} />
+          ))}
         </div>
-        <ul className="list-inline">
-          <li className="list-inline-item">
-            <a href="#">Home</a>
-          </li>
-          <li className="list-inline-item">
-            <a href="#">Services</a>
-          </li>
-          <li className="list-inline-item">
-            <a href="#">About</a>
-          </li>
-          <li className="list-inline-item">
-            <a href="#">Terms</a>
-          </li>
-          <li className="list-inline-item">
-            <a href="#">Privacy Policy</a>
-          </li>
-        </ul>
         <p className="copyright">Copyright @ 2022 Chart My Jog</p>
       </footer>
     </div>
   );
 }
+
+const socialItems = [
+  "icon ion-social-instagram",
+  "icon ion-social-snapchat",
+  "icon ion-social-twitter",
+  "icon ion-social-facebook",
+];
+
+const relatedItems = ["Home", "Services", "About", "Terms", "Privacy Policy"];
+
+const RelatedItem = ({ name }) => {
+  return (
+    <div className="list-inline-item">
+      <a href="#">{name}</a>
+    </div>
+  );
+};
+
+const SocialItem = ({ iconClasses }) => {
+  return (
+    <div className="circleStyle p-1.5 mx-2 mt-1">
+      <a href="#">
+        <i className={iconClasses}></i>
+      </a>
+    </div>
+  );
+};
