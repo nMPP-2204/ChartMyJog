@@ -70,21 +70,24 @@ export default function Timer({
   async function saveRun() {
     const node = document.getElementById("MapImage");
     const dataUrl = await domtoimage.toSvg(node);
-
     let pace = 0;
     if (distance) {
       const totalSec = +hr * 3600 + +min * 60 + +sec;
       pace = Math.ceil((totalSec / 60 / distance) * 100) / 100;
     }
-    createRun({
-      distance: distance,
-      time: `${hr}:${min}:${sec}`,
-      uid: user.uid,
-      image: dataUrl,
-      name: input,
-      comment: value,
-      pace,
-    });
+    try {
+      createRun({
+        distance: distance,
+        time: `${hr}:${min}:${sec}`,
+        uid: user.uid,
+        image: dataUrl,
+        name: input,
+        comment: value,
+        pace,
+      });
+    } catch (error) {
+      console.log(error);
+    }
 
     setValue("");
     setInput("");
@@ -242,6 +245,7 @@ export default function Timer({
             location={location}
             start={start}
             setMs={setMs}
+            saveRun={saveRun}
           />
         )}
       </div>

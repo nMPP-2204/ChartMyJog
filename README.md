@@ -1,98 +1,113 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/KYu-2468/netflixk">
-    <img src="public/images/CMJ.png" alt="Logo" width="80" height="80">
+
+# Chart My Jog
+
+🚀 [See it live](https://chart-my-jog.web.app/)
+
+📽️ [Watch video](https://www.youtube.com/watch?v=dmplVct15V8)
+
+<p align="center">
+  <h2>Sign Up with Email, Google, GitHub, or Facebook</h2>
+  <a href="https://chart-my-jog.web.app/">
+    <img alt="Sign In" width="600" src=".github/login-demo.gif">
   </a>
 
-  <h3 align="center">Chart My Jog</h3>
+  <h2 style="margin-top: 10px">Start Jogging</h2>
+  <a href="https://chart-my-jog.web.app/">
+    <img alt="RF Training Video" width="600" src=".github/jogging-demo.gif">
+  </a>
+
+  <h2 style="margin-top: 10px">Share Your Results</h2>
+  <a href="https://chart-my-jog.web.app/">
+    <img alt="Dashbaord" width="600" src=".github/dashboard-demo.gif">
+  </a>
+</p>
+
+Chart My Jog is a fitness application that helps users track and record their jogs in real-time and render their route on a digital map. Users can view and share their accomplishments and track their progress throughout their lifetime.
+
+## 📦 Built With
+
+- React
+- React Router
+- Tailwind CSS
+- Material UI
+- Firebase
+- Mapbox API
+- Geolocation API
+- Leaflet
+- React-leaflet
+
+## 📚 Docs
+
+### General components
+
+Chart My Jog was created as a capstone project for Fullstack Academy April 2022 cohort by developers Andre Barber, Angel Gomez, Alexander Tikohomirov and Kevin Yu.
+
+<div align="center">
 
   <p align="center">
-    Chart My Jog is a fitness application that helps users track and record their jogs in real time and render their route on a digital map.
-    <br />
-    <a href="https://www.youtube.com/watch?v=dmplVct15V8">View Video</a>
-    ·
-    <a href="https://chart-my-jog.web.app/">Website Link</a>
+  
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
-
-<!-- ABOUT THE PROJECT -->
-
-## About The Project
-
-Chart My Jog was created using React.js, materialUI, React Leaflet, Mapbox, and Firebase. Users can chart their jog in real-time on a digital map. Users can sign in with social providers such as Google, Facebook, and GitHub or sign up with their email addresses. Once the jog is complete, users can save their jogs and view them anytime they please.
-
-![](/demo/Chart_My_Jog_demo-2022-12-16_13.41.46.gif)
-
-![](/demo/Chart_My_Jog_demo-2022-12-16_14.25.24.gif)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### Built With
-
-- React
-- Material UI
-- Google Firebase / Firestore (NoSQL)
-- React-Leaflet
-- Mapbox API
-- Geolocation API
-<!-- - [![React][react.js]][react-url]
-- [![Tailwind][tailwind.js]][tailwind-url]
-- [![Firebase][firebase]][firebase-url]
-- [![Leaflet][leaflet]][leaflet-url]
-- [![React-Leaflet][reactleaflet]][reactleaflet-url]
-- [![MaterialUI][mui]][mui-url] -->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- CONTACT -->
 
-## Contact
+## ✨ Collaborators
 
-Kevin Yu - [LinkedIn](https://www.linkedin.com/in/kevinyu2468/)
+Kevin Yu: [LinkedIn](https://www.linkedin.com/in/kevinyu2468/)
 
-Alexander Tikhomirov - [LinkedIn](www.linkedin.com/in/alexander-a-tikhomirov/)
+Andre Barber: [LinkedIn](www.linkedin.com/in/andreb2021/)
 
-Andre Barber - [LinkedIn](www.linkedin.com/in/andreb2021/)
+Angel Gomez: [LinkedIn](www.linkedin.com/in/angel-gomez-b8b369192/)
 
-Angel Gomez - [LinkedIn](www.linkedin.com/in/angel-gomez-b8b369192/)
+Alexander Tikhomirov: [LinkedIn](www.linkedin.com/in/alexander-a-tikhomirov/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- MARKDOWN LINKS & IMAGES -->
+## 🏁 Getting Started
 
-[product-screenshot]: public/images/Signup.png
-[product-screenshot2]: public/images/start-run.png
-[product-screenshot3]: public/images/run-3.png
-[product-screenshot4]: public/images/save-run.png
-[product-screenshot5]: public/images/run-1.png
-[react.js]: public/images/react.png
-[react-url]: https://reactjs.org/
-[tailwind.js]: public/images/Tailwind.png
-[tailwind-url]: https://tailwindcss.com/
-[firebase]: public/images/firebase.png
-[firebase-url]: https://firebase.google.com/
-[mui]: public/images/mui.png
-[mui-url]: https://mui.com/material-ui/
-[reactleaflet]: public/images/react-leaflet.png
-[reactleaflet-url]: https://react-leaflet.js.org/
-[leaflet]: public/images/leaflet.png
-[leaflet-url]: https://leafletjs.com/
+Clone the GitHub repo and install the necessary dependencies
+
+```
+git clone git@github.com:KYu-2468/ChartMyJog.git
+
+cd ChartMyJog
+
+npm install
+```
+
+Create your Firebase project by following their [Documentation](https://firebase.google.com/docs/web/setup)
+
+Create a .env file to store API secrets
+
+```
+touch .env
+```
+
+Add Firebase Secrets and Mapbox API Key in the .env file
+
+```
+REACT_APP_API_KEY={add your key here}
+REACT_APP_FIREBASE_API_KEY={add your key here}
+REACT_APP_FIREBASE_AUTH_DOMAIN={add your key here}
+REACT_APP_FIREBASE_STORAGE_BUCKET={add your key here}
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID={add your key here}
+REACT_APP_FIREBASE_APP_ID={add your key here}
+
+```
+
+Start local server
+
+```
+npm start
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## License
+
+This project is available under the MIT license. See the [LICENSE](https://github.com/kiyohken2000/ReactNative-Expo-Firebase-Boilerplate-v2/blob/master/LICENSE) file for more info.
 
 <!-- https://chartmyjog-8a62d.web.app/ -->
