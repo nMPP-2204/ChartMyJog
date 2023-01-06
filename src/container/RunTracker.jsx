@@ -9,12 +9,10 @@ import {
   Polyline,
   TileLayer,
 } from "react-leaflet";
-import { useMapEvents } from "react-leaflet/hooks";
 import L from "leaflet";
 
 import Timer from "../component/Timer";
 import Loader from "../component/Loader/Loader";
-import TestRun from "../component/TestRun";
 
 export default function RunTracker() {
   const API_KEY = `${process.env.REACT_APP_API_KEY}`;

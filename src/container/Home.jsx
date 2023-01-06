@@ -1,7 +1,5 @@
 import React from "react";
 import Footer from "../component/Footer";
-// import Carousel from "../component/Carousel";
-// import Background from "../assets/img/Background.gif";
 
 import VideoPlayerBackground from "../component/Video/VideoPlayerBackground";
 import Button from "../component/Button/Button";
