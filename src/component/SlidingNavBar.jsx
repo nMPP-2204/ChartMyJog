@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Box, AppBar, Toolbar, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Settings } from "@mui/icons-material";
+// import { Settings } from "@mui/icons-material";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "react-router-dom";
 import RunTrackerMenu from "./RunTrackerMenu";
 import PersonIcon from "@mui/icons-material/Person";
-import LogoutIcon from "@mui/icons-material/Logout";
+// import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import { useMediaQuery } from "react-responsive";
