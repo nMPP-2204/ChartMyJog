@@ -9,6 +9,7 @@ const TestRun = ({
   location,
   start,
   setMs,
+  saveRun,
 }) => {
   return (
     !start && (
@@ -21,7 +22,8 @@ const TestRun = ({
             setLocation,
             location,
             setStart,
-            setMs
+            setMs,
+            saveRun
           );
           setStart(true);
         }}

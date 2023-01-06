@@ -1,4 +1,7 @@
+import "../App.css";
+
 import React, { useState, useEffect } from "react";
+
 import {
   MapContainer,
   Marker,
@@ -6,8 +9,9 @@ import {
   Polyline,
   TileLayer,
 } from "react-leaflet";
+import { useMapEvents } from "react-leaflet/hooks";
 import L from "leaflet";
-import "../App.css";
+
 import Timer from "../component/Timer";
 import Loader from "../component/Loader/Loader";
 import TestRun from "../component/TestRun";

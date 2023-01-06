@@ -27,7 +27,8 @@ const testGeolocation = (
   setLocation,
   location,
   setStart,
-  setMs
+  setMs,
+  saveRun
 ) => {
   const setNewLocation = (location, direction) => {
     location[0] += direction[0];
@@ -88,7 +89,8 @@ const testGeolocation = (
     directions.forEach((direction) => {
       runSingleDirection(direction);
     });
-    setTimeout(() => {
+    setTimeout(async () => {
+      await saveRun();
       setStart(false);
       setMs(0);
       setDistance(0);
