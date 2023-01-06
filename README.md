@@ -11,17 +11,17 @@
 <p align="center">
   <h2>Sign Up with Email, Google, GitHub, or Facebook</h2>
   <a href="https://chart-my-jog.web.app/">
-    <img alt="Sign In" width="600" src=".github/login-demo.gif">
+    <img alt="Sign In" width="600" src=".github/demo/login-demo.gif">
   </a>
 
   <h2 style="margin-top: 10px">Start Jogging</h2>
   <a href="https://chart-my-jog.web.app/">
-    <img alt="RF Training Video" width="600" src=".github/jogging-demo.gif">
+    <img alt="RF Training Video" width="600" src=".github/demo/jogging-demo.gif">
   </a>
 
   <h2 style="margin-top: 10px">Share Your Results</h2>
   <a href="https://chart-my-jog.web.app/">
-    <img alt="Dashbaord" width="600" src=".github/dashboard-demo.gif">
+    <img alt="Dashbaord" width="600" src=".github/demo/dashboard-demo.gif">
   </a>
 </p>
 
