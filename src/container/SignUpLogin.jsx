@@ -30,9 +30,12 @@ const SignUpLogin = () => {
   };
 
   useEffect(() => {
-    const ui =
-      firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
-    if (!user) ui.start("#firebaseui-auth-container", uiConfig);
+    if (!loading) {
+      const ui =
+        firebaseui.auth.AuthUI.getInstance() ||
+        new firebaseui.auth.AuthUI(auth);
+      if (!user) ui.start("#firebaseui-auth-container", uiConfig);
+    }
   }, [user, loading]);
 
   if (error) {
