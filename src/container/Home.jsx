@@ -1,39 +1,97 @@
-import { Typography } from "@mui/material";
+import React, { lazy } from "react";
 import Footer from "../component/Footer";
-// import RunningPeople from "../Images/runningPeople.jpg";
-import RunningWoman from "../Images/runningwoman.jpg";
 import Carousel from "../component/Carousel";
-import SignUpLogin from "./SignUpLogin";
+// import Background from "../assets/img/Background.gif";
+import { Link } from "react-router-dom";
+import { FaRunning } from "react-icons/fa";
+import { FiLogIn } from "react-icons/fi";
+
+import VideoPlayerBackground from "../component/Video/VideoPlayerBackground";
 
 const Home = () => {
   return (
-    <div className="Home">
-      <header>
-        {" "}
-        <div className="pageHeader">
-          <Typography fontFamily="helvetica" fontSize="30px">
-            Chart My Jog
-          </Typography>
-        </div>
-      </header>
+    <>
       <main>
-        <div style={{display: "flex", justifyContent: "center", }}>
-        <Typography
-            fontWeight={700}
-            sx={{ fontSize: { lg: "34px", xs: "30px" } }}
-            mb="23px"
-            mt="30px"
-          >
-            When your legs get tired <br />
-            Run with your heart ...
-          </Typography>
-       </div>
-       <Carousel />
-       <SignUpLogin />
+        <VideoPlayerBackground video="jogging-background-3.mp4" />
+
+        <div className="flex justify-around mt-12">
+          {buttons.map((button) => {
+            return <WrapperBtn key={button.btnName} {...button} />;
+          })}
+        </div>
+
+        <WrapperBox>
+          <div className="text-black text-6xl font-semibold py-4 ml-4 mt-16">
+            <div className="">Explore the world one step at a time</div>
+            <p className="text-2xl py-12">
+              Many runners around the world use{" "}
+              <span className="italic text-3xl">Chart My Jog</span> to track
+              their jogs and showcase
+              <br />
+              <br />
+              <div className="flex justify-center">
+                <div className="text-4xl animate-charcter">
+                  achievements {"&"} improvements
+                </div>
+              </div>
+            </p>
+          </div>
+          <Carousel />
+        </WrapperBox>
       </main>
       <Footer />
-    </div>
+    </>
   );
 };
+
+const WrapperBtn = ({ color, hoverColor, icon, btnName, link }) => {
+  const linkStyle = { textDecoration: "none" };
+  const linkTailwindStyle = "w-80 h-24";
+
+  const buttonStyle = [
+    "w-64 h-20 hover:w-72 hover:h-24",
+    "flex flex-nowrap justify-center items-center",
+    `rounded-full ${color} hover:${hoverColor}`,
+    "text-3xl text-black hover:text-5xl hover:text-white",
+  ].join(" ");
+
+  return (
+    <>
+      <Link to={link} style={linkStyle} className={linkTailwindStyle}>
+        <button className={buttonStyle}>
+          {icon}
+          <p className="ml-6 no-underline font-semibold">{btnName}</p>
+        </button>
+      </Link>
+    </>
+  );
+};
+
+const WrapperBox = ({ children }) => {
+  const style = [
+    "w-full mt-24 sm:mt-40 md:mt-60 lg:mt-80 xl:mt-[500px] 2xl:mt-[700px]",
+    "flex flex-col",
+    "bg-stone-200",
+    "text-3xl font-serif",
+  ].join(" ");
+  return <div className={style}>{children}</div>;
+};
+
+const buttons = [
+  {
+    btnName: "Sign In",
+    icon: <FiLogIn />,
+    color: "bg-sky-600",
+    hoverColor: "bg-sky-500",
+    link: "/signup",
+  },
+  {
+    btnName: "Start Run",
+    icon: <FaRunning />,
+    color: "bg-green-500",
+    hoverColor: "bg-lime-500",
+    link: "/run-tracker",
+  },
+];
 
 export default Home;
