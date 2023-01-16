@@ -8,7 +8,7 @@
     <title>Chart My Jog</title>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link
-      href="https://fonts.googleapis.com/css?family=Aboreto"
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
       rel="stylesheet"
     />
     <link
@@ -139,22 +139,22 @@
           let app = firebase.app();
           let features = [
             "auth",
-            "database",
+            // "database",
             "firestore",
-            "functions",
-            "messaging",
-            "storage",
-            "analytics",
-            "remoteConfig",
-            "performance",
+            // "functions",
+            // "messaging",
+            // "storage",
+            // "analytics",
+            // "remoteConfig",
+            // "performance",
           ].filter((feature) => typeof app[feature] === "function");
           loadEl.textContent = `Firebase SDK loaded with ${features.join(
             ", "
           )}`;
         } catch (e) {
           console.error(e);
-          loadEl.textContent =
-            "Error loading the Firebase SDK, check the console.";
+          // loadEl.textContent =
+          //   "Error loading the Firebase SDK, check the console.";
         }
       });
     </script>

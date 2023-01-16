@@ -15,6 +15,7 @@ const VideoPlayerBackground = ({ video, tailwindStyle, ...args }) => {
         autoPlay
         loop
         muted
+        playsInline={true}
         {...args}
       >
         <source src={fullURL} type="video/mp4" />

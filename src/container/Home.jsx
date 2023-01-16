@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../component/Footer";
+import ImageCarousel from "../component/Carousel";
 
 import VideoPlayerBackground from "../component/Video/VideoPlayerBackground";
 import Button from "../component/Button/Button";
@@ -7,7 +8,7 @@ import Button from "../component/Button/Button";
 const Home = () => {
   return (
     <>
-      <div className="h-screen">
+      <div className="h-full">
         <VideoPlayerBackground video="jogging-background-3.mp4" />
         <WrapperBox>
           <div className="mt-4">
@@ -21,9 +22,8 @@ const Home = () => {
               return <Button key={button} type={button} />;
             })}
           </div>
-
-          {/* <Carousel /> */}
         </WrapperBox>
+        {/* <ImageCarousel /> */}
         <Footer />
       </div>
     </>
@@ -55,10 +55,10 @@ const Home = () => {
 
 const WrapperBox = ({ children }) => {
   const style = [
-    "w-80 my-20 mx-auto",
+    "w-64 my-20 mx-auto",
     "flex flex-col items-center",
-    "bg-stone-200 rounded-3xl",
-    "text-xl font-semibold",
+    "bg-white rounded-3xl",
+    "text-xl text-black font-semibold",
   ].join(" ");
   return <div className={style}>{children}</div>;
 };

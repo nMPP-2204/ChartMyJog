@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
   return (
     <div className="fixed bottom-0 left-0 w-full">
-      <footer className="footerToolBar pt-3 ">
+      <footer className="footerToolBar py-3 ">
         <div className="flex flex-wrap items-center justify-center">
           {relatedItems.map((item, i) => (
             <RelatedItem key={i} name={item} />

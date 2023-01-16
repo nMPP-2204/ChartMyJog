@@ -34,10 +34,10 @@ const TestRun = ({
   );
 };
 const buttonStyle = [
-  "w-56 h-16 mx-4 mt-4 hover:w-64 hover:h-20",
+  "w-56 h-16 mx-4 transition-all ease-in-out duration-500 hover:scale-110",
   "flex flex-nowrap items-center justify-center",
-  `rounded-full bg-sky-700 hover:bg-sky-800`,
-  "text-2xl text-black hover:text-4xl",
+  `rounded-lg bg-black`,
+  "text-2xl text-white",
 ].join(" ");
 
 export default TestRun;

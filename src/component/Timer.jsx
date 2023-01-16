@@ -100,8 +100,8 @@ export default function Timer({
         setStart(true);
         geoLocation(setPolyLine, setDistance);
       },
-      color: "bg-green-500",
-      hoverColor: "bg-lime-500",
+      color: "bg-black",
+      textColor: "text-white",
     },
     pause: {
       onClick: () => {
@@ -143,8 +143,8 @@ export default function Timer({
   };
 
   return (
-    <div>
-      <div className="trackContainer text-black">
+    <div className="bg-white">
+      <div className="trackContainer text-black flex flex-wrap">
         <div className="distanceTimer">
           <div className="distance text-2xl m-4">
             <div>
@@ -170,6 +170,18 @@ export default function Timer({
             <div className="tracker">
               <WrapperBtn {...buttons["start"]}>Start</WrapperBtn>
             </div>
+          )}
+          {start === false && pause === false && (
+            <TestRun
+              setStart={setStart}
+              setPolyLine={setPolyLine}
+              setDistance={setDistance}
+              setLocation={setLocation}
+              location={location}
+              start={start}
+              setMs={setMs}
+              saveRun={saveRun}
+            />
           )}
           {start && (
             <>
@@ -235,30 +247,16 @@ export default function Timer({
           </Box>
         </Modal>
       </div>
-      <div className="tracker">
-        {start === false && pause === false && (
-          <TestRun
-            setStart={setStart}
-            setPolyLine={setPolyLine}
-            setDistance={setDistance}
-            setLocation={setLocation}
-            location={location}
-            start={start}
-            setMs={setMs}
-            saveRun={saveRun}
-          />
-        )}
-      </div>
     </div>
   );
 }
 
-const WrapperBtn = ({ children, onClick, color, hoverColor }) => {
+const WrapperBtn = ({ children, onClick, color, textColor }) => {
   const buttonStyle = [
-    "w-56 h-16 mx-4 hover:w-64 hover:h-20",
+    "w-56 h-16 mx-4 transition-all ease-in-out duration-500 hover:scale-110",
     "flex flex-nowrap items-center justify-center",
-    `rounded-full ${color} hover:${hoverColor}`,
-    "text-2xl text-black hover:text-4xl",
+    `rounded-lg ${color}`,
+    `text-2xl ${textColor}`,
   ].join(" ");
 
   return (

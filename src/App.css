@@ -4,7 +4,7 @@
 
 body {
   /* background-color: #d5cdbe; */
-  background-color: #ebebeb;
+  background-color: black;
   position: relative;
   min-height: 100vh;
 }
@@ -25,12 +25,13 @@ img {
 /* /////RUN TRACKER STYLES/////// */
 
 .runTracker {
-  background-color: #ebebeb;
+  /* background-color: #ebebeb; */
+  background-color: black;
 }
 
 .leaflet-container {
-  width: 90vw;
-  height: 70vh;
+  width: 80vw;
+  height: 60vh;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
@@ -60,6 +61,7 @@ img {
   right: 0;
   bottom: 0;
   background-color: #ccc;
+  /* background-color: black; */
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }

@@ -12,28 +12,26 @@ const ImageCarousel = () => {
   const styleSizes = { width: isMobile ? "85%" : "40%", height: "auto" };
 
   return (
-    <div style={{ display: "flex" }}>
-      <div>
-        <Carousel
-          autoPlay={true}
-          interval={4000}
-          infiniteLoop={true}
-          showThumbs={false}
-          showStatus={false}
-          transitionTime={2000}
-          swipeable={true}
-          className="carousel"
-        >
-          {images.map((image) => (
-            <CarouselImage
-              key={image.alt}
-              src={image.src}
-              alt={image.alt}
-              styleSizes={styleSizes}
-            />
-          ))}
-        </Carousel>
-      </div>
+    <div className="bg-black">
+      <Carousel
+        autoPlay={true}
+        interval={4000}
+        infiniteLoop={true}
+        showThumbs={false}
+        showStatus={false}
+        transitionTime={2000}
+        swipeable={true}
+        className="carousel"
+      >
+        {images.map((image) => (
+          <CarouselImage
+            key={image.alt}
+            src={image.src}
+            alt={image.alt}
+            styleSizes={styleSizes}
+          />
+        ))}
+      </Carousel>
     </div>
   );
 };

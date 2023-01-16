@@ -27,12 +27,12 @@ export default function SimpleSlide() {
       <RunTrackerMenu open={open} setOpen={setOpen} />
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" style={{ backgroundColor: "#e4e0d9" }}>
-          <Toolbar className="slidingNav">
+          <Toolbar className="slidingNav bg-black">
             <Link
               to="/"
-              className="w-64 h-16 hidden text-3xl underline lg:flex items-center hover:text-black"
+              className="w-64 h-16 hidden text-3xl  lg:flex items-center text-white font-semibold"
             >
-              <strong>Chart My Jog</strong>
+              Chart My Jog
             </Link>
             {navItems.map((item) => {
               const { name, link, icon } = item;
@@ -44,7 +44,7 @@ export default function SimpleSlide() {
               size="large"
               edge="start"
               aria-label="menu"
-              sx={{ mr: 2, color: "black" }}
+              sx={{ mr: 2, color: "white" }}
             >
               <MenuIcon />
             </IconButton>
@@ -64,7 +64,7 @@ const navItems = [
 
 const NavItem = ({ link, icon, name, tailwind }) => {
   // const styledLink = { textDecoration: "none" };
-  const tailwindStyle = "text-black text-2xl";
+  const tailwindStyle = "text-white text-2xl";
 
   const isLargeScreen = useMediaQuery({
     query: "(min-width: 1000px)",
@@ -79,7 +79,7 @@ const NavItem = ({ link, icon, name, tailwind }) => {
           size="large"
           edge="start"
           aria-label="menu"
-          sx={{ mr: 2, color: "black" }}
+          sx={{ mr: 2, color: "white" }}
         >
           {icon}
         </IconButton>
