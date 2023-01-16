@@ -63,17 +63,20 @@ const navItems = [
 ];
 
 const NavItem = ({ link, icon, name, tailwind }) => {
-  // const styledLink = { textDecoration: "none" };
-  const tailwindStyle = "text-white text-2xl";
+  const styledLink = { textDecoration: "none" };
+  const tailwindStyle = "text-white text-2xl group transition duration-300";
 
   const isLargeScreen = useMediaQuery({
     query: "(min-width: 1000px)",
   });
 
   return (
-    <Link to={link} className={tailwindStyle}>
+    <Link to={link} style={styledLink} className={tailwindStyle}>
       {isLargeScreen ? (
-        name
+        <>
+          {name}
+          <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+        </>
       ) : (
         <IconButton
           size="large"
