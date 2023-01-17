@@ -100,11 +100,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.tracker {
-  display: flex;
-  justify-content: center;
-}
-
 h1 {
   color: black;
 }
@@ -181,11 +176,6 @@ h1 {
   padding: 5px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bold;
-}
-.ms {
-  font-size: 18px;
-  padding: 5px;
-  margin-top: 2px;
 }
 
 /* /////////////FOOTER///////////////// */

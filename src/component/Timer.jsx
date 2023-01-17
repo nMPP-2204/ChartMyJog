@@ -145,31 +145,23 @@ export default function Timer({
   return (
     <div className="bg-white">
       <div className="trackContainer text-black flex flex-wrap">
-        <div className="distanceTimer">
-          <div className="distance text-2xl m-4">
-            <div>
-              DISTANCE (MI) -{" "}
-              <span className="text-3xl">{distance.toFixed(2)}</span>
-            </div>
+        <div className="w-full px-4 flex justify-around text-base md:text-3xl m-2 md:pt-4">
+          <div className="w-1/2 flex justify-center items-center">
+            DISTANCE (MI) - <span>{distance.toFixed(2)}</span>
           </div>
-          <div className="timer">
-            <div>
-              <div className="text-2xl">
-                DURATION - <span className="text-3xl">{hr}:</span>
-                <span className="text-3xl">{min}:</span>
-                <span className="text-3xl">{sec}:</span>
-                <span className="ms">
-                  {("0" + ((ms / 10) % 100)).slice(-2)}
-                </span>
-              </div>
-            </div>
+          <div className="w-1/2 flex justify-center items-center">
+            DURATION -{" "}
+            <span>
+              {hr}:{min}:{sec}:
+              <span className="text-sm md:text-base">
+                {("0" + ((ms / 10) % 100)).slice(-2)}
+              </span>
+            </span>
           </div>
         </div>
-        <div className="tracker">
+        <div className="w-full flex flex-wrap justify-center items-center">
           {!start && ms === 0 && (
-            <div className="tracker">
-              <WrapperBtn {...buttons["start"]}>Start</WrapperBtn>
-            </div>
+            <WrapperBtn {...buttons["start"]}>Start</WrapperBtn>
           )}
           {start === false && pause === false && (
             <TestRun
@@ -209,7 +201,7 @@ export default function Timer({
               <Typography id="modal-modal-title" variant="h6" component="h2">
                 <div className="modalTimeDistance">
                   <div style={{ fontSize: "16px" }}>
-                    DISTANCE(MI): {distance.toFixed(2)}
+                    DISTANCE (MI): {distance.toFixed(2)}
                   </div>
                   <div style={{ fontSize: "16px" }}>
                     DURATION: {`${hr}:${min}:${sec}`}
@@ -253,7 +245,7 @@ export default function Timer({
 
 const WrapperBtn = ({ children, onClick, color, textColor }) => {
   const buttonStyle = [
-    "w-56 h-16 mx-4 transition-all ease-in-out duration-500 hover:scale-110",
+    "w-56 h-16 m-4 transition-all ease-in-out duration-500 hover:scale-110",
     "flex flex-nowrap items-center justify-center",
     `rounded-lg ${color}`,
     `text-2xl ${textColor}`,
