@@ -35,12 +35,13 @@
 }
 
 .leaflet-container {
-  width: 80vw;
-  height: 60vh;
+  width: 100vw;
+  height: 95vh;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2rem;
-  border-radius: 1.5rem;
+  margin-top: 0rem;
+  z-index: 0;
+  /* border-radius: 1.5rem; */
 }
 
 .switch {
@@ -154,12 +155,6 @@ h1 {
 .infoColumns {
   margin-left: 20px;
   margin-right: 20px;
-}
-
-.trackContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .distanceTimer {

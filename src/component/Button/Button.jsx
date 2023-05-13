@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { FaRunning } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
-import ButtonWrapper from "./ButtonWrapper";
+import ButtonWrapper from "./ButtonWrapperTransparent";
 
 const Button = ({ type }) => {
   const linkStyle = { textDecoration: "none" };

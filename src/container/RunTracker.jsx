@@ -17,10 +17,31 @@ import Loader from "../component/Loader/Loader";
 export default function RunTracker() {
   const API_KEY = `${process.env.REACT_APP_API_KEY}`;
 
+  const [start, setStart] = useState(false);
+  const [timerID, setTimerID] = useState(0);
   const [polyLine, setPolyLine] = useState([]);
   const [location, setLocation] = useState([]);
   const [distance, setDistance] = useState(0);
-  const [start, setStart] = useState(false);
+  // const [ms, setMs] = useState(0);
+
+  // useEffect(() => {
+  //   if (start) {
+  //     const tID = setInterval(() => {
+  //       setMs((ms) => {
+  //         return ms + 10;
+  //       });
+  //     }, 10);
+
+  //     setTimerID(tID);
+  //   }
+
+  //   return () => {
+  //     setTimerID((timerID) => {
+  //       clearInterval(timerID);
+  //       return 0;
+  //     });
+  //   };
+  // }, [start]);
 
   const blackOptions = { color: "black" };
 
