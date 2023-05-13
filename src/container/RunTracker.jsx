@@ -39,6 +39,7 @@ export default function RunTracker() {
     } else {
       setMs(0);
       setDistance(0);
+      setPolyLine([]);
       setPause(false);
     }
 
@@ -98,7 +99,6 @@ export default function RunTracker() {
 
     setValue("");
     setInput("");
-    setPolyLine([]);
   }
 
   function startTimer() {
