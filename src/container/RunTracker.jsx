@@ -47,7 +47,7 @@ export default function RunTracker() {
   return !location.length ? (
     <Loader />
   ) : (
-    <div className="runTracker bg-white h-screen">
+    <div className="h-screen bg-white runTracker">
       <div id="MapImage">
         <MapContainer center={location} zoom={17} scrollWheelZoom={true}>
           <TileLayer

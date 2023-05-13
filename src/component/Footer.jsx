@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 // export default function Footer() {
 //   return (
@@ -9,14 +10,14 @@ import React from "react";
 // }
 
 export default function Footer() {
+  const isPhone = useMediaQuery("(max-width: 768px)");
   return (
     <footer className="fixed bottom-0 flex items-center w-full h-10 text-sm text-white bg-black flex-nowrap justify-evenly footerToolBar">
       {relatedItems.map((item, i) => (
         <RelatedItem key={i} name={item} />
       ))}
-      {/* {socialItems.map((item, i) => (
-            <SocialItem key={i} iconClasses={item} />
-          ))} */}
+      {isPhone ||
+        socialItems.map((item, i) => <SocialItem key={i} iconClasses={item} />)}
       <p>Copyright @ 2022 Chart My Jog</p>
     </footer>
   );
@@ -43,7 +44,7 @@ const RelatedItem = ({ name }) => {
 
 const SocialItem = ({ iconClasses }) => {
   return (
-    <div className="circleStyle p-1.5 mx-2 mt-1">
+    <div className="p-1 mx-2 mt-1 bg-white rounded-full">
       <a href="#">
         <i className={iconClasses}></i>
       </a>

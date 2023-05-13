@@ -108,8 +108,10 @@ export default function Timer({
         setPause(true);
         setStart(false);
       },
-      color: "bg-amber-300",
-      hoverColor: "bg-yellow-500",
+      // color: "bg-amber-300",
+      // hoverColor: "bg-yellow-500",
+      color: "bg-black",
+      textColor: "text-white",
     },
     end: {
       onClick: () => {
@@ -120,16 +122,20 @@ export default function Timer({
 
         handleOpen();
       },
-      color: "bg-red-500",
-      hoverColor: "bg-red-600",
+      // color: "bg-red-500",
+      // hoverColor: "bg-red-600",
+      color: "bg-black",
+      textColor: "text-white",
     },
     resume: {
       onClick: () => {
         setPause(false);
         setStart(true);
       },
-      color: "bg-cyan-500",
-      hoverColor: "bg-cyan-700",
+      // color: "bg-cyan-500",
+      // hoverColor: "bg-cyan-700",
+      color: "bg-black",
+      textColor: "text-white",
     },
     reset: {
       onClick: () => {
@@ -137,19 +143,21 @@ export default function Timer({
         setDistance(0);
         setPause(false);
       },
-      color: "bg-red-500",
-      hoverColor: "bg-red-600",
+      // color: "bg-red-500",
+      // hoverColor: "bg-red-600",
+      color: "bg-black",
+      textColor: "text-white",
     },
   };
 
   return (
     <div className="bg-white">
-      <div className="trackContainer text-black flex flex-wrap">
-        <div className="w-full px-4 flex justify-around text-base md:text-3xl m-2 md:pt-4">
-          <div className="w-1/2 flex justify-center items-center">
+      <div className="flex flex-wrap text-black trackContainer">
+        <div className="flex justify-around w-full px-4 my-4 text-base md:text-3xl md:pt-4">
+          <div className="flex items-center justify-center w-1/2">
             DISTANCE (MI) - <span>{distance.toFixed(2)}</span>
           </div>
-          <div className="w-1/2 flex justify-center items-center">
+          <div className="flex items-center justify-center w-1/2">
             DURATION -{" "}
             <span>
               {hr}:{min}:{sec}:
@@ -159,11 +167,11 @@ export default function Timer({
             </span>
           </div>
         </div>
-        <div className="w-full flex flex-wrap justify-center items-center">
+        <div className="flex flex-wrap items-center w-full justify-evenly">
           {!start && ms === 0 && (
             <WrapperBtn {...buttons["start"]}>Start</WrapperBtn>
           )}
-          {start === false && pause === false && (
+          {/* {start === false && pause === false && (
             <TestRun
               setStart={setStart}
               setPolyLine={setPolyLine}
@@ -174,13 +182,11 @@ export default function Timer({
               setMs={setMs}
               saveRun={saveRun}
             />
-          )}
+          )} */}
           {start && (
             <>
-              <div className="flex">
-                <WrapperBtn {...buttons["pause"]}>Pause</WrapperBtn>
-                <WrapperBtn {...buttons["end"]}>End</WrapperBtn>
-              </div>
+              <WrapperBtn {...buttons["pause"]}>Pause</WrapperBtn>
+              <WrapperBtn {...buttons["end"]}>End</WrapperBtn>
             </>
           )}
           {pause && (
@@ -245,7 +251,7 @@ export default function Timer({
 
 const WrapperBtn = ({ children, onClick, color, textColor }) => {
   const buttonStyle = [
-    "w-56 h-16 m-4 transition-all ease-in-out duration-500 hover:scale-110",
+    "w-40 md:w-56 h-16 transition-all ease-in-out duration-500 hover:scale-110",
     "flex flex-nowrap items-center justify-center",
     `rounded-lg ${color}`,
     `text-2xl ${textColor}`,
