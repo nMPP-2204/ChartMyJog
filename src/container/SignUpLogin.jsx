@@ -78,12 +78,12 @@ const SignUpLogin = () => {
 
   return (
     <>
-      <SignUpBox />
-      <div className="w-full h-4"></div>
       <VideoPlayerBackground
         video="sea-background.mp4"
         videoPhone="sea-phone-background.mp4"
       />
+      <SignUpBox />
+
       <Footer />
     </>
   );
@@ -129,7 +129,7 @@ const StartRunBtn = () => {
 
 const SignUpBox = () => {
   return (
-    <div className="flex flex-col mx-auto mt-24 mb-32 text-2xl text-center bg-white w-72 rounded-2xl">
+    <div className="flex flex-col mx-auto mt-24 text-2xl text-center bg-transparent w-72 rounded-2xl">
       <p className="mt-3">Sign up or Sign in to </p>
       <p className="my-3 text-3xl font-semibold">Chart My Jog</p>
       <div id="firebaseui-auth-container"></div>
