@@ -80,7 +80,10 @@ const SignUpLogin = () => {
     <>
       <SignUpBox />
       <div className="w-full h-4"></div>
-      <VideoPlayerBackground video={"shoe-walking-background.mp4"} />
+      <VideoPlayerBackground
+        video="sea-background.mp4"
+        videoPhone="sea-phone-background.mp4"
+      />
       <Footer />
     </>
   );
@@ -90,14 +93,14 @@ const UserInfo = ({ user }) => {
   return (
     <>
       <p className="mt-4">Welcome, </p>
-      <strong className="my-4 italic text-4xl">{user.email}</strong>
+      <strong className="my-4 text-4xl italic">{user.email}</strong>
     </>
   );
 };
 
 const SignOutBox = ({ children }) => {
   return (
-    <div className="mt-24 mb-40 px-8 py-10 bg-slate-200 text-3xl w-80 flex flex-col mx-auto rounded-3xl text-center font-serif">
+    <div className="flex flex-col px-8 py-10 mx-auto mt-24 mb-40 font-serif text-3xl text-center bg-slate-200 w-80 rounded-3xl">
       {children}
     </div>
   );
@@ -126,9 +129,9 @@ const StartRunBtn = () => {
 
 const SignUpBox = () => {
   return (
-    <div className="mt-24 mb-32 bg-white text-2xl w-72 flex flex-col mx-auto rounded-2xl text-center">
+    <div className="flex flex-col mx-auto mt-24 mb-32 text-2xl text-center bg-white w-72 rounded-2xl">
       <p className="mt-3">Sign up or Sign in to </p>
-      <p className="text-3xl my-3 font-semibold">Chart My Jog</p>
+      <p className="my-3 text-3xl font-semibold">Chart My Jog</p>
       <div id="firebaseui-auth-container"></div>
     </div>
   );
