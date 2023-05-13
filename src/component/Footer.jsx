@@ -1,20 +1,24 @@
 import React from "react";
 
+// export default function Footer() {
+//   return (
+//     <div className="fixed bottom-0 w-screen h-10 text-lg text-white bg-black">
+//       Test
+//     </div>
+//   );
+// }
+
 export default function Footer() {
   return (
-    <div className="fixed bottom-0 left-0 w-full">
-      <footer className="footerToolBar py-3 ">
-        <div className="flex flex-wrap items-center justify-center">
-          {relatedItems.map((item, i) => (
-            <RelatedItem key={i} name={item} />
-          ))}
-          {socialItems.map((item, i) => (
+    <footer className="fixed bottom-0 flex items-center w-full h-10 text-sm text-white bg-black flex-nowrap justify-evenly footerToolBar">
+      {relatedItems.map((item, i) => (
+        <RelatedItem key={i} name={item} />
+      ))}
+      {/* {socialItems.map((item, i) => (
             <SocialItem key={i} iconClasses={item} />
-          ))}
-        </div>
-        <p className="copyright">Copyright @ 2022 Chart My Jog</p>
-      </footer>
-    </div>
+          ))} */}
+      <p>Copyright @ 2022 Chart My Jog</p>
+    </footer>
   );
 }
 
@@ -25,12 +29,14 @@ const socialItems = [
   "icon ion-social-facebook",
 ];
 
-const relatedItems = ["Home", "Services", "About", "Terms", "Privacy Policy"];
+const relatedItems = ["Privacy Policy"];
 
 const RelatedItem = ({ name }) => {
   return (
-    <div className="list-inline-item">
-      <a href="#">{name}</a>
+    <div>
+      <a href="#" className="text-white">
+        {name}
+      </a>
     </div>
   );
 };
