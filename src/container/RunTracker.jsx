@@ -29,7 +29,6 @@ export default function RunTracker() {
   const [ms, setMs] = useState(0);
 
   useEffect(() => {
-    console.log(start, pause);
     if (start && !pause) {
       startTimer();
       geoLocation(setPolyLine, setDistance, true);

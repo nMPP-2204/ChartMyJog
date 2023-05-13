@@ -61,15 +61,22 @@ const geoLocation = (setPolyLine, setDistance, startTracker = false) => {
     console.warn(`ERROR(${error.code}): ${error.message}`);
   };
 
+  const options = {
+    enableHighAccuracy: true,
+    maximumAge: 500,
+  };
+
   if (!startTracker) {
-    console.log("clear watch position");
     navigator.geolocation.clearWatch(watchPoisitionId);
     watchPoisitionId = null;
     return null;
   }
 
-  console.log("start watch position");
-  watchPoisitionId = navigator.geolocation.watchPosition(onSuccess, onError);
+  watchPoisitionId = navigator.geolocation.watchPosition(
+    onSuccess,
+    onError,
+    options
+  );
 };
 
 function locationDistanceCheck(lat1, lng1, lat2, lng2) {
