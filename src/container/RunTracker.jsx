@@ -15,6 +15,7 @@ import Timer from "../component/Timer";
 import Loader from "../component/Loader/Loader";
 import { createRun } from "../utils/firestore";
 import { domtoimage } from "dom-to-image";
+import geoLocation from "../Hooks/useGeoLocation";
 
 export default function RunTracker() {
   const API_KEY = `${process.env.REACT_APP_API_KEY}`;
@@ -31,8 +32,10 @@ export default function RunTracker() {
     console.log(start, pause);
     if (start && !pause) {
       startTimer();
+      geoLocation(setPolyLine, setDistance, true);
     } else if (start && pause) {
       setPause(true);
+      geoLocation(setPolyLine, setDistance);
     } else {
       setMs(0);
       setDistance(0);
@@ -41,6 +44,7 @@ export default function RunTracker() {
 
     return () => {
       clearTimer();
+      geoLocation(setPolyLine, setDistance, false);
     };
   }, [start, pause]);
 

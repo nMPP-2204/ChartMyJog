@@ -46,7 +46,6 @@ export default function Timer({
   const handleClose = () => setOpen(false);
 
   const handleOpen = () => {
-    geoLocation(setPolyLine, setDistance);
     setOpen(true);
   };
 
@@ -54,7 +53,6 @@ export default function Timer({
     start: {
       onClick: () => {
         setStart(true);
-        geoLocation(setPolyLine, setDistance);
       },
       color: "bg-black",
       textColor: "text-white",
@@ -71,6 +69,7 @@ export default function Timer({
     end: {
       onClick: () => {
         clearTimer();
+        geoLocation(setPolyLine, setDistance, false);
         handleOpen();
       },
       // color: "bg-red-500",
@@ -185,7 +184,7 @@ export default function Timer({
 
 const WrapperBtn = ({ children, onClick, color, textColor }) => {
   const buttonStyle = [
-    "w-36 md:w-56 h-16 transition-all ease-in-out duration-500 hover:scale-110",
+    "w-36 md:w-56 h-16 transition-all ease-in-out duration-500 md:hover:scale-110",
     "flex flex-nowrap items-center justify-center",
     `rounded-sm ${color}`,
     `text-2xl ${textColor}`,

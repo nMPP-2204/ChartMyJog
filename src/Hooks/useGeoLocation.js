@@ -22,8 +22,7 @@ const deg2rad = (deg) => {
   return deg * (Math.PI / 180);
 };
 
-
-const geoLocation = (setPolyLine, setDistance) => {
+const geoLocation = (setPolyLine, setDistance, startTracker = false) => {
   const onSuccess = (location) => {
     setPolyLine((polyLine) => {
       if (
@@ -62,12 +61,14 @@ const geoLocation = (setPolyLine, setDistance) => {
     console.warn(`ERROR(${error.code}): ${error.message}`);
   };
 
-  if (watchPoisitionId) {
+  if (!startTracker) {
+    console.log("clear watch position");
     navigator.geolocation.clearWatch(watchPoisitionId);
     watchPoisitionId = null;
     return null;
   }
 
+  console.log("start watch position");
   watchPoisitionId = navigator.geolocation.watchPosition(onSuccess, onError);
 };
 
