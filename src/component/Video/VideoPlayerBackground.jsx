@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const VideoPlayerBackground = ({ video, tailwindStyle, ...args }) => {
+const VideoPlayerBackground = ({
+  video,
+  videoPhone,
+  tailwindStyle,
+  ...args
+}) => {
   const publicURL = "/video/";
   const fullURL = publicURL + video;
-  const videoStyle = `hidden md:block w-screen absolute top-6 left-0 -z-10 ${
+  const fullURLPhone = publicURL + videoPhone;
+  const videoStyle = `w-screen absolute top-6 left-0 -z-10 ${
     tailwindStyle || ""
   }`;
+
+  const [dimensions, setDimensions] = useState(window.innerWidth);
+
+  function handleResize() {
+    setDimensions(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
@@ -17,9 +35,8 @@ const VideoPlayerBackground = ({ video, tailwindStyle, ...args }) => {
         muted
         playsInline={true}
         {...args}
-      >
-        <source src={fullURL} type="video/mp4" />
-      </video>
+        src={dimensions < 1024 ? fullURLPhone : fullURL}
+      ></video>
     </>
   );
 };
