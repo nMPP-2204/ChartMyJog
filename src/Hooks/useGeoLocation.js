@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from "react";
-
-let index = 0;
 let watchPoisitionId = null;
 
 const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {

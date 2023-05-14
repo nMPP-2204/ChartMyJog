@@ -129,10 +129,9 @@ const StartRunBtn = () => {
 
 const SignUpBox = () => {
   return (
-    <div className="flex flex-col mx-auto mt-24 text-2xl text-center bg-transparent w-72 rounded-2xl">
-      <p className="mt-3">Sign up or Sign in to </p>
-      <p className="my-3 text-3xl font-semibold">Chart My Jog</p>
-      <div id="firebaseui-auth-container"></div>
+    <div className="flex flex-col w-full mx-auto mt-12 text-3xl text-center bg-transparent md:mt-24 title md:text-5xl">
+      <p className="mb-4 md:text-white">Chart My Jog</p>
+      <div id="firebaseui-auth-container" className="md:pt-36"></div>
     </div>
   );
 };

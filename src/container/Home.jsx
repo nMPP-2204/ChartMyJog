@@ -11,9 +11,13 @@ const Home = () => {
         video="sea-background.mp4"
         videoPhone="sea-phone-background.mp4"
       />
-      <div className="flex flex-col items-center w-screen">
-        <div className="mt-12 text-3xl">Chart My Jog</div>
-        <div className="my-6 text-xl ">Keep Going, you're almost there!</div>
+      <div className="flex flex-col items-center w-screen md:text-white">
+        <div className="mt-12 text-3xl md:mt-24 title md:text-5xl">
+          Chart My Jog
+        </div>
+        <div className="my-6 text-xl title md:text-3xl md:mb-36">
+          Keep Going, you're almost there!
+        </div>
 
         {buttons.map((button) => {
           return <Button key={button} type={button} />;

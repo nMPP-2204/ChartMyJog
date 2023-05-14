@@ -150,12 +150,12 @@ export default function RunTracker() {
         </MapContainer>
       </div>
       <div className="text-lg font-bold md:text-center md:text-3xl">
-        <div className="absolute z-20 flex justify-between w-3/5 md:w-3/4 right-8 top-20 ">
+        <div className="absolute z-20 flex justify-between w-3/5 md:w-1/3 right-8 top-20 md:top-28 md:right-20 ">
           <span>Distance (MI) -</span>
           <span>{distance.toFixed(2)}</span>
         </div>
 
-        <div className="absolute z-20 flex justify-between w-3/5 md:w-3/4 right-8 top-28 ">
+        <div className="absolute z-20 flex justify-between w-3/5 md:w-1/3 right-8 top-28 md:top-36 md:right-20 ">
           <span>Duration -</span>
           <span>
             {hr}:{min}:{sec}:
