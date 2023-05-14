@@ -35,7 +35,7 @@ const VideoPlayerBackground = ({
         muted
         playsInline={true}
         {...args}
-        src={dimensions < 1024 ? fullURLPhone : fullURL}
+        src={dimensions < 1280 ? fullURLPhone : fullURL}
       ></video>
     </>
   );

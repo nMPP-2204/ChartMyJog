@@ -8,8 +8,6 @@ import TextField from "@mui/material/TextField";
 import Input from "@mui/material/Input";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
-import TestRun from "./TestRun";
-import ButtonWrapper from "./Button/ButtonWrapper";
 
 const style = {
   position: "absolute",
@@ -183,16 +181,9 @@ export default function Timer({
 }
 
 const WrapperBtn = ({ children, onClick, color, textColor }) => {
-  const buttonStyle = [
-    "w-36 md:w-56 h-16 transition-all ease-in-out duration-500 md:hover:scale-110",
-    "flex flex-nowrap items-center justify-center",
-    `rounded-sm ${color}`,
-    `text-2xl ${textColor}`,
-  ].join(" ");
-
   return (
     <button
-      className={"startRun shadow-black shadow-xl " + buttonStyle}
+      className={`startRun btn-secondary shadow-black shadow-xl ${color} ${textColor}`}
       onClick={onClick}
     >
       <p>{children}</p>
