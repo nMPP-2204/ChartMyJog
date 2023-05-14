@@ -1,22 +1,23 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Box, AppBar, Toolbar, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-// import { Settings } from "@mui/icons-material";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import HomeIcon from "@mui/icons-material/Home";
-import { Link } from "react-router-dom";
+
 import RunTrackerMenu from "./RunTrackerMenu";
 import PersonIcon from "@mui/icons-material/Person";
+// import { Settings } from "@mui/icons-material";
 // import LogoutIcon from "@mui/icons-material/Logout";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../utils/firebase";
+// import { useAuthState } from "react-firebase-hooks/auth";
+// import { auth } from "../utils/firebase";
 import { useMediaQuery } from "react-responsive";
 import { FaHistory } from "react-icons/fa";
 
 export default function SimpleSlide() {
   // const styledLink = { textDecoration: "none" };
   const [open, setOpen] = useState(false);
-  const [user] = useAuthState(auth);
+  // const [user] = useAuthState(auth);
 
   const menuOpen = () => {
     setOpen(true);
@@ -27,10 +28,10 @@ export default function SimpleSlide() {
       <RunTrackerMenu open={open} setOpen={setOpen} />
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" style={{ backgroundColor: "#e4e0d9" }}>
-          <Toolbar className="slidingNav bg-black">
+          <Toolbar className="bg-black slidingNav">
             <Link
               to="/"
-              className="w-64 h-16 hidden text-3xl  lg:flex items-center text-white font-semibold"
+              className="items-center hidden w-64 h-16 text-3xl font-semibold text-white lg:flex"
             >
               Chart My Jog
             </Link>

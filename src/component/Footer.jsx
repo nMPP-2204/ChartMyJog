@@ -16,8 +16,8 @@ export default function Footer() {
       {relatedItems.map((item, i) => (
         <RelatedItem key={i} name={item} />
       ))}
-      {isPhone ||
-        socialItems.map((item, i) => <SocialItem key={i} iconClasses={item} />)}
+      {/* {isPhone ||
+        socialItems.map((item, i) => <SocialItem key={i} iconClasses={item} />)} */}
       <p>Copyright @ 2022 Chart My Jog</p>
     </footer>
   );
