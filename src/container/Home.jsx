@@ -1,39 +1,36 @@
-import { Typography } from "@mui/material";
+import React from "react";
 import Footer from "../component/Footer";
-// import RunningPeople from "../Images/runningPeople.jpg";
-import RunningWoman from "../Images/runningwoman.jpg";
-import Carousel from "../component/Carousel";
-import SignUpLogin from "./SignUpLogin";
+
+import VideoPlayerBackground from "../component/Video/VideoPlayerBackground";
+import Button from "../component/Button/Button";
 
 const Home = () => {
   return (
-    <div className="Home">
-      <header>
-        {" "}
-        <div className="pageHeader">
-          <Typography fontFamily="helvetica" fontSize="30px">
-            Chart My Jog
-          </Typography>
+    <>
+      <VideoPlayerBackground
+        video="sea-background.mp4"
+        videoPhone="sea-phone-background.mp4"
+        posterPhoneURL="/images/sea-phone-background.webp"
+        posterURL="/images/sea-background.webp"
+      />
+
+      <div className="flex flex-col items-center w-screen md:text-white">
+        <div className="mt-12 text-3xl md:mt-24 title md:text-5xl">
+          Chart My Jog
         </div>
-      </header>
-      <main>
-        <div style={{display: "flex", justifyContent: "center", }}>
-        <Typography
-            fontWeight={700}
-            sx={{ fontSize: { lg: "34px", xs: "30px" } }}
-            mb="23px"
-            mt="30px"
-          >
-            When your legs get tired <br />
-            Run with your heart ...
-          </Typography>
-       </div>
-       <Carousel />
-       <SignUpLogin />
-      </main>
+        <div className="my-6 text-xl title md:text-3xl md:mb-36">
+          Keep Going, you're almost there!
+        </div>
+
+        {buttons.map((button) => {
+          return <Button key={button} type={button} />;
+        })}
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
+
+const buttons = ["signIn", "startRun"];
 
 export default Home;
