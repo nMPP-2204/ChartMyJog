@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 const VideoPlayerBackground = ({
   video,
   videoPhone,
+  posterPhoneURL,
+  posterURL,
   tailwindStyle,
   ...args
 }) => {
@@ -35,6 +37,7 @@ const VideoPlayerBackground = ({
         muted
         playsInline={true}
         {...args}
+        poster={dimensions < 1280 ? posterPhoneURL : posterURL}
         src={dimensions < 1280 ? fullURLPhone : fullURL}
       ></video>
     </>

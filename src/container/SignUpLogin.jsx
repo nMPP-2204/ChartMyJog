@@ -16,11 +16,9 @@ import { createUser, getUser } from "../utils/firestore.js";
 
 import Loader from "../component/Loader/Loader.js";
 
-import { FiLogOut } from "react-icons/fi";
-import { FaRunning } from "react-icons/fa";
-
 import VideoPlayerBackground from "../component/Video/VideoPlayerBackground";
 import Footer from "../component/Footer.jsx";
+import ButtonWrapperTransparent from "../component/Button/ButtonWrapperTransparent.jsx";
 
 const SignUpLogin = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -65,12 +63,18 @@ const SignUpLogin = () => {
 
     return (
       <>
+        <VideoPlayerBackground
+          video="sea-background.mp4"
+          videoPhone="sea-phone-background.mp4"
+          posterPhoneURL="/images/sea-phone-background.webp"
+          posterURL="/images/sea-background.webp"
+        />
         <SignOutBox>
           <UserInfo user={user} />
           <SignOutBtn logout={logout} />
           <StartRunBtn />
         </SignOutBox>
-        <VideoPlayerBackground video={"shoe-walking-background.mp4"} />
+
         <Footer />
       </>
     );
@@ -81,6 +85,8 @@ const SignUpLogin = () => {
       <VideoPlayerBackground
         video="sea-background.mp4"
         videoPhone="sea-phone-background.mp4"
+        posterPhoneURL="/images/sea-phone-background.webp"
+        posterURL="/images/sea-background.webp"
       />
       <SignUpBox />
 
@@ -100,7 +106,7 @@ const UserInfo = ({ user }) => {
 
 const SignOutBox = ({ children }) => {
   return (
-    <div className="flex flex-col px-8 py-10 mx-auto mt-24 mb-40 font-serif text-3xl text-center bg-slate-200 w-80 rounded-3xl">
+    <div className="flex flex-col px-8 py-10 mx-auto mt-24 mb-40 font-serif text-3xl text-center bg-transparent w-80 rounded-3xl">
       {children}
     </div>
   );
@@ -108,9 +114,8 @@ const SignOutBox = ({ children }) => {
 
 const SignOutBtn = ({ logout }) => {
   return (
-    <button className={"mb-4 bg-red-500 " + buttonStyle} onClick={logout}>
-      <FiLogOut className="h-full ml-4" />
-      <p className="h-full ml-6">Log out</p>
+    <button onClick={logout}>
+      <ButtonWrapperTransparent>Log out</ButtonWrapperTransparent>
     </button>
   );
 };
@@ -119,10 +124,7 @@ const StartRunBtn = () => {
   const styledLink = { textDecoration: "none" };
   return (
     <Link to="/run-tracker" style={styledLink}>
-      <button className={"bg-green-500 " + buttonStyle}>
-        <FaRunning className="h-full ml-4" />
-        <p className="h-full ml-6 no-underline">Start Run</p>
-      </button>
+      <ButtonWrapperTransparent>Start Run</ButtonWrapperTransparent>
     </Link>
   );
 };

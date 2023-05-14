@@ -8,6 +8,8 @@ const NoRuns = () => {
       <VideoPlayerBackground
         video="sea-background.mp4"
         videoPhone="sea-phone-background.mp4"
+        posterPhoneURL="/images/sea-phone-background.webp"
+        posterURL="/images/sea-background.webp"
       />
       <WrapperBox>
         <h2 className="mx-auto mt-4">No runs available...</h2>
