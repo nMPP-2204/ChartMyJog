@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from "react";
-
-let index = 0;
 let watchPoisitionId = null;
 
 const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
@@ -22,8 +19,7 @@ const deg2rad = (deg) => {
   return deg * (Math.PI / 180);
 };
 
-
-const geoLocation = (setPolyLine, setDistance) => {
+const geoLocation = (setPolyLine, setDistance, startTracker = false) => {
   const onSuccess = (location) => {
     setPolyLine((polyLine) => {
       if (
@@ -62,13 +58,22 @@ const geoLocation = (setPolyLine, setDistance) => {
     console.warn(`ERROR(${error.code}): ${error.message}`);
   };
 
-  if (watchPoisitionId) {
+  const options = {
+    enableHighAccuracy: true,
+    maximumAge: 500,
+  };
+
+  if (!startTracker) {
     navigator.geolocation.clearWatch(watchPoisitionId);
     watchPoisitionId = null;
     return null;
   }
 
-  watchPoisitionId = navigator.geolocation.watchPosition(onSuccess, onError);
+  watchPoisitionId = navigator.geolocation.watchPosition(
+    onSuccess,
+    onError,
+    options
+  );
 };
 
 function locationDistanceCheck(lat1, lng1, lat2, lng2) {

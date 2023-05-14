@@ -16,7 +16,7 @@ export const PreviousRuns = () => {
         setRuns(await getUserRuns(user));
       })();
     }
-  }, []);
+  }, [user]);
 
   if (!runs || !runs.length) {
     return <NoRuns />;
@@ -24,24 +24,19 @@ export const PreviousRuns = () => {
 
   if (!selectedRun && runs.length > 0) setSelectedRun(runs[0].startTime);
   return (
-    !selectedRun || (
-      <div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            fontFamily: "helvetica",
-            marginTop: "50px",
-          }}
-        >
-          <h2>Your last run(s)</h2>
-        </div>
+    <>
+      {!selectedRun || (
         <div>
-          {runs.map((run) => (
-            <SingleRun key={run.startTime} run={run} />
-          ))}
+          <div className="text-2xl mt-12 font-semibold text-center">
+            <h2>Your last run(s)</h2>
+          </div>
+          <div className="flex flex-wrap justify-center">
+            {runs.map((run) => (
+              <SingleRun key={run.startTime} run={run} />
+            ))}
+          </div>
         </div>
-      </div>
-    )
+      )}
+    </>
   );
 };
